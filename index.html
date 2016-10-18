@@ -119,13 +119,7 @@
 			</div>
 			<div class="mainContent contact" style="background-color: #FFF;">
 				<h1><span>Contact Me</span></h1>
-					<?php if(isset($_GET['success']))
-						{
-							echo '<div class="alert alert-success" role="alert" style="margin-left:100px; margin-right:100px">Thank you for sending a message! I will get back to you as soon as I can!</div>';
-						}
-						else 
-						{
-							echo ' <form action="index.php" method="post" style="margin-left:100px; margin-right:100px">
+				 <form action="index.php" method="post" style="margin-left:100px; margin-right:100px">
 							<div class="form-group">
 								Name: <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
 						  	</div>
@@ -139,9 +133,7 @@
 						  <input type="hidden" name="legit" value="yes">
 						  <button type="submit" class="btn btn-success">Send</button>
 						  <input type="reset" class="btn btn-default" value="Reset" id="value">
-                    		</form>';
-						}
-                   	?><br>
+				 </form><br>
                    	<div style="margin-left:100px; margin-right:100px">
 						I can also be contacted through email: <a href="mailto:contact@felixguo.tk">contact@felixguo.tk</a> or by shooting me a message at <a href="https://www.facebook.com/falexthepotato">Facebook</a>.
 					</div>
