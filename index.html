@@ -17,12 +17,13 @@
 		<link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+		
 		<link rel="icon" type="image/png" href="images/icon.png">
 	
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		
-		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 		<script type="text/javascript" src="pageload.js"></script>
 		<link rel="stylesheet" href="main.css?v=124" type="text/css">
 
@@ -42,7 +43,7 @@
 								</div>
 								<div class="subnote">
 									<i>Web Designer | Graphics Designer | Programmer</i><br>
-									<i>C#, Java, HTML, CSS, PHP, MYSQL, Javascript</i>
+									<i>C#, Java, HTML, CSS, PHP, MYSQL, Javascript</i><br>
 								</div>
 							</td>
 							<td style="text-align:center;">
@@ -57,7 +58,7 @@
 				<table style="width:1000px">
 					<tr>
 						<td style="width: 600px; padding-left: 50px" valign="top">
-							<h3 style="font-family: 'Roboto Slab'">I was born in China, and currently live and go to school in Vancouver, BC Canada.</h3>
+							<h3 style="font-family: 'Roboto Slab'">I was born in China, and currently live and go to school at Waterloo, Ontario, Canada.</h3>
 							My hobbies include procrastinating on Reddit, playing League of Legends, doing bad card tricks, playing various instruments and of course programming.<br><br>
 							<h3 style="font-family: 'Roboto Slab'">Web Design</h3>
 							<table style="width:auto" class="skillDisplay">
@@ -89,7 +90,7 @@
 									<td><b><a href="http://en.wikipedia.org/wiki/MySQL">MySQL</a></b></td>
 								</tr>
 							</table>
-							Using the server-side PHP and MySQL to manage databases allows for user-specific interactive websites. I employ PHP and MySQL for tools like forums, blogs, contact forms (like the one on this website!) and user management systems. PHP and MySQL are both very flexible and easy to integrate for any type of website. 
+							Using the server-side PHP and MySQL to manage databases allows for user-specific interactive websites. I employ PHP and MySQL for tools like forums, blogs, contact forms and user management systems. PHP and MySQL are both very flexible and easy to integrate for any type of website. 
 
 							<h3 style="font-family: 'Roboto Slab'">Game Design</h3>
 							<table style="width:auto" class="skillDisplay">
@@ -106,11 +107,11 @@
 									<td><b><a href="http://en.wikipedia.org/wiki/Unity_(game_engine)">Unity3D</a></b></td>
 								</tr>
 							</table>
-							I also do some game design using XNA and C# as my primary setup. XNA allows me to use many built in game structures so I can focus primarily on designing game play instead of focusing on basic functions like drawing sprites and calculating vectors. I am also proficient in using Unity3D to create 2D games for Android. 
+							I also do some game design using Unity and C# as my primary setup. Unity allows me to use many built in game structures so I can focus primarily on designing game play instead of focusing on basic functions like drawing sprites and calculating vectors. I also have experience in less visual game development libraries like XNA. 
 						</td>
 						<td style="width: 400px;padding-top:20px" valign="top">
 							<div>
-								<img class="imagesBlocks imagesBlocksUnset" src="images/felixGuo2.jpg">
+								<img class="imagesBlocks imagesBlocksUnset" src="images/e5.png" style="width:380px">
 							</div>
 						</td>
 					</tr>
@@ -119,23 +120,8 @@
 			</div>
 			<div class="mainContent contact" style="background-color: #FFF;">
 				<h1><span>Contact Me</span></h1>
-				 <form action="index.php" method="post" style="margin-left:100px; margin-right:100px">
-							<div class="form-group">
-								Name: <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
-						  	</div>
-						  	<div class="form-group">
-							Email: <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email" required>
-						  	</div>
-						  
-						  <div class="form-group">
-							Message: <textarea name="message" class="form-control" rows="3" placeholder="Enter Message" required></textarea>
-						  </div>
-						  <input type="hidden" name="legit" value="yes">
-						  <button type="submit" class="btn btn-success">Send</button>
-						  <input type="reset" class="btn btn-default" value="Reset" id="value">
-				 </form><br>
-                   	<div style="margin-left:100px; margin-right:100px">
-						I can also be contacted through email: <a href="mailto:contact@felixguo.tk">contact@felixguo.tk</a> or by shooting me a message at <a href="https://www.facebook.com/falexthepotato">Facebook</a>.
+                   	<div style="margin-left:100px; margin-right:100px; <text-align:center></text-align:center>">
+						I can be contacted through email: <a href="mailto:felix.guo@uwaterloo.ca">felix.guo@uwaterloo.ca</a>.
 					</div>
 			</div>
 			<div class="mainContent portfolio" style="background-color: #FFF">
@@ -188,7 +174,8 @@
 										<i><a href="https://play.google.com/store/apps/details?id=ca.inkpadstudios.pedalpanic">Google Play Link</a> | Lead Developer</i><br>
 									</div>
 									<div class="portfolioDescriptionContent">
-										Pedal Panic is a quirky take at a basic concept. The player must control the character on a unicycle high above the skies by tilting the phone to keep the character on the planks. As the time goes on, the game accelerates and a variety of obstables and beams are presented to the player that they must overcome. <br><b>Created with <a href="http://www.inkpadstudios.ca/">Inkpad Studios</a></b>
+										Pedal Panic is a quirky take at a basic concept. The player must control the character on a unicycle high above the skies by tilting the phone to keep the character on the planks. As the time goes on, the game accelerates and a variety of obstables and beams are presented to the player that they must overcome. <br>
+										<div style="width:100%; text-align:right"><b>Created with <a href="http://www.inkpadstudios.ca/">Inkpad Studios</a></b></div>
 									</div>
 									<div class="portfolioDescriptionSub">
 										Technologies Used: Visual Studio, C#, Unity 3D

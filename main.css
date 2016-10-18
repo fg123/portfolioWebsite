@@ -190,16 +190,18 @@ td.portfolioSmall
 div.portfolioDescription
 {
 	background-color: #EEE;
-	width: 480px;
-	height: 270px;
-margin-left:auto;
-margin-right:auto;
-overflow:hidden;
+	width: 450px;
+	height: 240px;
+	margin-left:auto;
+	margin-right:auto;
+	overflow:hidden;
+	text-align:center;
+	padding:15px;
 }
 div.portfolioDescription span
 {
 	display:block;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 div.portfolioDescription h2
 {
