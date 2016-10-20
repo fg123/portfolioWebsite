@@ -168,7 +168,10 @@ div.front:before
 .profileBefore 
 {	
 	position:relative;
-	padding-bottom: 20px;
+}
+.profileBefore img
+{
+		padding-bottom: 20px;
 }
 .profileBefore:before
 {
