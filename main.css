@@ -163,11 +163,12 @@ div.front:before
 {
 	width:auto;
 	height:auto;
-	padding-bottom: 20px;
+	
 }
 .profileBefore 
 {	
 	position:relative;
+	padding-bottom: 20px;
 }
 .profileBefore:before
 {
