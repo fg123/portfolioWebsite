@@ -19,8 +19,13 @@
 		<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 		
 		<link rel="icon" type="image/png" href="images/icon.png">
-
-		<link rel="stylesheet" href="main.css" type="text/css">
+	
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		
+		<script src="jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+		<script type="text/javascript" src="pageload.js"></script>
+		<link rel="stylesheet" href="main.css?v=124" type="text/css">
 
 	</head>
 	<body>
@@ -55,8 +60,6 @@
 						<td style="width: 600px; padding-left: 50px" valign="top">
 							<h3 style="font-family: 'Roboto Slab'">I was born in China, and currently live and go to school at Waterloo, Ontario, Canada.</h3>
 							My hobbies include procrastinating on Reddit, playing League of Legends, doing bad card tricks, playing various instruments and of course programming.<br><br>
-							You can find my resume <a href="FelixGuoResume.pdf">here</a>.
-							<br><br>
 							<h3 style="font-family: 'Roboto Slab'">Web Design</h3>
 							<table style="width:auto" class="skillDisplay">
 								<tr>
@@ -126,161 +129,113 @@
 				<table style="width: 100%">
 					<tr>
 						<td class="portfolioBig">
-							<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-								<div class="flipper">
-									<div class="front">
-										<img class="imagesBlocks" alt="Hello" src="images/wyns.png">
+							<img class="imagesBlocks" src="images/wyns.png" id="hoverShowContent">
+							<div class="portfolioDescription imagesBlocks">
+								<span>
+									<h2>Wish Youth Network Society</h2>
+									<div class="portfolioDescriptionSub">
+										<i><a href="http://wishyouthnetwork.org/">http://wishyouthnetwork.org/</a> | Lead Web Designer</i><br>
 									</div>
-									<div class="back">
-										<div class="portfolioDescription imagesBlocks">
-											<span>
-												<h2>Wish Youth Network Society</h2>
-												<div class="portfolioDescriptionSub">
-													<i><a href="http://wishyouthnetwork.org/">http://wishyouthnetwork.org/</a> | Lead Web Designer</i><br>
-												</div>
-												<div class="portfolioDescriptionContent">
-													Wish Youth Network Society (WYNS) is a student based, non- profit organization to reach out to seriously-ill children and their families. Our mandate is to strengthen and promote the power of hope in those who need it most. WYNS provides an opportunity for students to give back to the community and to connect with like minded youths through joint fundraisers and events.
-												</div>
-												<div class="portfolioDescriptionSub">
-													Technologies Used: HTML5, PHP, CSS, Javascript, Bootstrap, MySQL
-												</div>
-											</span>
-										</div>
+									<div class="portfolioDescriptionContent">
+										Wish Youth Network Society (WYNS) is a student based, non- profit organization to reach out to seriously-ill children and their families. Our mandate is to strengthen and promote the power of hope in those who need it most. WYNS provides an opportunity for students to give back to the community and to connect with like minded youths through joint fundraisers and events.
 									</div>
-								</div>
+									<div class="portfolioDescriptionSub">
+										Technologies Used: HTML5, PHP, CSS, Javascript, Bootstrap, MySQL
+									</div>
+								</span>
 							</div>
 						</td>
 						<td class="portfolioBig">
-							<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-								<div class="flipper">
-									<div class="front">
-										<img class="imagesBlocks" alt="Hello" src="images/ptpost.png">
+							<img class="imagesBlocks" src="images/ptpost.png" id="hoverShowContent">
+							<div class="portfolioDescription imagesBlocks">
+								<span>
+									<h2>Pinetree Post</h2>
+									<div class="portfolioDescriptionSub">
+										<i><a href="http://www.pinetreepost.com/">http://www.pinetreepost.com/</a> | <a href="http://static1.squarespace.com/static/542cc7a8e4b0747dc3301b59/t/553e7552e4b0ae3f5326176a/1430156626748/April2015.pdf">Latest Copy</a> | Chief Designer</i><br>
 									</div>
-									<div class="back">
-										<div class="portfolioDescription imagesBlocks">
-											<span>
-												<h2>Pinetree Post</h2>
-												<div class="portfolioDescriptionSub">
-													<i><a href="http://www.pinetreepost.com/">http://www.pinetreepost.com/</a> | <a href="http://static1.squarespace.com/static/542cc7a8e4b0747dc3301b59/t/553e7552e4b0ae3f5326176a/1430156626748/April2015.pdf">Latest Copy</a> | Chief Designer</i><br>
-												</div>
-												<div class="portfolioDescriptionContent">
-													Pinetree Post is a monthly newspaper for my school, created to detail the upcoming events as well as cover some previous events. We aim to write easy-to-read articles that are appealing and entertaining. 
-												</div>
-												<div class="portfolioDescriptionSub">
-													Technologies Used: GIMP, InDesign
-												</div>
-											</span>
-										</div>
+									<div class="portfolioDescriptionContent">
+										Pinetree Post is a monthly newspaper for my school, created to detail the upcoming events as well as cover some previous events. We aim to write easy-to-read articles that are appealing and entertaining. 
+									</div>
+									<div class="portfolioDescriptionSub">
+										Technologies Used: GIMP, InDesign
 									</div>
 								</div>
-							</div>
+							</span>
 						</td>
 					</tr>
 					<tr class="spacer"><td colspan="2"></td></tr>
 					<tr>
 						<td class="portfolioBig">
-							<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-								<div class="flipper">
-									<div class="front">
-										<img class="imagesBlocks" alt="Hello" src="images/pedalPanic.png" >
+							<img class="imagesBlocks" src="images/pedalPanic.png" id="hoverShowContent">
+							<div class="portfolioDescription imagesBlocks">
+								<span>
+									<h2>Pedal Panic: Sky Dash Run</h2>
+									<div class="portfolioDescriptionSub">
+										<i><a href="https://play.google.com/store/apps/details?id=ca.inkpadstudios.pedalpanic">Google Play Link</a> | Lead Developer</i><br>
 									</div>
-									<div class="back">
-										<div class="portfolioDescription imagesBlocks">
-											<span>
-												<h2>Pedal Panic: Sky Dash Run</h2>
-												<div class="portfolioDescriptionSub">
-													<i><a href="https://play.google.com/store/apps/details?id=ca.inkpadstudios.pedalpanic">Google Play Link</a> | Lead Developer</i><br>
-												</div>
-												<div class="portfolioDescriptionContent">
-													Pedal Panic is a quirky take at a basic concept. The player must control the character on a unicycle high above the skies by tilting the phone to keep the character on the planks. As the time goes on, the game accelerates and a variety of obstables and beams are presented to the player that they must overcome. <br>
-													<div style="width:100%; text-align:right"><b>Created with <a href="http://www.inkpadstudios.ca/">Inkpad Studios</a></b></div>
-												</div>
-												<div class="portfolioDescriptionSub">
-													Technologies Used: Visual Studio, C#, Unity 3D
-												</div>
-											</span>
-										</div>
+									<div class="portfolioDescriptionContent">
+										Pedal Panic is a quirky take at a basic concept. The player must control the character on a unicycle high above the skies by tilting the phone to keep the character on the planks. As the time goes on, the game accelerates and a variety of obstables and beams are presented to the player that they must overcome. <br>
+										<div style="width:100%; text-align:right"><b>Created with <a href="http://www.inkpadstudios.ca/">Inkpad Studios</a></b></div>
 									</div>
-								</div>
+									<div class="portfolioDescriptionSub">
+										Technologies Used: Visual Studio, C#, Unity 3D
+									</div>
+								</span>
 							</div>
 						</td>
 						<td class="portfolioBig">
-							<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-								<div class="flipper">
-									<div class="front">
-										<img class="imagesBlocks" alt="Hello" src="images/techwiq.png" >
+							<img class="imagesBlocks" src="images/techwiq.png" id="hoverShowContent">
+							<div class="portfolioDescription imagesBlocks">
+								<span>
+									<h2>Techwiq</h2>
+									<div class="portfolioDescriptionSub">
+										<i><a href="http://www.techwiq.com/">http://www.techwiq.com/</a> | Web Developer</i><br>
 									</div>
-									<div class="back">
-										<div class="portfolioDescription imagesBlocks">
-											<span>
-												<h2>Techwiq</h2>
-												<div class="portfolioDescriptionSub">
-													<i><a href="http://www.techwiq.com/">http://www.techwiq.com/</a> | Web Developer</i><br>
-												</div>
-												<div class="portfolioDescriptionContent">
-													Techwiq is a new service whose purpose is to provide our customers with accurate information about technology. We'll find the products best suited to your specific needs and make clear their pros and cons in a way that anyone can understand. Techwiq makes technology simple.
-												</div>
-												<div class="portfolioDescriptionSub">
-													Technologies Used: HTML5, PHP, CSS, Javascript, MySQL, AppFog
-												</div>
-											</span>
-										</div>
+									<div class="portfolioDescriptionContent">
+										Techwiq is a new service whose purpose is to provide our customers with accurate information about technology. We'll find the products best suited to your specific needs and make clear their pros and cons in a way that anyone can understand. Techwiq makes technology simple.
 									</div>
-								</div>
+									<div class="portfolioDescriptionSub">
+										Technologies Used: HTML5, PHP, CSS, Javascript, MySQL, AppFog
+									</div>
+								</span>
 							</div>
 						</td>
 					</tr>
 					<tr class="spacer"><td colspan="2"></td></tr>
 					<tr>						
 						<td class="portfolioBig">
-							<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-								<div class="flipper">
-									<div class="front">
-										<img class="imagesBlocks" alt="Hello" src="images/lumen.png" >
+							<img class="imagesBlocks" src="images/lumen.png" id="hoverShowContent">
+							<div class="portfolioDescription imagesBlocks">
+								<span>
+									<h2>Lumen Astrum</h2>
+									<div class="portfolioDescriptionSub">
+										<i>Work in Progress | Lead Developer</i><br>
 									</div>
-									<div class="back">
-										<div class="portfolioDescription imagesBlocks">
-											<span>
-												<h2>Lumen Astrum</h2>
-												<div class="portfolioDescriptionSub">
-													<i>Work in Progress | Lead Developer</i><br>
-												</div>
-												<div class="portfolioDescriptionContent">
-													Lumen Astrum is a turn-based real-time strategy game where you control your units to battle against an enemy. Defend your command center by building structures to create units and upgrade stats. Currently a work in progress.
-												</div>
-												<div class="portfolioDescriptionSub">
-													Technologies Used: Visual Studio, C#, XNA Game Engine
-												</div>
-											</span>
-										</div>
+									<div class="portfolioDescriptionContent">
+										Lumen Astrum is a turn-based real-time strategy game where you control your units to battle against an enemy. Defend your command center by building structures to create units and upgrade stats. Currently a work in progress.
 									</div>
-								</div>
-							</div>							
+									<div class="portfolioDescriptionSub">
+										Technologies Used: Visual Studio, C#, XNA Game Engine
+									</div>
+								</span>
+							</div>
 						</td>
 						<td class="portfolioBig">
-							<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-								<div class="flipper">
-									<div class="front">
-										<img class="imagesBlocks" alt="Hello" src="images/todo.png" >
+							<img class="imagesBlocks" src="images/todo.png" id="hoverShowContent">
+							<div class="portfolioDescription imagesBlocks">
+								<span>
+									<h2>To-Do List</h2>
+									<div class="portfolioDescriptionSub">
+										<i><a href="https://play.google.com/store/apps/details?id=com.falexthepotato.todo">Google Play Link</a> | Developer</i><br>
 									</div>
-									<div class="back">
-										<div class="portfolioDescription imagesBlocks">
-											<span>
-												<h2>To-Do List</h2>
-												<div class="portfolioDescriptionSub">
-													<i><a href="https://play.google.com/store/apps/details?id=com.falexthepotato.todo">Google Play Link</a> | Developer</i><br>
-												</div>
-												<div class="portfolioDescriptionContent">
-													Little To-Do app. Each added item in the app will create a notification icon that stays there until you clear it from the app itself. Guarenteed to remind you if you constantly see items in the notification list. 
-												</div>
-												<div class="portfolioDescriptionSub">
-													Technologies Used: Eclipse, Java
-												</div>
-											</span>
-										</div>
+									<div class="portfolioDescriptionContent">
+										Little To-Do app. Each added item in the app will create a notification icon that stays there until you clear it from the app itself. Guarenteed to remind you if you constantly see items in the notification list. 
 									</div>
-								</div>
-							</div>							
+									<div class="portfolioDescriptionSub">
+										Technologies Used: Eclipse, Java
+									</div>
+								</span>
+							</div>
 						</td>
 					</tr>
 				</table>
@@ -295,7 +250,5 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
-
-		<script type="text/javascript" src="pageload.js"></script>
 	</body>
 </html>

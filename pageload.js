@@ -11,29 +11,6 @@ $(document).ready(function() {
 	$(".portfolio").hide();
 	$(".contact").hide();
 	update();
-	
-	$(".portfolioDescription").hide();
- 	$(".portfolioBig").mouseenter(function(){
- 		$(this).children("#hoverShowContent").animate({opacity: "0"}, 100, "linear", function(){
- 			$(this).hide();
-	 		$(this).parent().children(".portfolioDescription").css("opacity", "0");
-			$(this).parent().children(".portfolioDescription").show();
-			
-			$(this).parent().children(".portfolioDescription").animate({opacity: "100"}, 100, "linear");
- 		});
-		/*$(this).children(".portfolioDescription").show();
-		$(this).children("#hoverShowContent").hide();*/
-	});
-	$(".portfolioBig").mouseleave(function(){
-		$(this).children(".portfolioDescription").animate({opacity: "0"}, 100, "linear", function(){
- 			$(this).hide();
-	 		$(this).parent().children("#hoverShowContent").css("opacity", "0");
-			$(this).parent().children("#hoverShowContent").show();
-			
-			$(this).parent().children("#hoverShowContent").animate({opacity: "100"}, 100, "linear");
- 		});
-		
-	});
 
 });
 function clickIt(clickParam)
