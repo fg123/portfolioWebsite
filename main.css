@@ -277,6 +277,8 @@ tr.spacer > td
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
+	margin-left:auto;
+	margin-right:auto;
 }
 	/* flip the pane when hovered */
 	.flip-container:hover .flipper, .flip-container.hover .flipper {
