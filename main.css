@@ -143,21 +143,45 @@ div.front:before
 {
 		padding-top:20px;
 }
+/* start y, end x, end y, start x */
+.imagesBlocks.a {	object-position: 0 0; } 
+.imagesBlocks.b {	object-position: -450px 0; }
+.imagesBlocks.c {	object-position: 0 -253px; }
+.imagesBlocks.d {	object-position: -450px -253px; }
+.imagesBlocks.e {	object-position: 0 -506px; }
+.imagesBlocks.f {	object-position: -450px -506px; }
 .imagesBlocks {
+	object-fit:none;
     width: 450px;
     border: 4px solid #ecf0f1;
     border-radius: 5px;
     box-shadow: 0 3px 3px #292929;
-    height:270px;
-
+    height:253px;
 	background: #ecf0f1;
 }
 .imagesBlocksUnset
 {
 	width:auto;
 	height:auto;
+	padding-bottom: 20px;
 }
-.about
+.profileBefore 
+{	
+	position:relative;
+}
+.profileBefore:before
+{
+	content: "Engineering 5, University of Waterloo";
+	font-style: italic;
+	font-size:10px;
+	
+	position:absolute;
+	right:20px;
+	z-index: 100;
+	bottom:0px;
+}
+
+.about, .portfolio, .contact
 {
 	line-height: 150%;
 }
@@ -181,6 +205,18 @@ div.mainContent h1
 	text-align:center;
 	font-family: 'Roboto Slab', sans-serif;
 	background: url("images/backgroundLine.png") no-repeat center center;
+	position:relative;
+}
+div.mainContent h1:before
+{
+	/*content: "#include <iostream>";*/
+	font-size: 14px;
+	color: #F4F4F4;
+	font-style:italic;
+	font-family: "Open Sans", sans-serif;
+	position:absolute;
+	left: 50px;
+	top:-10px;
 }
 div.mainContent h1 span
 {
