@@ -145,11 +145,11 @@ div.front:before
 }
 /* start y, end x, end y, start x */
 .imagesBlocks.a {	object-position: 0 0; } 
-.imagesBlocks.b {	object-position: -450px 0; }
+.imagesBlocks.b {	object-position: -451px 0; }
 .imagesBlocks.c {	object-position: 0 -253px; }
-.imagesBlocks.d {	object-position: -450px -253px; }
+.imagesBlocks.d {	object-position: -451px -253px; }
 .imagesBlocks.e {	object-position: 0 -506px; }
-.imagesBlocks.f {	object-position: -450px -506px; }
+.imagesBlocks.f {	object-position: -451px -506px; }
 .imagesBlocks {
 	object-fit:none;
     width: 450px;
