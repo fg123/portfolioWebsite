@@ -153,17 +153,21 @@ div.front:before
 .imagesBlocks {
 	object-fit:none;
     width: 450px;
-    border: 4px solid #ecf0f1;
+    border: 4px solid #f2f2f2;
     border-radius: 5px;
-    box-shadow: 0 3px 3px #292929;
+    box-shadow: 0 2px 4px #292929;
     height:253px;
-	background: #ecf0f1;
+	background: #f2f2f2;
 }
 .imagesBlocksUnset
 {
 	width:auto;
 	height:auto;
 	
+}
+.profile
+{
+	width: 360px;
 }
 .profileBefore 
 {	
@@ -178,7 +182,7 @@ div.front:before
 	content: "Engineering 5, University of Waterloo";
 	font-style: italic;
 	font-size:10px;
-	
+	display:none;
 	position:absolute;
 	right:20px;
 	z-index: 100;
@@ -232,6 +236,8 @@ div.fewter
 {
 	margin-right:auto;
 	margin-left:auto;
+	width:100%;
+	display:block;
 	text-align:center;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
@@ -240,10 +246,22 @@ div.fewter
 	padding-bottom: 75px;
 
 }
-td.portfolioBig
+div.portfolioBig
 {
-	width: 500px;
+	width: 48%;
 	text-align: center;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+div.portfolioBig:nth-child(odd)
+{
+	float:left;
+	margin-left:1%;
+}
+div.portfolioBig:nth-child(even)
+{
+	float:right;
+	margin-right:1%;
 }
 td.portfolioSmall
 {
@@ -251,7 +269,7 @@ td.portfolioSmall
 }
 div.portfolioDescription
 {
-	background-color: #EEE;
+	background-color: #f2f2f2;
 	width: 420px;
 	height: 238px;
 	margin-left:auto;
@@ -308,12 +326,7 @@ tr.spacer > td
 {
 	padding: 25px;
 }
-@media only screen and (max-width: 992px) {
-	div.mainContainer
-	{
-		width: 100%;
-	}
-}
+
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
@@ -358,4 +371,75 @@ tr.spacer > td
 /* back, initially hidden pane */
 .back {
 	transform: rotateY(180deg);
+}
+.about .left
+{
+    float:left;
+    width:55%; 
+	margin-left:3%;  
+	position:relative;
+}
+.about .right
+{
+    float:right;
+    width: 35%;
+	margin-right:3%;
+	position:relative;
+}
+.profileBefore
+{
+	width:100%;
+}
+.topCollapse
+{
+	display:none;
+}
+.topWide
+{
+	display:table;
+}
+@media only screen and (max-width: 992px) {
+	div.mainContainer
+	{
+		width: 100%;
+	}
+	.about .right .profile
+	{
+		width:100%;
+		max-width: 360px;
+	}
+	div.portfolioBig
+	{
+		float:none!important;
+		width:95%;
+		margin:0!important;
+	}
+}
+@media only screen and (max-width: 865px) {
+	.topCollapse
+	{
+		display:table;
+	}
+	.topWide
+	{
+		display:none;
+	}
+}
+@media only screen and (max-width: 760px) {
+	div.mainContainer
+	{
+		width: 100%;
+	}
+	.about .left, .about .right
+	{
+		float:none;
+		width:95%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.about .right
+	{
+		text-align:center;
+	}
+
 }
