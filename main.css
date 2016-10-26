@@ -434,6 +434,18 @@ tr.spacer > td
 	{
 		display:none;
 	}
+	.navigation
+	{
+		width:100%;
+		margin: 0;
+		padding-left:0px!important;
+		padding-right:0px!important;
+		text-align:center;
+	}
+	.topbar
+	{
+		padding-bottom: 20px!important;
+	}
 }
 @media only screen and (max-width: 760px) {
 	div.mainContainer
