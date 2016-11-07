@@ -150,6 +150,8 @@ div.front:before
 .imagesBlocks.d {	object-position: -451px -253px; }
 .imagesBlocks.e {	object-position: 0 -506px; }
 .imagesBlocks.f {	object-position: -451px -506px; }
+.imagesBlocks.g {	object-position: 0 -759px; }
+.imagesBlocks.h {	object-position: -451px -759px; }
 .imagesBlocks {
 	object-fit:none;
     max-width: 450px;
