@@ -59,7 +59,6 @@ if ( typeof Object.create !== 'function' ) {
 						return this;
 					}
 				});
-				console.log(current);
 				// get only the latest header on the viewport
 				current = $( current ).eq( current.length - 1 );
 

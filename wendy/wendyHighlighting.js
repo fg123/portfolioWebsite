@@ -35,7 +35,6 @@ function isFunctionLet(lst, curID)
 $(document).ready(function () { 
 $("code").not(".nostyle").each(function () { 
 	var origtokens = $(this).text().match(/[^(\s);"\/]+|(\/)\1|[\d.("]+|\s|\;|\)/g);
-	console.log(origtokens);
 	var tokens = origtokens.slice(0);
 	for (var i = 0; i < tokens.length; i++)
 	{ 
