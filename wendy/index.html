@@ -1,0 +1,189 @@
+<!--
+Author: Felix Guo
+Copyright Felix Guo 2016
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<title>Felix Guo</title>
+
+		<!-- Bootstrap -->
+		<link href="../bootstrap.css" rel="stylesheet">
+		
+		<!--Google Font Links-->
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600,400' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+		
+		<link rel="icon" type="image/png" href="../images/icon.png">
+
+		<link rel="stylesheet" href="main.css" type="text/css">
+		
+		<link rel="stylesheet" href="wendyHighlighting.css" type="text/css">
+	</head>
+	<body>
+	 	<div class="mainContainer">
+			<div class="row title">
+				<div class="col-md-12">
+					<h1>Wendy<span>Script</span></h1>
+					<h2>Documentation 1.0</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 navigation">
+					<div class="list-group nav">
+						<a href="#introduction" class="list-group-item list-group-item-action">Introduction</a>
+						<a href="#constants" class="list-group-item list-group-item-action">Constants and Variables</a>
+						<a href="#conditions" class="list-group-item list-group-item-action">Conditions</a>
+						<a href="#loops" class="list-group-item list-group-item-action">Loops</a>
+						<a href="#functions" class="list-group-item list-group-item-action">Functions</a>
+						<a href="#input" class="list-group-item list-group-item-action">User Input</a>
+					</div>
+				</div>
+				<div class="col-md-9 content">
+					<!-- content -->
+					<h1 style="margin-top:0px" id="introduction">Introduction</h1>
+					<p>Welcome to WendyScript, a C-syntax based scripting language! 
+						Lets start with the most basic: outputting "Hello World!".</p>
+					<pre><code>"Hello World!";</code></pre>
+					<p>This will output <code>Hello World!</code> to the console.</p>
+					<p>You may have noticed that we did not need to use a print (or printf) function. This is because
+						any expressions evaluated at the top-level will be printed out in the console by WendyScript.</p>
+					<p>Each top-level expression will be printed with a newline character. For example:</p>
+<pre><code>"Hello World!";
+"This is on a new line!";</code></pre>
+					<p>This will output: <pre>Hello World!<br>This is on a new line!</pre> to the console.
+					This behaviour can be negated by adding a <code>@</code> character in the front of 
+					any top-level expression:</p>
+					<pre><code>@"Hello World!";
+"This is on a new line!";</code></pre> Which will produce <code>Hello World!This is on a newline!</code>
+
+
+					<h1 id="constants">Constants and Variables</h1>
+					<p>WendyScript is dynamically typed and supports three types of data, numbers, strings, and boolean values.</p>
+<pre><code>let name = "Wendy"; // declares and sets a string variable
+let age = 18; // declares and set a number variable 
+let x; // declares x and sets it to %none, a NULL type
+let pi := 3.1415; // declares a constant pi
+let valid_license = true;
+
+set age = 19; // mutates the value of age to be 19
+set name = 20; // dynamic types allows variable types to be changed
+set pi = 4; // throws an error because constants cannot be mutated</code></pre>		
+					
+					
+					<p>Constants are always globally scoped. Variables can be locally scoped in loops and 
+						functions</p>
+
+					<h1 id="conditions">Conditions</h1>
+					<p>Conditions work the same way as in most languages with familiar syntax.</p>
+					<pre><code>let x = 10;
+if (x <= 10) {
+	"X is less than or equal to 10!";
+}
+else {
+	"X is greater than 10!";
+}
+</code></pre> 
+					<p><code class="nostyle">X is less than or equal to 10!</code></p>
+					<p>Conditions can also include multiple boolean expressions that are 
+						joined with either <code>and</code> or <code>or</code>.</p>
+<pre><code>let name = "Wendy";
+let age = 18;
+let valid_license = true;
+
+if (age >= 19 and valid_license) {
+	"You are old enough to drink!";
+}
+else if (valid_license) {
+	"You're not old enough!";
+}
+else {
+	"You don't have a valid license!";
+}
+</code></pre><p><code class="nostyle">You're not old enough!</code></p>
+						
+
+					<h1 id="loops">Loops</h1>
+					<p>WendyScript supports the most basic type of loop, a loop
+					that runs a function block based on a condition. </p>
+<pre><code>let x = 5;
+loop(x > 0) {
+	@(x + " ");
+	set x = x - 1;
+}
+</code></pre><p><code class="nostyle">5 4 3 2 1 </code></p>
+
+					<h1 id="functions">Functions</h1>
+					<p>Functions in WendyScript are defined in the style of a lambda function. 
+						To bind a function to an identifier: </p>
+<pre><code>let f => (x) { 
+	function_body; 
+}</code></pre></p> <p>WendyScript also supports recursive functions.</p>
+<pre><code>let factorial => (x) { 
+	if (x <= 1) {
+		ret 1;
+	}
+	else {
+		ret x * factorial(x - 1);
+	}
+}
+@"The factorial of 5 is ";
+factorial(5);</code></pre> 
+<p><code>The factorial of 5 is 120</code></p>
+					<p>Here we introduce you to the <code>ret</code> keyword. <code>ret</code> allows functions
+					to return a value to the original place it was called. In this case, the returned
+					value <code>120</code> was left as a top level expression and thus was printed.</p>
+					<div class="alert alert-info" role="alert"><b>Note: </b>Functions that have no return
+					statement or returns no value automatically returns <code>none</code>. In the case of a 
+					top level function call, this will print <code>%none</code> to the screen! The simple way 
+					around that is to always return a value. 
+<pre><code>let printHello => () { 
+	"Hello World!";
+}
+printHello();</code></pre> 
+					<pre>Hello World! <br>%none</pre>
+					<p>The <code>Hello World!</code> occurs when the function body has run and the <code>%none</code> occurs when 
+					the result of the <code>printHello</code> function is printed to the screen. Since the function has no return
+					value, the return type is <code>none</code></p><br>
+<pre><code>let printHello => () { 
+	ret "Hello World!";
+}
+printHello();</code></pre> 
+	<p>This will get the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body.</p>
+	</div>
+					<h1 id="input">User Input</h1>
+
+					<p>User input is easy in WendyScript! Input is achieved by the <code>input</code> keyword. </p>	
+					<pre><code>let name;
+@"What is your name? ";
+input name;
+@"Your name is: " + name;
+</code></pre>
+<pre><code class="nostyle">What is your name? Wendy<br>Your name is: Wendy</code></pre>
+					<p>If the user enters a number, it will be stored as such, anything else will be stored as a string. 
+						Be aware that you must declare the variable the user input is to be stored in before prompting <code>input</code>.
+					</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="fewter">
+				&copy; Copyright Felix Guo 2017
+		</div>		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
+		<script src="wendyHighlighting.js" type="text/javascript"></script>
+		<script src="spy.js" type="text/javascript"></script>
+		<script src="scroll.js" type="text/javascript"></script>
+	</body>
+</html>

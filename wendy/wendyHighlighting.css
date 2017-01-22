@@ -1,0 +1,36 @@
+.keyword
+{
+	color: #66D9EF;
+}
+.identifier
+{
+	color: #A6E22E;
+}
+.string
+{
+	color: #FD971F;
+}
+pre
+{
+	background: #272822;
+	overflow:auto;
+	color: #FFF;
+	-moz-tab-size:    2; /* Firefox 4+ */
+    -o-tab-size:      2; /* Opera 11.5 & 12.1 only */
+    tab-size:         2; /* Chrome 21+, Safari 6.1+, Opera 15+ */
+}
+.comment
+{
+	color: #888;
+	font-style:italic;
+}
+.operator
+{
+	color: #F92672;
+}
+code
+{
+	color: #fff;
+	background-color: #272822;
+	padding: 5px;
+}
