@@ -61,7 +61,7 @@ h1
 {
 	margin-top: 40px;
 }
-.active
+a.active
 {
 		background: #272822!important;
 		border-color: #272822!important;
@@ -73,6 +73,27 @@ h1
 .fixedMenu
 {
 	position:fixed;
-	top: 10px;
-	
+	top: 10px;	
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:active,
+.nav-tabs > li.active > a:focus
+{
+	font-weight:bold;
+	color: #FFF;
+	background: #272822!important;
+}
+.nav-tabs > li.active > a:hover
+{
+	color: #FFF;
+}
+.nav-tabs > li:not(.active) > a
+{
+	color: #272822!important;
+}
+div.codesamp > pre
+{
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-top-color: #272822!important;
 }

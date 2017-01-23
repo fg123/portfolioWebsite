@@ -12,17 +12,17 @@
 }
 pre
 {
-	background: #272822;
-	overflow:auto;
+	background: #272822;	
 	color: #FFF;
-	-moz-tab-size:    2; /* Firefox 4+ */
-    -o-tab-size:      2; /* Opera 11.5 & 12.1 only */
-    tab-size:         2; /* Chrome 21+, Safari 6.1+, Opera 15+ */
+	-moz-tab-size:    4; /* Firefox 4+ */
+    -o-tab-size:      4; /* Opera 11.5 & 12.1 only */
+    tab-size:         4; /* Chrome 21+, Safari 6.1+, Opera 15+ */
+	white-space: pre-wrap;
 }
 .comment
 {
 	color: #888;
-	font-style:italic;
+	
 }
 .operator
 {
@@ -32,5 +32,6 @@ code
 {
 	color: #fff;
 	background-color: #272822;
-	padding: 5px;
+	padding: 3px;
+	
 }

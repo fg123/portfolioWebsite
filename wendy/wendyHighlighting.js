@@ -1,7 +1,7 @@
 // Javascript Bootstrap Syntax Highlighting for the Wendy Scripting Language
 // Designed by Felix Guo
 
-var keywords = ["let", "set", "true", "false", "ret", "none"];
+var keywords = ["let", "set", "true", "false", "ret", "none", "dec", "inc"];
 var operators = ["loop", "input", "and", "or", "if", "else", "+", "-",
 	"*", "/", "==", ">=", "<=", "<", ">", "=>"];
 
@@ -25,7 +25,7 @@ function isFunctionLet(lst, curID)
 	{ 
 		if (!(/\s/.test(lst[curID])))
 		{ 		
-			return lst[curID] == "let" || lst[curID] == "set";
+			return lst[curID] == "let" || lst[curID] == "set" || lst[curID] == "inc" || lst[curID] == "dec";
 		}	
 		
 		curID--;
@@ -34,7 +34,7 @@ function isFunctionLet(lst, curID)
 }
 $(document).ready(function () { 
 $("code").not(".nostyle").each(function () { 
-	var origtokens = $(this).text().match(/[^(\s);"\/]+|(\/)\1|[\d.("]+|\s|\;|\)/g);
+	var origtokens = $(this).text().match(/[^(\s);"\/]+|(\/)\1|[\d]+|[.("\s\;\)]/g);
 	var tokens = origtokens.slice(0);
 	for (var i = 0; i < tokens.length; i++)
 	{ 

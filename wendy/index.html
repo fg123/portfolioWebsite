@@ -41,36 +41,74 @@ Copyright Felix Guo 2016
 					<!-- content -->
 					<h1 style="margin-top:0px" id="introduction">Introduction</h1>
 					<p>Welcome to WendyScript, a C-syntax based scripting language! 
-						Lets start with the most basic: outputting "Hello World!".</p>
+						Let's start with the most basic: outputting "Hello World!".</p>
 					<pre><code>"Hello World!";</code></pre>
 					<p>This will output <code>Hello World!</code> to the console.</p>
 					<p>You may have noticed that we did not need to use a print (or printf) function. This is because
-						any expressions evaluated at the top-level will be printed out in the console by WendyScript.</p>
-					<p>Each top-level expression will be printed with a newline character. For example:</p>
+						expressions evaluated at the top-level will be printed out in the console by WendyScript.</p>
+					<p>Each top-level expression will be printed on seperate lines (the newline character follows the expression). For example:</p>
 <pre><code>"Hello World!";
 "This is on a new line!";</code></pre>
-					<p>This will output: <pre>Hello World!<br>This is on a new line!</pre> to the console.
-					This behaviour can be negated by adding a <code>@</code> character in the front of 
+					<pre>Hello World!<br>This is on a new line!</pre>
+					<p>This behaviour can be negated by adding a <code>@</code> character in the front of 
 					any top-level expression:</p>
 					<pre><code>@"Hello World!";
-"This is on a new line!";</code></pre> Which will produce <code>Hello World!This is on a newline!</code>
+"This is on a new line!";</code></pre><pre><code>Hello World!This is on a newline!</code></pre>
 
 
 					<h1 id="constants">Constants and Variables</h1>
-					<p>WendyScript is dynamically typed and supports three types of data, numbers, strings, and boolean values.</p>
+					<p>WendyScript is dynamically typed and supports three types of data: numbers, strings, and boolean values.</p>
 <pre><code>let name = "Wendy"; // declares and sets a string variable
 let age = 18; // declares and set a number variable 
 let x; // declares x and sets it to %none, a NULL type
 let pi := 3.1415; // declares a constant pi
-let valid_license = true;
+let valid_license = true; // declares and sets a boolean variable
 
 set age = 19; // mutates the value of age to be 19
 set name = 20; // dynamic types allows variable types to be changed
-set pi = 4; // throws an error because constants cannot be mutated</code></pre>		
+set pi = 4; // throws an error because constants cannot be mutated</code></pre>	
+					<p>WendyScript also supports two special commands for numeric typed variables: <code>inc</code> and <code>dec</code>.
+					These functions can be called to add 1 or subtract 1 to a variable respectively.</p>
+<pre><code>let number = 9;
+inc number; // number is now 10
+dec number; // number is now 9</code></pre>	
+					<div class="alert alert-warning" role="alert"><b>Note: </b><code>inc</code> and <code>dec</code> can only be called
+					on non-constant variables that are numbers. Calling on a string variable or a constant will throw an error.</div>
 					
 					
-					<p>Constants are always globally scoped. Variables can be locally scoped in loops and 
-						functions</p>
+					<p>Constants are always globally scoped. Variables can be locally scoped in loops, conditions and 
+						functions.</p>
+
+
+					<h1 id="operators">Operators</h1>
+					<p>Operators in WendyScript are shown below.</p>
+					<pre><code>10 + 10; // Addition
+9 - 2; // Subtraction
+3 * 8; // Multiplication
+10 / 4; // Floating Point Division
+10 \ 4; // Integer Division
+((1 + 2) * 10) / (5 * 3); // Any Combination
+"Hello " + "World!"; // String Concatenation 
+
+// Boolean Combiners
+true and true;
+true and false;
+true or false;
+false or false;
+</code></pre> 
+<pre><code>20
+7
+24
+2.5
+2
+2
+Hello World!
+%true
+%false
+%true
+%false
+</code></pre> <p>WendyScript also supports generic boolean operators like <code class="nostyle">>= <= == < ></code>.
+
 
 					<h1 id="conditions">Conditions</h1>
 					<p>Conditions work the same way as in most languages with familiar syntax.</p>
@@ -82,7 +120,7 @@ else {
 	"X is greater than 10!";
 }
 </code></pre> 
-					<p><code class="nostyle">X is less than or equal to 10!</code></p>
+					<pre><code class="nostyle">X is less than or equal to 10!</code></pre>
 					<p>Conditions can also include multiple boolean expressions that are 
 						joined with either <code>and</code> or <code>or</code>.</p>
 <pre><code>let name = "Wendy";
@@ -98,7 +136,7 @@ else if (valid_license) {
 else {
 	"You don't have a valid license!";
 }
-</code></pre><p><code class="nostyle">You're not old enough!</code></p>
+</code></pre><pre><code class="nostyle">You're not old enough!</code></pre>
 						
 
 					<h1 id="loops">Loops</h1>
@@ -107,9 +145,9 @@ else {
 <pre><code>let x = 5;
 loop(x > 0) {
 	@(x + " ");
-	set x = x - 1;
+	dec x;
 }
-</code></pre><p><code class="nostyle">5 4 3 2 1 </code></p>
+</code></pre><pre><code class="nostyle">5 4 3 2 1 </code></pre>
 
 					<h1 id="functions">Functions</h1>
 					<p>Functions in WendyScript are defined in the style of a lambda function. 
@@ -127,7 +165,7 @@ loop(x > 0) {
 }
 @"The factorial of 5 is ";
 factorial(5);</code></pre> 
-<p><code>The factorial of 5 is 120</code></p>
+<pre><code>The factorial of 5 is 120</code></pre>
 					<p>Here we introduce you to the <code>ret</code> keyword. <code>ret</code> allows functions
 					to return a value to the original place it was called. In this case, the returned
 					value <code>120</code> was left as a top level expression and thus was printed.</p>
@@ -162,15 +200,123 @@ input name;
 						Be aware that you must declare the variable the user input is to be stored in before prompting <code>input</code>.
 					</p>
 
+
+					<h1 id="samples">Code Examples</h1>
+					
+					<ul class="nav nav-tabs codeSampLinks">
+						<li role="presentation" class="active"><a href="#reversenum">Reverse Number</a></li>
+						<li role="presentation"><a href="#fibonacci">Fibonacci Sequence</a></li>
+						<li role="presentation"><a href="#primes">Prime Number</a></li>
+					</ul>
+					<div class="codesamp" id="reversenum">
+<pre><code>// Reverse Integer: WendyScript 1.0
+// reverse(num) consumes an integer and reverses the 
+//   digits in the integer.
+// reverse: Int -> Int
+// Example: 1324 -> 4231
+let reverse => (num) {
+	let res = 0;
+	loop (num > 0) {
+		set res = res * 10;
+		set res = res + (num % 10);
+		set num = num \ 10;
+	}
+	ret res;
+}
+
+let x;
+@"Input a number: ";
+input x;
+
+@"The reverse is: ";
+reverse(x);</code></pre>
+					</div>
+					<div class="codesamp" id="fibonacci">
+<pre><code>// Fibonacci Sequence: WendyScript 1.0
+// gen_fibonacci_seq(num) consumes an integer and 
+//   prints the first num fibonacci numbers.
+// gen_fibonacci_seq: Int -> Str
+// Example: 5 -> 1 1 2 3 5
+let gen_fibonacci_seq => (num) {
+	let prev1 = 1;
+	let prev2 = 1;
+	let curIndex = 0;
+	loop (curIndex < num) {
+		if (curIndex < 2) {
+			@"1 ";
+		}
+		else {
+			let tmp = prev1 + prev2;
+			@(tmp) + " ";
+			set prev1 = prev2;
+			set prev2 = tmp;
+		}
+		inc curIndex;
+	}
+	ret @"";
+}
+
+let x;
+@"Input a number: ";
+input x;
+
+@"The fibonacci sequence is: ";
+gen_fibonacci_seq(x);</code></pre>
+					</div>
+					<div class="codesamp" id="primes">
+<pre><code>// Prime Number: WendyScript 1.0
+// check_prime(x) consumes an integer and produces true 
+//   if it's prime and false otherwise.
+// check_prime: Int -> Bool
+// Example: 7 -> true
+let check_prime => (x) {
+	if(x <= 2 and x > 0) {
+		ret true;
+	}
+	if (x < 0 or (x % 2) == 0) {
+		ret false;
+	}
+	let factor = 3;
+	loop (factor < (x / 2)) {
+		if ((x % factor) == 0) {
+			ret false;
+		}
+		else {
+			// move to next odd factor
+			inc factor;
+			inc factor;
+		}
+	}
+	ret true;
+}
+let x;
+@"Please enter a number: ";
+input x;
+
+let res = check_prime(x);
+if (res) {
+	x + " is a prime!";
+}
+else {
+	x + " is not a prime!";
+}</code></pre>
+					</div>
+
+					<!--<h1 id="reference">Code Reference</h1>-->
+
 				</div>
+
 				<div class="col-md-3 col-md-pull-9 navigation">
-					<div class="list-group nav">
+					<div class="list-group mainmenu">
 						<a href="#introduction" class="list-group-item list-group-item-action active">Introduction</a>
 						<a href="#constants" class="list-group-item list-group-item-action">Constants and Variables</a>
+						<a href="#operators" class="list-group-item list-group-item-action">Operators</a>
 						<a href="#conditions" class="list-group-item list-group-item-action">Conditions</a>
 						<a href="#loops" class="list-group-item list-group-item-action">Loops</a>
 						<a href="#functions" class="list-group-item list-group-item-action">Functions</a>
 						<a href="#input" class="list-group-item list-group-item-action">User Input</a>
+						<a href="#samples" class="list-group-item list-group-item-action">Code Examples</a>
+						<!--<a href="#reference" class="list-group-item list-group-item-action">Reference</a>-->
 					</div>
 				</div>
 			</div>
@@ -185,5 +331,6 @@ input name;
 		<script src="wendyHighlighting.js" type="text/javascript"></script>
 		<script src="spy.js" type="text/javascript"></script>
 		<script src="scroll.js" type="text/javascript"></script>
+		<script src="codesamp.js" type="text/javascript"></script>
 	</body>
 </html>

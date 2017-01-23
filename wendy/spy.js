@@ -67,7 +67,7 @@ if ( typeof Object.create !== 'function' ) {
 					list = $( 'a[href="#' + current.attr( 'id' ) + '"]');
 
 					
-					$( '.nav > a' ).removeClass( 'active' );
+					$( '.mainmenu > a' ).removeClass( 'active' );
 					
 
 					list.addClass( 'active' );
