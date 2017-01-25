@@ -25,14 +25,19 @@ $(document).ready(function () {
 	$( '.content' ).scrollspy();
 });
 $(function() {
-  $('.mainmenu > a[href*="#"]:not([href="#"])').click(function() {
+	$('.mainmenu > a[href*="#"]:not([href="#"]), .sectionLink[href*="#"]:not([href="#"])').click(function () {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
         $('html, body').animate({
           scrollTop: target.offset().top
-        }, 400);
+		  }, 400);
+		//console.log($(this).data("samp"));
+		if ($(this).data("samp") != undefined)
+		{ 
+			$(".codeSampLinks a[href='" + $(this).data("samp") + "']")[0].click();
+		}	
         return false;
       }
     }

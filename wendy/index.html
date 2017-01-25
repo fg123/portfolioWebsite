@@ -85,6 +85,109 @@ dec number; // number is now 9</code></pre>
 					<p>Constants are always globally scoped. Variables can be locally scoped in loops, conditions and 
 						functions.</p>
 
+					<h1 id="functions">Functions</h1>
+					<p>Functions in WendyScript are defined in the style of a lambda function. 
+						To bind a function to an identifier: </p>
+<pre><code>let f => (x) { 
+	function_body; 
+}</code></pre></p> <p>WendyScript also supports recursive functions.</p>
+<pre><code>let factorial => (x) { 
+	if (x <= 1) {
+		ret 1;
+	}
+	else {
+		ret x * factorial(x - 1);
+	}
+}
+@"The factorial of 5 is ";
+factorial(5);</code></pre> 
+<pre><code>The factorial of 5 is 120</code></pre>
+					<p>Here we introduce you to the <code>ret</code> keyword. <code>ret</code> allows functions
+					to return a value to the original place it was called. In this case, the returned
+					value <code>120</code> was left as a top level expression and thus was printed.</p>
+					<div class="alert alert-info" role="alert"><b>Note: </b>Functions that have no return
+					statement or returns no value automatically returns <code>none</code>. In the case of a 
+					top level function call, this will print <code>%none</code> to the screen! The simple way 
+					around that is to always return a value. 
+<pre><code>let printHello => () { 
+	"Hello World!";
+}
+printHello();</code></pre> 
+					<pre>Hello World! <br>%none</pre>
+					<p>The <code>Hello World!</code> occurs when the function body has run and the <code>%none</code> occurs when 
+					the result of the <code>printHello</code> function is printed to the screen. Since the function has no return
+					value, the return type is <code>none</code></p><br>
+<pre><code>let printHello => () { 
+	ret "Hello World!";
+}
+printHello();</code></pre> 
+	<p>This will get the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body.</p>
+	</div>
+
+					<h1 id="arrays">Arrays</h1>
+					<p>Arrays are also dynamically typed in WendyScript, and can be defined as a constant or a variable. An
+						array is declared as below:</p>
+					<pre><code>let myarray[10] = 0;</code></pre>
+					<p>This declares an array of size 10 where each element is 0. An array's elements can be accessed 
+						in a similar way. For example: </p>
+					<pre><code>myarray[0]; // accesses the first element
+myarray[9]; // accesses the last element</code></pre>
+					<p>See the code sample "<a href="#samples" class="sectionLink" data-samp="#userinputsum">User Input Sum</a>" to see how arrays can be used.</p>
+					<p>Passing around arrays are a bit more complicated. Arrays in WendyScript are much like arrays in C. When
+						an array of size 10 is declared, Wendy reserves 10 blocks of memory space. The bound identifier simply
+						points to the first element. If you were to pass that identifier into a function, only the first element
+						will be scoped into the function:</p>
+<pre><code>let my_fn => (arr) {
+	ret arr[1]; // I want to access the second element
+}
+let a[2];
+set a[0] = 3;
+set a[1] = 4;
+my_fn(a); // should return 4</code></pre>
+<pre><code>Runtime Error at Line 2: Reference to Memory Out of Range!
+%none</code></pre>
+					<p>This error occurs because when <code>a</code> is passed to <code>my_fn()</code>, the interpreter evaluates
+					the argument <code>a</code> and passes the value, <code>3</code> to the function. The function cannot interpret the
+					value <code>arr[1]</code> as it's stored in a different memory space.</p>
+					<div class="alert alert-info" role="alert"><b>Note: </b>Arguments passed to functions are evaluated when
+					the function is called (ie. always passed by value).</div>
+					<p>The way around this issue is to use pointers instead. Pointers are simply integers that refer to the 
+						place in memory that a particular value is at. Instead of passing <code>a</code> into the function, we
+						pass the address: <code>&a</code>. The <code>&</code> operator is used to access addresses of identifiers. 
+						We can get the value located at the address by using the <code>*</code> operator. The updated, working code looks like this:</p>
+<pre><code>let my_fn => (arr) {
+	// arr is now the pointer to the first element
+	ret *(arr + 1); // I want to access the second element
+}
+let a[2];
+set a[0] = 3;
+set a[1] = 4;
+my_fn(&a); // should return 4</code></pre>
+<pre><code>4</code></pre>
+
+
+					<h1 id="objects">Objects</h1>
+					<p>Using arrays, we are able to create a pseudo-objects. For example, if I wanted to create
+						a Point object that had two fields, x and y, I could write a constructor:</p>
+<pre><code>let create_point => (x, y) {
+	let newpoint[2];
+	set newpoint[0] = x;
+	set newpoint[1] = y;
+	ret (&newpoint);
+}</code></pre> 
+					<p>Calling <code>let p = create_point(10, 20);</code> will now store the pointer to the
+					two components in the variable p. I can now write two accessor functions to retrieve each
+					component.</p>
+<pre><code>let point_x => (point) {
+	ret *point;
+}
+let point_y => (point) {
+	ret *(point + 1);
+}</code></pre>
+					<p>Now if I call <code>point_x(p);</code> I will get 10, and if I call <code>point_y(p);</code> I will get
+					20. Since p is simply a pointer to the point, I can pass it around as if it was an object as long as I 
+					always access the corresponding component values using my accessor functions.</p>
+
 
 					<h1 id="operators">Operators</h1>
 					<p>Operators in WendyScript are shown below.</p>
@@ -155,44 +258,7 @@ loop(x > 0) {
 }
 </code></pre><pre><code class="nostyle">5 4 3 2 1 </code></pre>
 
-					<h1 id="functions">Functions</h1>
-					<p>Functions in WendyScript are defined in the style of a lambda function. 
-						To bind a function to an identifier: </p>
-<pre><code>let f => (x) { 
-	function_body; 
-}</code></pre></p> <p>WendyScript also supports recursive functions.</p>
-<pre><code>let factorial => (x) { 
-	if (x <= 1) {
-		ret 1;
-	}
-	else {
-		ret x * factorial(x - 1);
-	}
-}
-@"The factorial of 5 is ";
-factorial(5);</code></pre> 
-<pre><code>The factorial of 5 is 120</code></pre>
-					<p>Here we introduce you to the <code>ret</code> keyword. <code>ret</code> allows functions
-					to return a value to the original place it was called. In this case, the returned
-					value <code>120</code> was left as a top level expression and thus was printed.</p>
-					<div class="alert alert-info" role="alert"><b>Note: </b>Functions that have no return
-					statement or returns no value automatically returns <code>none</code>. In the case of a 
-					top level function call, this will print <code>%none</code> to the screen! The simple way 
-					around that is to always return a value. 
-<pre><code>let printHello => () { 
-	"Hello World!";
-}
-printHello();</code></pre> 
-					<pre>Hello World! <br>%none</pre>
-					<p>The <code>Hello World!</code> occurs when the function body has run and the <code>%none</code> occurs when 
-					the result of the <code>printHello</code> function is printed to the screen. Since the function has no return
-					value, the return type is <code>none</code></p><br>
-<pre><code>let printHello => () { 
-	ret "Hello World!";
-}
-printHello();</code></pre> 
-	<p>This will get the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body.</p>
-	</div>
+					
 					<h1 id="input">User Input</h1>
 
 					<p>User input is easy in WendyScript! Input is achieved by the <code>input</code> keyword. </p>	
@@ -213,6 +279,7 @@ input name;
 						<li role="presentation" class="active"><a href="#reversenum">Reverse Number</a></li>
 						<li role="presentation"><a href="#fibonacci">Fibonacci Sequence</a></li>
 						<li role="presentation"><a href="#primes">Prime Number</a></li>
+						<li role="presentation"><a href="#userinputsum">User Input Sum</a></li>
 					</ul>
 					<div class="codesamp" id="reversenum">
 <pre><code>// Reverse Integer: WendyScript 1.0
@@ -308,6 +375,28 @@ else {
 }</code></pre>
 					</div>
 
+					<div class="codesamp" id="userinputsum">
+<pre><code>// User Input Sum: WendyScript 1.0
+let size = 0;
+@"How many numbers to sum? ";
+input size;
+
+let numbers[size]; // declares array of size 
+let i = 0;
+loop (i < size) {
+	@"Enter #" + (i + 1) + ": ";
+	input numbers[i]; // input directly into array
+	inc i;
+}
+set i = 0;
+let final = 0;
+loop(i < size) {
+	set final = final + numbers[i]; // sum all the numbers
+	inc i;	
+} 
+"The sum is: " + final;</code></pre>
+					</div>
+
 					<!--<h1 id="reference">Code Reference</h1>-->
 
 				</div>
@@ -317,10 +406,12 @@ else {
 						<a href="#gettingstarted" class="list-group-item list-group-item-action active">Getting Started</a>
 						<a href="#introduction" class="list-group-item list-group-item-action">Introduction</a>
 						<a href="#constants" class="list-group-item list-group-item-action">Constants and Variables</a>
+						<a href="#functions" class="list-group-item list-group-item-action">Functions</a>
+						<a href="#arrays" class="list-group-item list-group-item-action">Arrays</a>
+						<a href="#objects" class="list-group-item list-group-item-action">Objects</a>
 						<a href="#operators" class="list-group-item list-group-item-action">Operators</a>
 						<a href="#conditions" class="list-group-item list-group-item-action">Conditions</a>
 						<a href="#loops" class="list-group-item list-group-item-action">Loops</a>
-						<a href="#functions" class="list-group-item list-group-item-action">Functions</a>
 						<a href="#input" class="list-group-item list-group-item-action">User Input</a>
 						<a href="#samples" class="list-group-item list-group-item-action">Code Examples</a>
 						<!--<a href="#reference" class="list-group-item list-group-item-action">Reference</a>-->
