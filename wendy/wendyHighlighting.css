@@ -28,10 +28,24 @@ pre
 {
 	color: #F92672;
 }
-code
+code, .code
 {
 	color: #fff;
 	background-color: #272822;
 	padding: 3px;
-	
+}
+div.code
+{
+	width:100%;
+	height:calc(100% - 100px);
+	font-family:monospace;
+	white-space: pre-line;
+}
+.references code:hover
+{
+	cursor: pointer;
+}
+.content code:not(.nolink):hover
+{
+	cursor: pointer;
 }

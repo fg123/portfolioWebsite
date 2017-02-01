@@ -8,19 +8,16 @@ Copyright Felix Guo 2016
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-		<title>Felix Guo</title>
+		<title>WendyScript Documentation</title>
 
 		<!-- Bootstrap -->
 		<link href="bootstrap.css" rel="stylesheet">
 		
 		<!--Google Font Links-->
-		<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600,400' rel='stylesheet' type='text/css'>
+		
 		<link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-		<link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-		<link href='//fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
-		<link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-		<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+		
 		
 		<link rel="icon" type="image/png" href="../images/icon.png">
 
@@ -116,15 +113,22 @@ printHello();</code></pre>
 					<pre>Hello World! <br>%none</pre>
 					<p>The <code>Hello World!</code> occurs when the function body has run and the <code>%none</code> occurs when 
 					the result of the <code>printHello</code> function is printed to the screen. Since the function has no return
-					value, the return type is <code>none</code></p><br>
+					value, the function returns <code>none</code></p><br>
 <pre><code>let printHello => () { 
 	ret "Hello World!";
 }
-printHello();</code></pre> 
-	<p>This will get the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body.</p>
+printHello();
+
+let printHello2 => () { 
+	"Hello World!";
+	ret;
+}
+printHello2();</code></pre> 
+	<p>Both of these will produce the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body. If <code>ret</code>
+	is called with no value, the function returns an empty string.</p>
 	</div>
 
-					<h1 id="arrays">Arrays</h1>
+					<h1 id="arrays">Arrays and Pointers</h1>
 					<p>Arrays are also dynamically typed in WendyScript, and can be defined as a constant or a variable. An
 						array is declared as below:</p>
 					<pre><code>let myarray[10] = 0;</code></pre>
@@ -169,13 +173,13 @@ my_fn(&a); // should return 4</code></pre>
 					<h1 id="objects">Objects</h1>
 					<p>Using arrays, we are able to create a pseudo-objects. For example, if I wanted to create
 						a Point object that had two fields, x and y, I could write a constructor:</p>
-<pre><code>let create_point => (x, y) {
+<pre><code>let point => (x, y) {
 	let newpoint[2];
 	set newpoint[0] = x;
 	set newpoint[1] = y;
 	ret (&newpoint);
 }</code></pre> 
-					<p>Calling <code>let p = create_point(10, 20);</code> will now store the pointer to the
+					<p>Calling <code>let p = point(10, 20);</code> will now store the pointer to the
 					two components in the variable p. I can now write two accessor functions to retrieve each
 					component.</p>
 <pre><code>let point_x => (point) {
@@ -188,6 +192,16 @@ let point_y => (point) {
 					20. Since p is simply a pointer to the point, I can pass it around as if it was an object as long as I 
 					always access the corresponding component values using my accessor functions.</p>
 
+					<p>This process might seem tedious in WendyScript, so we have built in structures that make use of this
+						array-based data storage! The above code can be simplified to: </p>
+<pre><code>struct point => (x, y);
+let p = point(10, 20);
+point_x(p);
+point_y(p);</code></pre>
+<pre><code>10
+20</code></pre>
+					<p>As you can see, the definition of a <code>struct</code> automatically creates constructor and
+					accessor functions for all of the fields defined.</p> 
 
 					<h1 id="operators">Operators</h1>
 					<p>Operators in WendyScript are shown below.</p>
@@ -397,8 +411,62 @@ loop(i < size) {
 "The sum is: " + final;</code></pre>
 					</div>
 
-					<!--<h1 id="reference">Code Reference</h1>-->
+					<h1 id="reference">Reference</h1>
+					<div class="references">
+						<p>
+							Instructions/Commands: 
+							<code>req</code>
+							<code>let</code>
+							<code>set</code>
+							<code>memset</code>
+							<code>ret</code>
+							<code>inc</code>
+							<code>dec</code>
+							<code>struct</code>
+							<code>input</code>
+							<code>err</code>
+						</p>
+						<p>
+							Control Flow:
+							<code>if else</code>
+							<code>loop</code>
+						</p>
+						<p>
+							<a href="reference.html?q=op">Math/Memory/Boolean Operators</a>
+						</p>
+						
+						<h2>Standard Library Provided Functions</h2>
+						<p>Standard Libraries can be included in your code using the 
+							<code>req</code> keyword.</p>
+<pre><code class="nolink">// Sample Code: WendyScript 1.0
+req "wmath.w";
 
+// code here
+</code></pre>
+						<p>
+							wmath.w:
+							<code>factorial</code>
+							<code>pow</code>
+							<code>root</code>
+							<code>sqrt</code>
+							<code>abs</code>
+						</p>
+						<p>
+							llist.w:
+							<code>cons</code>
+							<code>first</code>
+							<code>rest</code>
+							<code>build_list</code>
+						</p>
+						<p>
+							stack.w:
+							<code>stack</code>
+							<code>push</code>
+							<code>pop</code>
+							<code>top</code>
+							<code>is_empty</code>
+						</p>
+					</div>
 				</div>
 
 				<div class="col-md-3 col-md-pull-9 navigation">
@@ -407,14 +475,14 @@ loop(i < size) {
 						<a href="#introduction" class="list-group-item list-group-item-action">Introduction</a>
 						<a href="#constants" class="list-group-item list-group-item-action">Constants and Variables</a>
 						<a href="#functions" class="list-group-item list-group-item-action">Functions</a>
-						<a href="#arrays" class="list-group-item list-group-item-action">Arrays</a>
+						<a href="#arrays" class="list-group-item list-group-item-action">Arrays and Pointers</a>
 						<a href="#objects" class="list-group-item list-group-item-action">Objects</a>
 						<a href="#operators" class="list-group-item list-group-item-action">Operators</a>
 						<a href="#conditions" class="list-group-item list-group-item-action">Conditions</a>
 						<a href="#loops" class="list-group-item list-group-item-action">Loops</a>
 						<a href="#input" class="list-group-item list-group-item-action">User Input</a>
-						<a href="#samples" class="list-group-item list-group-item-action">Code Examples</a>
-						<!--<a href="#reference" class="list-group-item list-group-item-action">Reference</a>-->
+						<a href="#samples" class="list-group-item list-group-item-action">Code Examples</a>						
+						<a href="#reference" class="list-group-item list-group-item-action">Reference</a>
 					</div>
 				</div>
 			</div>
