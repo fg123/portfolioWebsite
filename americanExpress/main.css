@@ -26,7 +26,9 @@ body
 div.header
 {
 	background: url("header.png");
-	background-size: 100%;
+	background-size: auto 100%;
+	background-position:center;
+	
 	height: 90px;
 	border-bottom: 1px solid black;
 }
