@@ -30,7 +30,7 @@ Copyright Felix Guo 2016
 			<div class="row title">
 				<div class="col-md-12">
 					<h1>Wendy<span>Script</span></h1>
-					<h2>Documentation 1.0</h2>
+					<h2>Documentation 1.1</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -47,7 +47,7 @@ Copyright Felix Guo 2016
 						Let's start with the most basic: outputting "Hello World!".</p>
 					<pre><code>"Hello World!";</code></pre>
 					<p>This will output <code>Hello World!</code> to the console.</p>
-					<p>You may have noticed that we did not need to use a print (or printf) function. This is because
+					<p>You may have noticed that we did not need to use a print function. This is because
 						expressions evaluated at the top-level will be printed out in the console by WendyScript.</p>
 					<p>Each top-level expression will be printed on seperate lines (the newline character follows the expression). For example:</p>
 <pre><code>"Hello World!";
@@ -60,72 +60,69 @@ Copyright Felix Guo 2016
 
 
 					<h1 id="constants">Constants and Variables</h1>
-					<p>WendyScript is dynamically typed and supports three types of data: numbers, strings, and boolean values.</p>
+					<p>WendyScript is dynamically typed and supports three (+ null) types of data: numbers, strings, and boolean values.</p>
 <pre><code>let name = "Wendy"; // declares and sets a string variable
 let age = 18; // declares and set a number variable 
-let x; // declares x and sets it to %none, a NULL type
-let pi := 3.1415; // declares a constant pi
+let x; // declares x and sets it to &lt;none&gt;, a NULL type
 let valid_license = true; // declares and sets a boolean variable
 
 set age = 19; // mutates the value of age to be 19
-set name = 20; // dynamic types allows variable types to be changed
-set pi = 4; // throws an error because constants cannot be mutated</code></pre>	
+set name = 20; // dynamic types allows variable types to be changed</code></pre>	
 					<p>WendyScript also supports two special commands for numeric typed variables: <code>inc</code> and <code>dec</code>.
 					These functions can be called to add 1 or subtract 1 to a variable respectively.</p>
 <pre><code>let number = 9;
 inc number; // number is now 10
 dec number; // number is now 9</code></pre>	
 					<div class="alert alert-warning" role="alert"><b>Note: </b><code>inc</code> and <code>dec</code> can only be called
-					on non-constant variables that are numbers. Calling on a string variable or a constant will throw an error.</div>
-					
-					
-					<p>Constants are always globally scoped. Variables can be locally scoped in loops, conditions and 
-						functions.</p>
+					on non-constant variables that are numbers. Calling on a variable with string value will throw an error.</div>
 
 					<h1 id="functions">Functions</h1>
-					<p>Functions in WendyScript are defined in the style of a lambda function. 
+					<p>Functions are treated as first class in WendyScript. 
 						To bind a function to an identifier: </p>
 <pre><code>let f => (x) { 
 	function_body; 
-}</code></pre></p> <p>WendyScript also supports recursive functions.</p>
+};</code></pre></p> <p>WendyScript also supports recursive functions.</p>
 <pre><code>let factorial => (x) { 
 	if (x <= 1) {
 		ret 1;
 	}
 	else {
 		ret x * factorial(x - 1);
-	}
-}
+	};
+};
 @"The factorial of 5 is ";
 factorial(5);</code></pre> 
 <pre><code>The factorial of 5 is 120</code></pre>
 					<p>Here we introduce you to the <code>ret</code> keyword. <code>ret</code> allows functions
 					to return a value to the original place it was called. In this case, the returned
 					value <code>120</code> was left as a top level expression and thus was printed.</p>
+					<p>Since functions are first class, we can pass a function identifier into other functions, as well as bind
+					local functions within other functions and even return those functions. The function identifier itself is
+					simply a pointer to the start of the instruction block.</p>
 					<div class="alert alert-info" role="alert"><b>Note: </b>Functions that have no return
 					statement or returns no value automatically returns <code>none</code>. In the case of a 
-					top level function call, this will print <code>%none</code> to the screen! The simple way 
+					top level function call, this will print <code>&lt;none&gt;</code> to the screen! The simple way 
 					around that is to always return a value. 
 <pre><code>let printHello => () { 
 	"Hello World!";
-}
+};
 printHello();</code></pre> 
-					<pre>Hello World! <br>%none</pre>
-					<p>The <code>Hello World!</code> occurs when the function body has run and the <code>%none</code> occurs when 
+					<pre>Hello World! <br>&lt;none&gt;</pre>
+					<p>The <code>Hello World!</code> occurs when the function body has run and the <code>&lt;none&gt;</code> occurs when 
 					the result of the <code>printHello</code> function is printed to the screen. Since the function has no return
 					value, the function returns <code>none</code></p><br>
 <pre><code>let printHello => () { 
 	ret "Hello World!";
-}
+};
 printHello();
 
 let printHello2 => () { 
 	"Hello World!";
 	ret;
-}
+};
 printHello2();</code></pre> 
 	<p>Both of these will produce the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body. If <code>ret</code>
-	is called with no value, the function returns an empty string.</p>
+	is called with no value, the function returns no printable value.</p>
 	</div>
 
 					<h1 id="arrays">Arrays and Pointers</h1>
@@ -143,13 +140,13 @@ myarray[9]; // accesses the last element</code></pre>
 						will be scoped into the function:</p>
 <pre><code>let my_fn => (arr) {
 	ret arr[1]; // I want to access the second element
-}
+};
 let a[2];
 set a[0] = 3;
 set a[1] = 4;
 my_fn(a); // should return 4</code></pre>
 <pre><code>Runtime Error at Line 2: Reference to Memory Out of Range!
-%none</code></pre>
+&lt;none&gt;</code></pre>
 					<p>This error occurs because when <code>a</code> is passed to <code>my_fn()</code>, the interpreter evaluates
 					the argument <code>a</code> and passes the value, <code>3</code> to the function. The function cannot interpret the
 					value <code>arr[1]</code> as it's stored in a different memory space.</p>
@@ -162,7 +159,7 @@ my_fn(a); // should return 4</code></pre>
 <pre><code>let my_fn => (arr) {
 	// arr is now the pointer to the first element
 	ret *(arr + 1); // I want to access the second element
-}
+};
 let a[2];
 set a[0] = 3;
 set a[1] = 4;
@@ -178,21 +175,22 @@ my_fn(&a); // should return 4</code></pre>
 	set newpoint[0] = x;
 	set newpoint[1] = y;
 	ret (&newpoint);
-}</code></pre> 
+};</code></pre> 
 					<p>Calling <code>let p = point(10, 20);</code> will now store the pointer to the
 					two components in the variable p. I can now write two accessor functions to retrieve each
 					component.</p>
 <pre><code>let point_x => (point) {
 	ret *point;
-}
+};
 let point_y => (point) {
 	ret *(point + 1);
-}</code></pre>
+};</code></pre>
 					<p>Now if I call <code>point_x(p);</code> I will get 10, and if I call <code>point_y(p);</code> I will get
 					20. Since p is simply a pointer to the point, I can pass it around as if it was an object as long as I 
 					always access the corresponding component values using my accessor functions.</p>
 
-					<p>This process might seem tedious in WendyScript, so we have built in structures that make use of this
+					<p>This process might seem tedious in WendyScript if we wanted to implement structures with many fields, 
+						so we have built in structures that make use of this
 						array-based data storage! The above code can be simplified to: </p>
 <pre><code>struct point => (x, y);
 let p = point(10, 20);
@@ -226,10 +224,10 @@ false or false;
 2
 2
 Hello World!
-%true
-%false
-%true
-%false
+&lt;true&gt;
+&lt;false&gt;
+&lt;true&gt;
+&lt;false&gt;
 </code></pre> <p>WendyScript also supports generic boolean operators like <code class="nostyle">>= <= == < ></code>.
 
 
@@ -241,7 +239,7 @@ if (x <= 10) {
 }
 else {
 	"X is greater than 10!";
-}
+};
 </code></pre> 
 					<pre><code class="nostyle">X is less than or equal to 10!</code></pre>
 					<p>Conditions can also include multiple boolean expressions that are 
@@ -258,7 +256,7 @@ else if (valid_license) {
 }
 else {
 	"You don't have a valid license!";
-}
+};
 </code></pre><pre><code class="nostyle">You're not old enough!</code></pre>
 						
 
@@ -269,7 +267,7 @@ else {
 loop(x > 0) {
 	@(x + " ");
 	dec x;
-}
+};
 </code></pre><pre><code class="nostyle">5 4 3 2 1 </code></pre>
 
 					
@@ -307,9 +305,9 @@ let reverse => (num) {
 		set res = res * 10;
 		set res = res + (num % 10);
 		set num = num \ 10;
-	}
+	};
 	ret res;
-}
+};
 
 let x;
 @"Input a number: ";
@@ -334,14 +332,14 @@ let gen_fibonacci_seq => (num) {
 		}
 		else {
 			let tmp = prev1 + prev2;
-			@(tmp) + " ";
+			@(tmp + " ");
 			set prev1 = prev2;
 			set prev2 = tmp;
-		}
+		};
 		inc curIndex;
-	}
+	};
 	ret @"";
-}
+};
 
 let x;
 @"Input a number: ";
@@ -357,12 +355,12 @@ gen_fibonacci_seq(x);</code></pre>
 // check_prime: Int -> Bool
 // Example: 7 -> true
 let check_prime => (x) {
-	if(x <= 2 and x > 0) {
+	if((x <= 2) and (x > 0)) {
 		ret true;
-	}
-	if (x < 0 or (x % 2) == 0) {
+	};
+	if ((x < 0) or ((x % 2) == 0)) {
 		ret false;
-	}
+	};
 	let factor = 3;
 	loop (factor < (x / 2)) {
 		if ((x % factor) == 0) {
@@ -372,10 +370,10 @@ let check_prime => (x) {
 			// move to next odd factor
 			inc factor;
 			inc factor;
-		}
-	}
+		};
+	};
 	ret true;
-}
+};
 let x;
 @"Please enter a number: ";
 input x;
@@ -386,7 +384,7 @@ if (res) {
 }
 else {
 	x + " is not a prime!";
-}</code></pre>
+};</code></pre>
 					</div>
 
 					<div class="codesamp" id="userinputsum">
@@ -401,13 +399,13 @@ loop (i < size) {
 	@"Enter #" + (i + 1) + ": ";
 	input numbers[i]; // input directly into array
 	inc i;
-}
+};
 set i = 0;
 let final = 0;
 loop(i < size) {
 	set final = final + numbers[i]; // sum all the numbers
 	inc i;	
-} 
+}; 
 "The sum is: " + final;</code></pre>
 					</div>
 
@@ -415,7 +413,6 @@ loop(i < size) {
 					<div class="references">
 						<p>
 							Instructions/Commands: 
-							<code>req</code>
 							<code>let</code>
 							<code>set</code>
 							<code>memset</code>
@@ -424,7 +421,6 @@ loop(i < size) {
 							<code>dec</code>
 							<code>struct</code>
 							<code>input</code>
-							<code>err</code>
 						</p>
 						<p>
 							Control Flow:
@@ -433,38 +429,6 @@ loop(i < size) {
 						</p>
 						<p>
 							<a href="reference.html?q=op">Math/Memory/Boolean Operators</a>
-						</p>
-						
-						<h2>Standard Library Provided Functions</h2>
-						<p>Standard Libraries can be included in your code using the 
-							<code>req</code> keyword.</p>
-<pre><code class="nolink">// Sample Code: WendyScript 1.0
-req "wmath.w";
-
-// code here
-</code></pre>
-						<p>
-							wmath.w:
-							<code>factorial</code>
-							<code>pow</code>
-							<code>root</code>
-							<code>sqrt</code>
-							<code>abs</code>
-						</p>
-						<p>
-							llist.w:
-							<code>cons</code>
-							<code>first</code>
-							<code>rest</code>
-							<code>build_list</code>
-						</p>
-						<p>
-							stack.w:
-							<code>stack</code>
-							<code>push</code>
-							<code>pop</code>
-							<code>top</code>
-							<code>is_empty</code>
 						</p>
 					</div>
 				</div>
