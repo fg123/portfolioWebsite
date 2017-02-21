@@ -33,7 +33,9 @@ function isFunctionLet(lst, curID)
 	return false;
 }
 $(document).ready(function () {
-	$("code").not(".nostyle").each(function () { highlight(this); });
+	$("code").not(".nostyle").not(".cpp").each(function () {
+		highlight(this); 
+	});
 	$(".references code").not(".nolink").click(function () {
 		window.location.href = "reference.html?q=" + $(this).text().replace(' ', '-');
 	 });
@@ -51,18 +53,18 @@ function highlight(obj)
 
 			}
 			else if (keywords.indexOf(tokens[i]) != -1) {
-				tokens[i] = "<span class='keyword'>" + tokens[i] + "</span>";
+				tokens[i] = "<span class='wkeyword'>" + tokens[i] + "</span>";
 			}
 		
 			else if (operators.indexOf(tokens[i]) != -1) {
-				tokens[i] = "<span class='operator'>" + tokens[i] + "</span>";
+				tokens[i] = "<span class='woperator'>" + tokens[i] + "</span>";
 			}
 			else if (!isNaN(tokens[i])) {
-				tokens[i] = "<span class='number'>" + tokens[i] + "</span>";
+				tokens[i] = "<span class='wnumber'>" + tokens[i] + "</span>";
 			}
 			else if (tokens[i] == '"') {
 				// advance until other " or end 
-				tokens[i] = "<span class='string'>" + tokens[i];
+				tokens[i] = "<span class='wstring'>" + tokens[i];
 				i++;
 				while (i < tokens.length) {
 					if (tokens[i] == '"') { i++; break; }
@@ -72,7 +74,7 @@ function highlight(obj)
 				tokens[i] = tokens[i] + "</span>";
 			}
 			else if (tokens[i] == '//') {
-				tokens[i] = "<span class='comment'>" + tokens[i];
+				tokens[i] = "<span class='wcomment'>" + tokens[i];
 				i++;
 				while (i < tokens.length) {
 					if (tokens[i] == '\n') { i++; break; }
@@ -85,7 +87,7 @@ function highlight(obj)
 			
 				//console.log(isFunctionLet(tokens, i));
 				if (isFunctionId(origtokens, i) || isFunctionLet(origtokens, i)) {
-					tokens[i] = "<span class='identifier'>" + tokens[i] + "</span>";
+					tokens[i] = "<span class='widentifier'>" + tokens[i] + "</span>";
 				}
 				else {
 					//tokens[i] = "<span class=''>" + tokens[i] + "</span>";

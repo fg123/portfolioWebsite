@@ -1,0 +1,69 @@
+Chapter 1: Intro and Roadmap
+<h1 id="intro">Intro</h1>
+<p>
+	Before we begin writing any code, we must first understand
+	the process of writing a scripting language, and the process
+	of writing an interpreter. What exactly does an interpreter do?
+</p>
+<p>
+	An interpreter is a program that takes in a stream of code,
+	written in a predefined syntax or grammar, and reads it, line
+	by line, executing instructions, often in a virtual environment
+	as it reads along. What sets it apart from a compiler? A compiler will go through the program, 
+	read it line by line, then translate the code into another, lower
+	level language, which is then run by the operating system.
+</p>
+<img src="img/chap1/compilervsinterpreter.png" class="img-thumbnail">
+<h1 id="tokenizing">Scanning and Tokenizing</h1>
+<p>
+	The interpreter goes through various steps in order to process a section 
+	of code. It first must break down the string of code into 
+	something it can easily recognize. This process is called
+	<i>scanning</i>. The interpreter scans through the code and 
+	creates a list of <i>tokens</i>. What does this look like?
+</p>
+<p>Let's take a look at how C-syntax code could be translated into a list
+	of tokens.
+</p>
+<pre><code class="cpp">int i = 10;
+run(i);</code></pre>
+
+<pre><code class="nohighlight">0: INT -> "int"
+1: IDENTIFIER -> "i"
+2: EQUAL -> "="
+3: NUMBER -> "10" 
+4: SEMICOLON -> ";"
+5: IDENTIFIER -> "run"
+6: LEFT_PAREN -> "("
+7: IDENTIFIER -> "i"
+8: RIGHT_PAREN -> ")"
+9: SEMICOLON -> ";"</code></pre>
+<p>
+	Now, when the interpreter processes the code, it doesn't have
+	to hunt through each character to find out what you want to do,
+	but rather can easily process a list of tokens based on a set 
+	grammatical syntax, such as how you must have an <code>IDENTIFIER</code> after
+	an <code>INT</code> in a definition.
+</p>
+<p>After scanning, the interpreter then does the actual interpreting of the code,
+	which involves managing a virtual "memory" bank and simulating a call stack
+	for function calls. This will be explored in more detail later.</p>
+<h1 id="roadmap">Roadmap</h1>
+<p>
+	To begin writing our language, we must first see how we want to structure
+	our language. Once we know the syntax of our language, we can begin to creates
+	a predefined set of tokens and instructions. The more comprehensively you plan ahead
+	in terms of the language syntax, the easier it will be to implement later.
+</p>
+<p>
+	After creating the syntax of the language, we can begin to write the scanner, 
+	map out the memory management of the language itself, then the actual interpreter.
+</p>
+<div class="well">
+	Language Drafting -> Syntax -> Tokens -> Scanning -> Memory -> Interpreting
+</div>
+<p>
+	In the next chapter, I explore options for storing data in WendyScript, 
+	the syntax for WendyScript, as well as begin writing some code for structures
+	that our interpreter needs to interpret the given code.
+</p>

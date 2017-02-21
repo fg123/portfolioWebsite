@@ -1,12 +1,12 @@
-.keyword
+.wkeyword
 {
 	color: #66D9EF;
 }
-.identifier
+.widentifier
 {
 	color: #A6E22E;
 }
-.string
+.wstring
 {
 	color: #FD971F;
 }
@@ -19,12 +19,12 @@ pre
     tab-size:         4; /* Chrome 21+, Safari 6.1+, Opera 15+ */
 	white-space: pre-wrap;
 }
-.comment
+.wcomment
 {
 	color: #888;
 	
 }
-.operator
+.woperator
 {
 	color: #F92672;
 }
@@ -45,7 +45,7 @@ div.code
 {
 	cursor: pointer;
 }
-.content code:not(.nolink):hover
-{
-	cursor: pointer;
+pre code, code {
+	font-size: 14px;
+	font-family: monospace!important;
 }
