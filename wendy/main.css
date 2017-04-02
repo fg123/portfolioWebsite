@@ -20,7 +20,7 @@ div.mainContainer
 	margin-right:auto;
 	
 	background: #fff;
-	box-shadow: 0 0px 20px 0px #aaaaaa;
+	box-shadow: 0 0px 20px 0px #000;
 	padding-left: 10px;
 	padding-right:10px;
 }
@@ -36,6 +36,7 @@ div.fewter
 	margin-bottom:10px;
 	text-align:center;
 	font-size:1.1em;
+	color: #EEE;
 }
 .title
 {
@@ -57,7 +58,7 @@ p
 {
 	font-size: 1.1em;
 }
-h1
+h1:not(:first)
 {
 	margin-top: 40px;
 }
@@ -96,4 +97,29 @@ div.codesamp > pre
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 	border-top-color: #272822!important;
+}
+h3:not(.inline)::before
+{
+	content: "•";
+	padding-right: 5px;
+}
+h3 
+{
+	font-size: inherit;
+	position:relative;
+}
+h3.inline {
+	margin-bottom:0px;
+	margin-top:0px;
+}
+div#toc {
+	font-size:14px;
+}
+p
+{
+	border-left: 2px solid #DDD;
+	padding-left: 7px;
+}
+.content.reference p {
+	font-size: 14px;
 }

@@ -49,3 +49,17 @@ pre code, code {
 	font-size: 14px;
 	font-family: monospace!important;
 }
+h3 code {
+	font-size: 15px;
+	
+	background: none;
+	color: #000;
+}
+h3 {
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+p {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}

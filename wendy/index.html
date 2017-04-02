@@ -37,7 +37,9 @@ Copyright Felix Guo 2016
 				<div class="col-md-9 col-md-push-3 content">
 					<!-- content -->
 					<h1 style="margin-top:0px" id="gettingstarted">Getting Started</h1>
-					<p>You can download Wendy, the WendyScript interpreter at: <a href="https://github.com/fg123/wendy">GitHub</a>.<br> Wendy can be run
+					<p><a href="https://www.student.cs.uwaterloo.ca/~f28guo/" class="btn btn-lg btn-success">Try it online!</a></p>
+					<p>You can also check out the source code for the WendyScript interpreter at: <a href="https://github.com/fg123/wendy">GitHub</a>.
+					<br> The source is entirely in C and you are welcome to clone and build it yourself. Wendy can be run
 					either with a file or in REPL mode.</p>
 					<p>By typing <code>wendy</code> into the console, wendy will be run in REPL mode. Otherwise: </p>
 					<pre><code>wendy <i>filename.w</i></code></pre>
@@ -59,7 +61,7 @@ Copyright Felix Guo 2016
 "This is on a new line!";</code></pre><pre><code>Hello World!This is on a newline!</code></pre>
 
 
-					<h1 id="constants">Constants and Variables</h1>
+					<h1 id="constants">Variables</h1>
 					<p>WendyScript is dynamically typed and supports three (+ null) types of data: numbers, strings, and boolean values.</p>
 <pre><code>let name = "Wendy"; // declares and sets a string variable
 let age = 18; // declares and set a number variable 
@@ -74,10 +76,41 @@ set name = 20; // dynamic types allows variable types to be changed</code></pre>
 inc number; // number is now 10
 dec number; // number is now 9</code></pre>	
 					<div class="alert alert-warning" role="alert"><b>Note: </b><code>inc</code> and <code>dec</code> can only be called
-					on non-constant variables that are numbers. Calling on a variable with string value will throw an error.</div>
+					on variables that are numbers. Calling on a variable with string value will throw an error.</div>
+
+					<h1 id="operators">Operators</h1>
+					<p>Operators in WendyScript are shown below.</p>
+					<pre><code>10 + 10; // Addition
+9 - 2; // Subtraction
+3 * 8; // Multiplication
+10 / 4; // Floating Point Division
+10 \ 4; // Integer Division
+((1 + 2) * 10) / (5 * 3); // Any Combination
+"Hello " + "World!"; // String Concatenation 
+
+// Boolean Operators
+true and true;
+true and false;
+true or false;
+false or false;
+</code></pre> 
+<pre><code>20
+7
+24
+2.5
+2
+2
+Hello World!
+&lt;true&gt;
+&lt;false&gt;
+&lt;true&gt;
+&lt;false&gt;
+</code></pre> <p>WendyScript also supports generic boolean operators like <code class="nostyle">>= <= == < ></code>.
+
 
 					<h1 id="functions">Functions</h1>
-					<p>Functions are treated as first class in WendyScript. 
+					<p>WendyScript supports first class functions. Functions can be pass and returned through other functions. 
+						Local functions can be declared within other functions.
 						To bind a function to an identifier: </p>
 <pre><code>let f => (x) { 
 	function_body; 
@@ -96,12 +129,9 @@ factorial(5);</code></pre>
 					<p>Here we introduce you to the <code>ret</code> keyword. <code>ret</code> allows functions
 					to return a value to the original place it was called. In this case, the returned
 					value <code>120</code> was left as a top level expression and thus was printed.</p>
-					<p>Since functions are first class, we can pass a function identifier into other functions, as well as bind
-					local functions within other functions and even return those functions. The function identifier itself is
-					simply a pointer to the start of the instruction block.</p>
 					<div class="alert alert-info" role="alert"><b>Note: </b>Functions that have no return
 					statement or returns no value automatically returns <code>none</code>. In the case of a 
-					top level function call, this will print <code>&lt;none&gt;</code> to the screen! The simple way 
+					function call, this will print <code>&lt;none&gt;</code> to the screen! The simple way 
 					around that is to always return a value. 
 <pre><code>let printHello => () { 
 	"Hello World!";
@@ -121,77 +151,83 @@ let printHello2 => () {
 	ret;
 };
 printHello2();</code></pre> 
-	<p>Both of these will produce the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body. If <code>ret</code>
-	is called with no value, the function returns no printable value.</p>
-	</div>
+					<p>Both of these will produce the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body. If <code>ret</code>
+					is called with no value, the function will print no value.</p>
+					</div>
+					
+					<h2 id="lambda">Lambda</h2>
+					<p>WendyScript also support lambda functions. Lambda functions can be defined using <code>#:</code>. 
+					For example: </p>
+<pre><code>#:(x) { ret x * 2; }</code></pre>
+					<p>Lambda functions can be bound to identifiers via regular assignment, which
+						is really just an alternative to using <code>=></code>.</p>
+<pre><code>let f = #:(x) { ret x * 2; }; 
+// is essentially the same as
+let f => (x) { ret x * 2; };</code></pre>
+					<p>Since functions are first class in WendyScript, 
+					we can pass a function identifier, or a lambda function into other functions, as well as bind
+					local functions within other functions and even return functions. Let's create a function
+					named <code>apply()</code> that takes in a function that accepts two values, and two additional
+					values, then applies the given function to the given two values.</p>
+<pre><code>let apply => (fn, a, b) {
+	ret fn(a, b);
+};</code></pre>
+					<p>This function can now be invoked by either passing a function identifier, or a lambda 
+						function.</p>
+<pre><code>let multiply => (x, y) { ret x * y; };
+apply(multiply, 10, 20); // invoke with another function
 
-					<h1 id="arrays">Arrays and Pointers</h1>
-					<p>Arrays are also dynamically typed in WendyScript, and can be defined as a constant or a variable. An
-						array is declared as below:</p>
-					<pre><code>let myarray[10] = 0;</code></pre>
-					<p>This declares an array of size 10 where each element is 0. An array's elements can be accessed 
+apply(#:(a, b) { ret a * b; }, 10, 20); // invoke with a lambda function</code></pre>
+<pre><code>200
+200</code></pre>
+					
+
+					<h1 id="lists">Lists</h1>
+					<p>WendyScript supports a dynamically typed collection: a list. To create a list:</p>
+					<pre><code>let mylist[10] = 0;</code></pre>
+					<p>This declares an array of size 10 where each element is 0.</p>
+					<pre><code>let mylist = [1, 2, "hello", false];</code></pre> 
+					<p>This declares an array of size 4 with the given elements. An array's elements can be accessed 
 						in a similar way. For example: </p>
-					<pre><code>myarray[0]; // accesses the first element
-myarray[9]; // accesses the last element</code></pre>
+					<pre><code>mylist[0]; // accesses the first element
+mylist[3]; // accesses the last element</code></pre>
 					<p>See the code sample "<a href="#samples" class="sectionLink" data-samp="#userinputsum">User Input Sum</a>" to see how arrays can be used.</p>
-					<p>Passing around arrays are a bit more complicated. Arrays in WendyScript are much like arrays in C. When
-						an array of size 10 is declared, Wendy reserves 10 blocks of memory space. The bound identifier simply
-						points to the first element. If you were to pass that identifier into a function, only the first element
-						will be scoped into the function:</p>
-<pre><code>let my_fn => (arr) {
-	ret arr[1]; // I want to access the second element
+					<p>When a list is pass into a function, it is always passed by reference. This is the same as assigning a list to another. A copy is not made.</p>
+<pre><code>let my_fn => (lst) {
+	set lst[1] = 10; // Change the second element
+	ret;
 };
-let a[2];
-set a[0] = 3;
-set a[1] = 4;
-my_fn(a); // should return 4</code></pre>
-<pre><code>Runtime Error at Line 2: Reference to Memory Out of Range!
-&lt;none&gt;</code></pre>
-					<p>This error occurs because when <code>a</code> is passed to <code>my_fn()</code>, the interpreter evaluates
-					the argument <code>a</code> and passes the value, <code>3</code> to the function. The function cannot interpret the
-					value <code>arr[1]</code> as it's stored in a different memory space.</p>
-					<div class="alert alert-info" role="alert"><b>Note: </b>Arguments passed to functions are evaluated when
-					the function is called (ie. always passed by value).</div>
-					<p>The way around this issue is to use pointers instead. Pointers are simply integers that refer to the 
-						place in memory that a particular value is at. Instead of passing <code>a</code> into the function, we
-						pass the address: <code>&a</code>. The <code>&</code> operator is used to access addresses of identifiers. 
-						We can get the value located at the address by using the <code>*</code> operator. The updated, working code looks like this:</p>
-<pre><code>let my_fn => (arr) {
-	// arr is now the pointer to the first element
-	ret *(arr + 1); // I want to access the second element
-};
-let a[2];
-set a[0] = 3;
-set a[1] = 4;
-my_fn(&a); // should return 4</code></pre>
-<pre><code>4</code></pre>
-
+let a = [1, 2, 3];
+my_fn(a);
+a;</code></pre>
+<pre><code>[1, 10, 3]</code></pre>
 
 					<h1 id="objects">Objects</h1>
-					<p>Using arrays, we are able to create a pseudo-objects. For example, if I wanted to create
+					<p>Using lists, we are able to create a pseudo-objects. For example, if I wanted to create
 						a Point object that had two fields, x and y, I could write a constructor:</p>
 <pre><code>let point => (x, y) {
-	let newpoint[2];
-	set newpoint[0] = x;
-	set newpoint[1] = y;
-	ret (&newpoint);
+	let newpoint = [x, y];
+	ret newpoint;
 };</code></pre> 
-					<p>Calling <code>let p = point(10, 20);</code> will now store the pointer to the
-					two components in the variable p. I can now write two accessor functions to retrieve each
+					<p>Unlike C, variables and their values persist in the memory even after
+						the exit of the function. Therefore, lists declared locally
+						will still be valid upon exting the function. 
+						Calling <code>let p = point(10, 20);</code> will now store a list with the
+					two components in the variable p. We can now write two accessor functions to retrieve each
 					component.</p>
 <pre><code>let point_x => (point) {
-	ret *point;
+	ret point[0];
 };
 let point_y => (point) {
-	ret *(point + 1);
+	ret point[1];
 };</code></pre>
 					<p>Now if I call <code>point_x(p);</code> I will get 10, and if I call <code>point_y(p);</code> I will get
-					20. Since p is simply a pointer to the point, I can pass it around as if it was an object as long as I 
+					20. Since p is simply a list I can pass it around as if it was an object as long as I 
 					always access the corresponding component values using my accessor functions.</p>
 
 					<p>This process might seem tedious in WendyScript if we wanted to implement structures with many fields, 
 						so we have built in structures that make use of this
-						array-based data storage! The above code can be simplified to: </p>
+						list-based data storage. The above code can be simplified to: </p>
 <pre><code>struct point => (x, y);
 let p = point(10, 20);
 point_x(p);
@@ -200,36 +236,21 @@ point_y(p);</code></pre>
 20</code></pre>
 					<p>As you can see, the definition of a <code>struct</code> automatically creates constructor and
 					accessor functions for all of the fields defined.</p> 
+					<p>WendyScript also has a range of operators for dealing with lists.</p>
+<pre><code>// We have list equality and inequality
+[10, 20, 30] != [20, 30, 10]; // true
+[10, 20, 30] == [10, 20, 30]; // true
 
-					<h1 id="operators">Operators</h1>
-					<p>Operators in WendyScript are shown below.</p>
-					<pre><code>10 + 10; // Addition
-9 - 2; // Subtraction
-3 * 8; // Multiplication
-10 / 4; // Floating Point Division
-10 \ 4; // Integer Division
-((1 + 2) * 10) / (5 * 3); // Any Combination
-"Hello " + "World!"; // String Concatenation 
+// List Concatenation
+[10, 20, 30] + [20, 30, 40]; // [10, 20, 30, 20, 30, 40]
 
-// Boolean Combiners
-true and true;
-true and false;
-true or false;
-false or false;
-</code></pre> 
-<pre><code>20
-7
-24
-2.5
-2
-2
-Hello World!
-&lt;true&gt;
-&lt;false&gt;
-&lt;true&gt;
-&lt;false&gt;
-</code></pre> <p>WendyScript also supports generic boolean operators like <code class="nostyle">>= <= == < ></code>.
+// Item Append
+true + [10, 20, 30]; // [true, 10, 20, 30]
+[10, 20, 30] + 40; // [10, 20, 30, 40]
 
+// <b>in</b> operator
+// Does 10 exist in the list?
+10 ~ [10, 20, 30]; // true</code></pre>		
 
 					<h1 id="conditions">Conditions</h1>
 					<p>Conditions work the same way as in most languages with familiar syntax.</p>
@@ -262,7 +283,7 @@ else {
 
 					<h1 id="loops">Loops</h1>
 					<p>WendyScript supports the most basic type of loop, a loop
-					that runs a function block based on a condition. </p>
+					that runs a set of commands based on a condition. </p>
 <pre><code>let x = 5;
 loop(x > 0) {
 	@(x + " ");
@@ -283,7 +304,26 @@ input name;
 					<p>If the user enters a number, it will be stored as such, anything else will be stored as a string. 
 						Be aware that you must declare the variable the user input is to be stored in before prompting <code>input</code>.
 					</p>
-
+					
+					<h1 id="strings">Strings</h1>
+					<p>In order to access
+						individual characters of a string, you must first <code>explode</code> it.
+						<code>explode</code> will take a identifier that stores a string, break up
+						the string into a character list terminated with <code>&lt;none&gt;</code>.
+						The identifier is then modified to be pointing to the start of that array. 
+					</p>
+<pre><code>let name = "Wendy";
+// name -> "Wendy"
+explode name;
+// name -> "W", "e", "n", "d", "y", "&lt;none&gt;"
+name[3];
+</code></pre>
+<pre><code>d</code></pre>
+					<h1 id="time">Time</h1>
+					<p>WendyScript provides the <code>time</code> keyword, which returns a UTC value of the current time.
+					This is often used with <code>random.w</code> to instantiate the seed for the random number generator.</p>
+<pre><code>req "random.w";
+irand(time);</code></pre>
 
 					<h1 id="samples">Code Examples</h1>
 					
@@ -408,29 +448,6 @@ loop(i < size) {
 }; 
 "The sum is: " + final;</code></pre>
 					</div>
-
-					<h1 id="reference">Reference</h1>
-					<div class="references">
-						<p>
-							Instructions/Commands: 
-							<code>let</code>
-							<code>set</code>
-							<code>memset</code>
-							<code>ret</code>
-							<code>inc</code>
-							<code>dec</code>
-							<code>struct</code>
-							<code>input</code>
-						</p>
-						<p>
-							Control Flow:
-							<code>if else</code>
-							<code>loop</code>
-						</p>
-						<p>
-							<a href="reference.html?q=op">Math/Memory/Boolean Operators</a>
-						</p>
-					</div>
 				</div>
 
 				<div class="col-md-3 col-md-pull-9 navigation">
@@ -438,15 +455,18 @@ loop(i < size) {
 						<a href="#gettingstarted" class="list-group-item list-group-item-action active">Getting Started</a>
 						<a href="#introduction" class="list-group-item list-group-item-action">Introduction</a>
 						<a href="#constants" class="list-group-item list-group-item-action">Constants and Variables</a>
-						<a href="#functions" class="list-group-item list-group-item-action">Functions</a>
-						<a href="#arrays" class="list-group-item list-group-item-action">Arrays and Pointers</a>
-						<a href="#objects" class="list-group-item list-group-item-action">Objects</a>
 						<a href="#operators" class="list-group-item list-group-item-action">Operators</a>
+						<a href="#functions" class="list-group-item list-group-item-action">Functions</a>
+						<a href="#lambda" class="list-group-item list-group-item-action">Lambda</a>
+						<a href="#lists" class="list-group-item list-group-item-action">Lists</a>
+						<a href="#objects" class="list-group-item list-group-item-action">Objects</a>
 						<a href="#conditions" class="list-group-item list-group-item-action">Conditions</a>
 						<a href="#loops" class="list-group-item list-group-item-action">Loops</a>
 						<a href="#input" class="list-group-item list-group-item-action">User Input</a>
+						<a href="#strings" class="list-group-item list-group-item-action">Strings</a>
+						<a href="#time" class="list-group-item list-group-item-action">Time</a>
 						<a href="#samples" class="list-group-item list-group-item-action">Code Examples</a>						
-						<a href="#reference" class="list-group-item list-group-item-action">Reference</a>
+						<a href="reference.html" class="list-group-item list-group-item-action">Reference Manual</a>
 					</div>
 				</div>
 			</div>
