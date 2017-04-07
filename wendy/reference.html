@@ -112,7 +112,8 @@ let set ret explode req time inc dec input struct</code></pre>
 							lvalue or not.</p>
 					<h3><code><i>primary-expression</i> [ <i>expression</i> ]</code></h3>
 						<p>Brackets after a primary expression indicate a list-element reference, and therefore, the 
-							<i>primary-expression</i> must be a List, and <i>expression</i> must be a Number.</p>
+							<i>primary-expression</i> must be a List, and <i>expression</i> must be a Number or a Range. If the expression is a
+							Range, a subarray where the Range refer to the indices of the original array will be returned.</p>
 					<h3><code><i>primary-expression</i> ( <i>optional-expression-list</i> )</code></h3>
 						<p>A primary expression followed by a set of parentheses indicate a function call. The optional
 							expression list contains expressions separated by commas. WendyScript functions

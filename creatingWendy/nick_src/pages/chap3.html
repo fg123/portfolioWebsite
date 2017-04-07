@@ -396,6 +396,25 @@ void error(int line, char* message) {
 	}
 }</code></pre>
 <p>
+	With the <code>peek()</code> function and the <code>is_digit()</code> function, we can
+	also implement searching for negative numbers in the code, instead of letting
+	our evaluator negate numbers, if we see a <code>MINUS</code> next to a number,
+	we can call a <code>handle_number()</code>. <code>strtod</code> will automatically
+	handle the minus symbol as well. We'll change the <code>MINUS</code> case in our
+	switch to be like this instead:
+</p>
+<pre><code class="cpp">
+		case '-':
+			if (is_digit(peek())) {
+				advance();
+				handle_number();
+			}
+			else {
+				add_token(MINUS); 
+			}
+			break;
+</code></pre>
+<p>
 	This finishes off our <code>scan_token()</code> function. We just need to 
 	write the helpers <code>handle_number()</code> and <code>identifier()</code>.
 	For <code>handle_number()</code> we want to advance as long as the next character
