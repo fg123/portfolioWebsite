@@ -73,6 +73,7 @@ div.portfolio-link:hover {
     div.about div.picture {
 		position: relative;
 		text-align:center;
+		margin-bottom: 10px;
 	}
 }
 
