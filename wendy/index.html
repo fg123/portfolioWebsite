@@ -201,41 +201,6 @@ let a = [1, 2, 3];
 my_fn(a);
 a;</code></pre>
 <pre><code>[1, 10, 3]</code></pre>
-
-					<h1 id="objects">Objects</h1>
-					<p>Using lists, we are able to create a pseudo-objects. For example, if I wanted to create
-						a Point object that had two fields, x and y, I could write a constructor:</p>
-<pre><code>let point => (x, y) {
-	let newpoint = [x, y];
-	ret newpoint;
-};</code></pre> 
-					<p>Unlike C, variables and their values persist in the memory even after
-						the exit of the function. Therefore, lists declared locally
-						will still be valid upon exting the function. 
-						Calling <code>let p = point(10, 20);</code> will now store a list with the
-					two components in the variable p. We can now write two accessor functions to retrieve each
-					component.</p>
-<pre><code>let point_x => (point) {
-	ret point[0];
-};
-let point_y => (point) {
-	ret point[1];
-};</code></pre>
-					<p>Now if I call <code>point_x(p);</code> I will get 10, and if I call <code>point_y(p);</code> I will get
-					20. Since p is simply a list I can pass it around as if it was an object as long as I 
-					always access the corresponding component values using my accessor functions.</p>
-
-					<p>This process might seem tedious in WendyScript if we wanted to implement structures with many fields, 
-						so we have built in structures that make use of this
-						list-based data storage. The above code can be simplified to: </p>
-<pre><code>struct point => (x, y);
-let p = point(10, 20);
-point_x(p);
-point_y(p);</code></pre>
-<pre><code>10
-20</code></pre>
-					<p>As you can see, the definition of a <code>struct</code> automatically creates constructor and
-					accessor functions for all of the fields defined.</p> 
 					<p>WendyScript also has a range of operators for dealing with lists.</p>
 <pre><code>// We have list equality and inequality
 [10, 20, 30] != [20, 30, 10]; // true
@@ -251,6 +216,31 @@ true + [10, 20, 30]; // [true, 10, 20, 30]
 // <b>in</b> operator
 // Does 10 exist in the list?
 10 ~ [10, 20, 30]; // true</code></pre>		
+
+					<h1 id="objects">Objects</h1>
+					<p>WendyScript also supports Object-Oriented Programming through the use
+						of Structures and Structure Instances. Structures are also first class citizens
+						and as such can be assigned and passed around. To create a structure, we 
+						use the <code>struct</code> keyword. For example:</p>
+						<pre><code>struct posn => (x, y) [print];</code></pre>
+					<p>In the backend, this accomplishes several tasks. A posn structure is defined
+						with two instance members: x and y, as well as a static member: print. A default
+						constructor function is also created based on the instance members. This constructor
+						function can be overwritten by mutating the <code>posn.init</code> function,
+						but this constructor must end with <code>ret this;</code> to pass the instance
+						back to the caller. </p>
+					<p>Let's define what print does:</p>
+						<pre><code>let posn.print => () {
+	"This is a posn objet at " + this.x + ", " + this.y + ".";
+	ret;
+};</code></pre>
+					<p>Now we can create a posn instance with: <code>let a = posn(10, 20);</code> and access
+					the instance members with <code>a.x</code> and <code>a.y</code>. We can also call print with
+					<code>a.print()</code>. </p>
+					
+					<p>Inheritance can be performed by declaring a parent for a struct. A detailed example of
+						this can be found in the code sample: "<a href="#samples" class="sectionLink" data-samp="#inheritance">OOP Inheritance</a>".</p>
+				
 
 					<h1 id="conditions">Conditions</h1>
 					<p>Conditions work the same way as in most languages with familiar syntax.</p>
@@ -329,12 +319,13 @@ irand(time);</code></pre>
 					
 					<ul class="nav nav-tabs codeSampLinks">
 						<li role="presentation" class="active"><a href="#reversenum">Reverse Number</a></li>
-						<li role="presentation"><a href="#fibonacci">Fibonacci Sequence</a></li>
+						<li role="presentation"><a href="#fibonacci">Fibonacci</a></li>
 						<li role="presentation"><a href="#primes">Prime Number</a></li>
 						<li role="presentation"><a href="#userinputsum">User Input Sum</a></li>
+						<li role="presentation"><a href="#inheritance">OOP Inheritance</a></li>
 					</ul>
 					<div class="codesamp" id="reversenum">
-<pre><code>// Reverse Integer: WendyScript 1.0
+<pre><code>// Reverse Integer: WendyScript 1.1
 // reverse(num) consumes an integer and reverses the 
 //   digits in the integer.
 // reverse: Int -> Int
@@ -357,7 +348,7 @@ input x;
 reverse(x);</code></pre>
 					</div>
 					<div class="codesamp" id="fibonacci">
-<pre><code>// Fibonacci Sequence: WendyScript 1.0
+<pre><code>// Fibonacci Sequence: WendyScript 1.1
 // gen_fibonacci_seq(num) consumes an integer and 
 //   prints the first num fibonacci numbers.
 // gen_fibonacci_seq: Int -> Str
@@ -389,7 +380,7 @@ input x;
 gen_fibonacci_seq(x);</code></pre>
 					</div>
 					<div class="codesamp" id="primes">
-<pre><code>// Prime Number: WendyScript 1.0
+<pre><code>// Prime Number: WendyScript 1.1
 // check_prime(x) consumes an integer and produces true 
 //   if it's prime and false otherwise.
 // check_prime: Int -> Bool
@@ -428,7 +419,7 @@ else {
 					</div>
 
 					<div class="codesamp" id="userinputsum">
-<pre><code>// User Input Sum: WendyScript 1.0
+<pre><code>// User Input Sum: WendyScript 1.1
 let size = 0;
 @"How many numbers to sum? ";
 input size;
@@ -447,6 +438,84 @@ loop(i < size) {
 	inc i;	
 }; 
 "The sum is: " + final;</code></pre>
+					</div>
+					<div class="codesamp" id="inheritance">
+<pre><code>// OOP Inheritance: WendyScript 1.1
+req "math.w";
+
+struct shape => (x, y) [print, pi, intersect, distance];
+set shape.init => (x, y) {
+	set this.x = x;
+	set this.y = y;
+	ret this;
+};
+set shape.distance => (other) {
+	ret sqrt(pow(this.x - other.x, 2) + pow(this.y - other.y, 2));
+};
+set shape.pi = 3.14159265;
+set shape.print => () {
+	"This is a shape at: (" + this.x + ", " + this.y + ").";
+	ret;
+};
+set shape.intersect => (other) {
+	// If both circles?
+	if (this.type == &lt;circle&gt; and other.type == &lt;circle&gt;) {
+		// Two circles intersect if the distance between them is smaller than
+		//   the sum of the radius.
+		let result =  (this.distance(other) < (this.radius + other.radius));
+		ret result;
+	}
+	else {
+		"Must compare two circles!";
+		ret;
+	};
+};
+// Circle Object with Parent Shape
+struct circle:shape => (radius) [circumference, area, print];
+set circle.init => (x, y, radius) {
+	set this.base = this.base.init(x, y);
+	set this.radius = radius;
+	ret this;
+};
+set circle.print => () {
+	"This is a circle with radius " + this.radius + " located at (" + this.x + ", " + this.y + ").";
+	ret;
+};
+set circle.area => () {
+	ret (this.radius * this.radius) * this.pi;
+};
+set circle.circumference => () {
+	ret (this.radius * 2) * this.pi;
+};
+
+struct rectangle:shape => (width, height) [area, perimeter, print];
+set rectangle.init => (x, y, width, height) {
+	set this.base = this.base.init(x, y);
+	set this.width = width;
+	set this.height = height;
+	ret this;
+};
+set rectangle.area => () {
+	ret this.width * this.height;
+};
+set rectangle.perimeter => () {
+	ret 2 * (this.width + this.height);
+};
+set rectangle.print => () {
+	"This is a rectangle with width " + this.width + " and height " + this.height
+	  + " at (" + this.x + ", " + this.y + ").";
+	  ret;
+};
+
+let my_c = circle(30, 40, 30);
+my_c;
+my_c.print();
+my_c.circumference();
+my_c.area();
+
+let my_r = circle(0, 0, 20);
+
+my_c.intersect(my_r);</code></pre>
 					</div>
 				</div>
 

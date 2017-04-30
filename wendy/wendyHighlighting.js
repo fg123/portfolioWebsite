@@ -2,7 +2,7 @@
 // Designed by Felix Guo
 
 var keywords = ["let", "err", "set", "memset", "true", "false", "ret", "none", "dec", "inc", "struct", "req", "input", "explode", "time",
-	"Bool", "String", "Number", "List", "typeof", "Address"];
+	"Bool", "String", "Number", "List", "typeof", "Address", "assert"];
 var operators = ["loop", "and", "or", "if", "else", "+", "-", "\\",
 	"*", "/", "==", ">=", "<=", "<", ">", "=>"];
 
