@@ -1,6 +1,7 @@
 let a = [10, 20, 30, 40, 50]
 let b = []
-for i in a b += i
+for i in a 
+    b += i / 10
 b
 
 struct posn => (x, y) [print];
