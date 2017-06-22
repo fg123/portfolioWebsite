@@ -32,18 +32,28 @@ Copyright Felix Guo 2017
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>		
 		
 		<meta id="Viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<!-- CodeMirror (for WendyScript demo) -->
+		<script src="codeMirror/lib/codemirror.js"></script>
+		<link rel="stylesheet" href="codeMirror/lib/codemirror.css">
+		<link rel=stylesheet href="codeMirror/theme/base16-light.css">
+		<script src="codeMirror/addon/mode/simple.js"></script>
+		<script src="codeMirror/addon/edit/matchbrackets.js"></script>
+		<script src="codeMirror/wendyscript-mode.js"></script>
+		<script src="wendyscriptServer.js"></script>
+
 		<script type="text/javascript">
 		$(function(){
-		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-		var ww = ( $(window).width() < window.screen.width ) ? $(window).width() : window.screen.width; //get proper width
-		var mw = 500; // min width of site
-		var ratio =  ww / mw; //calculate ratio
-		if( ww < mw){ //smaller than minimum size
-		$('#Viewport').attr('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio + ', minimum-scale=' + ratio + ', user-scalable=yes, width=' + ww);
-		}else{ //regular size
-		$('#Viewport').attr('content', 'initial-scale=1.0, maximum-scale=2, minimum-scale=1.0, user-scalable=yes, width=' + ww);
-		}
-		}
+			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+				var ww = ($(window).width() < window.screen.width) ? $(window).width() : window.screen.width; //get proper width
+				var mw = 500; // min width of site
+				var ratio =  ww / mw; //calculate ratio
+				if( ww < mw){ //smaller than minimum size
+					$('#Viewport').attr('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio + ', minimum-scale=' + ratio + ', user-scalable=yes, width=' + ww);
+				}else{ //regular size
+					$('#Viewport').attr('content', 'initial-scale=1.0, maximum-scale=2, minimum-scale=1.0, user-scalable=yes, width=' + ww);
+				}
+			}
 		});
 		</script>
 	</head>
@@ -86,6 +96,55 @@ Copyright Felix Guo 2017
 			</div>
 		</div>
 		<div class="portfolio">
+			<div class="container wendyscript">
+				<div class="container">
+					<div class="row title">
+						<div class="col-md-12">
+							<h2>Interactive</h2>
+							<h1>Wendy<span>Script</span></h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 codeContainer">
+							<textarea id="code"></textarea>
+							<script>
+								var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+								lineNumbers: true,
+								mode: "wendyscript",
+								matchBrackets: true,
+								theme: "base16-light",
+								lineWrapping: true,
+								gutters: ["linenumbers"],
+								extraKeys: {Tab: function(cm) {
+									var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+										cm.replaceSelection(spaces);}}
+								});
+								editor.setSize("100%", "100%");
+							</script>
+							<div class="runBtnContainer">
+								<div class="runBtn" id="runBtn">
+									Run >
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 consoleContainer">
+							<textarea id="console"></textarea>
+							<script>
+								var editor = CodeMirror.fromTextArea(document.getElementById("console"), {
+								lineNumbers: false,
+								mode: "text",
+								matchBrackets: false,
+								readOnly: true,
+								theme: "base16-light",
+								lineWrapping: true
+								});
+							editor.setSize("100%", "calc(100% - 30px)");
+							</script>
+							<input type="text" class="userinput" placeholder="Type something here...">			
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
