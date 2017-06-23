@@ -20,8 +20,14 @@ $(document).ready(function () {
 		client_id = parseInt(data);
 		console.log("Created client: " + client_id);
 	});
-	$.get("demoApp.w", function(data) {
+	$.get("userInputSum.w", function(data) {
 		code_instance.setValue(data);	
+	});
+	$(".loadCode").click(function(){
+		var id = $(this).attr('id');
+		$.get(id + ".w", function(data) {
+			code_instance.setValue(data);	
+		});
 	});
 	$(".userinput").keypress( function (event) {
 		if (event.which == 13 && code_running) {

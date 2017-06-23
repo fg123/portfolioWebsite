@@ -138,6 +138,15 @@ div.front:before {
 }
 
 /* Special Portfolio - Wendy*/
+.loadCode {
+	color: #FFF;
+}
+
+.loadCode:hover {
+	cursor:pointer;
+	color:#FFF;
+}
+
 .title {
 	text-align:center;
 	color: #FFF;
@@ -179,10 +188,21 @@ div.container.wendyscript .row:not(.title) {
 .codeContainer {
 	position:relative;
 }
-.codeContainer .CodeMirror {
+.codeContainer .CodeMirror,
+.codeContainer .CodeMirror-scroll {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
+	border-collapse: separate; 
+}
+.codeContainer .bottomContainer {
+	position:relative;
+}
+.codeContainer .examplesContainer {
+	position:absolute;
+	top:5px;
+	left:5px;
+	color:#FFF;
 }
 .codeContainer .runBtnContainer {
 	width: 100%;

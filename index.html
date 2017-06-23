@@ -106,10 +106,6 @@ Copyright Felix Guo 2017
 					</div>
 					<div class="row">
 						<div class="col-md-6 codeContainer">
-							<div>
-								<a id="userInputSum">User Input Sum</a>
-								<a id="oopExample">Objects</a>
-							</div>
 							<textarea id="code"></textarea>
 							<script>
 								var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
@@ -125,9 +121,17 @@ Copyright Felix Guo 2017
 								});
 								editor.setSize("100%", "100%");
 							</script>
-							<div class="runBtnContainer">
-								<div class="runBtn" id="runBtn">
-									Run >
+							<div class="bottomContainer">
+								<div class="runBtnContainer">
+									<div class="runBtn" id="runBtn">
+										Run >
+									</div>
+								</div>
+								<div class="examplesContainer">
+									Load examples: 
+									<a id="userInputSum" class="loadCode">User Input Sum</a> | 
+									<a id="oopExample" class="loadCode">Objects</a> | 
+									<a id="functions" class="loadCode">Functions</a>
 								</div>
 							</div>
 						</div>
@@ -149,7 +153,7 @@ Copyright Felix Guo 2017
 					</div>
 				</div>
 			</div>
-			<div class="container">
+			<div class="container" style="margin-top: 50px">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="portfolioBig">

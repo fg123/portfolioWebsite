@@ -8,13 +8,11 @@ CodeMirror.defineSimpleMode("wendyscript", {
     // groups must span the whole string in this case
     // Rules are matched in the order in which they appear, so there is
     // no ambiguity between this one and the one above
-    {regex: /\\b(if|for|import|let|ret|dec|inc|struct|input|else|time|and|or)\\b/,
+    {regex: /\bif|for|import|let|ret|dec|inc|struct|input|in|else|time|and|or\b/,
      token: "keyword"},
-//    {regex: /\b(this|base)\b/, token: "property" },
-    {regex: /\b(init)\b/, token: "builtin" },
-	{regex: /<([a-z]|[A-Z]|_|:)+>/, token: "variable-2"},
-    {regex: /true|false|none|String|Bool|Number|Address|List/, token: "atom"},
-    {regex: /([a-zA-Z_])[\1|\d]+/, token: "variable"},
+	  {regex: /<([a-z]|[A-Z]|_|:)+>/, token: "variable-2"},
+    {regex: /true|false|none|String|Bool|Number|this|Address|List/, token: "atom"},
+    {regex: /([a-zA-Z_])+[\d]*/, token: "variable"},
     {regex: /\b\d*\.?\d+\b/,
       token: "number"},
     // A next property will cause the mode to move to a different state
