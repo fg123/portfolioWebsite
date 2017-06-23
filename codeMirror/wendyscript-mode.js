@@ -8,7 +8,7 @@ CodeMirror.defineSimpleMode("wendyscript", {
     // groups must span the whole string in this case
     // Rules are matched in the order in which they appear, so there is
     // no ambiguity between this one and the one above
-    {regex: /\b(if|for|req|let|ret|dec|inc|struct|input|else|time|and|or)\b/,
+    {regex: /\\b(if|for|import|let|ret|dec|inc|struct|input|else|time|and|or)\\b/,
      token: "keyword"},
 //    {regex: /\b(this|base)\b/, token: "property" },
     {regex: /\b(init)\b/, token: "builtin" },
