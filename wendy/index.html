@@ -18,7 +18,6 @@ Copyright Felix Guo 2016
 		<link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 		
-		
 		<link rel="icon" type="image/png" href="../images/icon.png">
 
 		<link rel="stylesheet" href="main.css" type="text/css">
@@ -30,14 +29,14 @@ Copyright Felix Guo 2016
 			<div class="row title">
 				<div class="col-md-12">
 					<h1>Wendy<span>Script</span></h1>
-					<h2>Documentation 1.1</h2>
+					<h2>Documentation 2.0</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-9 col-md-push-3 content">
 					<!-- content -->
 					<h1 style="margin-top:0px" id="gettingstarted">Getting Started</h1>
-					<p><a href="https://www.student.cs.uwaterloo.ca/~f28guo/" class="btn btn-lg btn-success">Try it online!</a></p>
+					<p><a href="../index.html#wendyScript" class="btn btn-lg btn-success">Try it online!</a></p>
 					<p>You can also check out the source code for the WendyScript interpreter at: <a href="https://github.com/fg123/wendy">GitHub</a>.
 					<br> The source is entirely in C and you are welcome to clone and build it yourself. Wendy can be run
 					either with a file or in REPL mode.</p>
@@ -45,9 +44,9 @@ Copyright Felix Guo 2016
 					<pre><code>wendy <i>filename.w</i></code></pre>
 
 					<h1 style="margin-top:0px" id="introduction">Introduction</h1>
-					<p>Welcome to WendyScript, a C-syntax based scripting language! 
+					<p>Welcome to WendyScript, a programming language! WendyScript supports first class functions, dynamic typing, optional semicolons, and short form statements.
 						Let's start with the most basic: outputting "Hello World!".</p>
-					<pre><code>"Hello World!";</code></pre>
+					<pre><code>"Hello World!"</code></pre>
 					<p>This will output <code>Hello World!</code> to the console.</p>
 					<p>You may have noticed that we did not need to use a print function. This is because
 						expressions evaluated at the top-level will be printed out in the console by WendyScript.</p>
@@ -60,7 +59,6 @@ Copyright Felix Guo 2016
 					<pre><code>@"Hello World!";
 "This is on a new line!";</code></pre><pre><code>Hello World!This is on a newline!</code></pre>
 
-
 					<h1 id="constants">Variables</h1>
 					<p>WendyScript is dynamically typed and supports three (+ null) types of data: numbers, strings, and boolean values.</p>
 <pre><code>let name = "Wendy"; // declares and sets a string variable
@@ -68,8 +66,8 @@ let age = 18; // declares and set a number variable
 let x; // declares x and sets it to &lt;none&gt;, a NULL type
 let valid_license = true; // declares and sets a boolean variable
 
-set age = 19; // mutates the value of age to be 19
-set name = 20; // dynamic types allows variable types to be changed</code></pre>	
+age = 19; // mutates the value of age to be 19
+name = 20; // dynamic types allows variable types to be changed</code></pre>	
 					<p>WendyScript also supports two special commands for numeric typed variables: <code>inc</code> and <code>dec</code>.
 					These functions can be called to add 1 or subtract 1 to a variable respectively.</p>
 <pre><code>let number = 9;
@@ -113,7 +111,7 @@ Hello World!
 						Local functions can be declared within other functions.
 						To bind a function to an identifier: </p>
 <pre><code>let f => (x) { 
-	function_body; 
+	function_body;
 };</code></pre></p> <p>WendyScript also supports recursive functions.</p>
 <pre><code>let factorial => (x) { 
 	if (x <= 1) {
@@ -194,7 +192,7 @@ mylist[3]; // accesses the last element</code></pre>
 					<p>See the code sample "<a href="#samples" class="sectionLink" data-samp="#userinputsum">User Input Sum</a>" to see how arrays can be used.</p>
 					<p>When a list is pass into a function, it is always passed by reference. This is the same as assigning a list to another. A copy is not made.</p>
 <pre><code>let my_fn => (lst) {
-	set lst[1] = 10; // Change the second element
+	lst[1] = 10; // Change the second element
 	ret;
 };
 let a = [1, 2, 3];
@@ -295,228 +293,27 @@ input name;
 						Be aware that you must declare the variable the user input is to be stored in before prompting <code>input</code>.
 					</p>
 					
-					<h1 id="strings">Strings</h1>
-					<p>In order to access
-						individual characters of a string, you must first <code>explode</code> it.
-						<code>explode</code> will take a identifier that stores a string, break up
-						the string into a character list terminated with <code>&lt;none&gt;</code>.
-						The identifier is then modified to be pointing to the start of that array. 
-					</p>
-<pre><code>let name = "Wendy";
-// name -> "Wendy"
-explode name;
-// name -> "W", "e", "n", "d", "y", "&lt;none&gt;"
-name[3];
-</code></pre>
-<pre><code>d</code></pre>
 					<h1 id="time">Time</h1>
 					<p>WendyScript provides the <code>time</code> keyword, which returns a UTC value of the current time.
 					This is often used with <code>random.w</code> to instantiate the seed for the random number generator.</p>
 <pre><code>req "random.w";
 irand(time);</code></pre>
 
-					<h1 id="samples">Code Examples</h1>
-					
-					<ul class="nav nav-tabs codeSampLinks">
-						<li role="presentation" class="active"><a href="#reversenum">Reverse Number</a></li>
-						<li role="presentation"><a href="#fibonacci">Fibonacci</a></li>
-						<li role="presentation"><a href="#primes">Prime Number</a></li>
-						<li role="presentation"><a href="#userinputsum">User Input Sum</a></li>
-						<li role="presentation"><a href="#inheritance">OOP Inheritance</a></li>
-					</ul>
-					<div class="codesamp" id="reversenum">
-<pre><code>// Reverse Integer: WendyScript 1.1
-// reverse(num) consumes an integer and reverses the 
-//   digits in the integer.
-// reverse: Int -> Int
-// Example: 1324 -> 4231
-let reverse => (num) {
-	let res = 0;
-	loop (num > 0) {
-		set res = res * 10;
-		set res = res + (num % 10);
-		set num = num \ 10;
-	};
-	ret res;
-};
+					<h1 id="shortform">Short Form</h1>
+					<p>Most keywords in WendyScript have a symbolic short form.</p>
+<pre><code class="nostyle">& and
+| or
+? if
+: else
+# for
+++ inc
+-- dec
+<< let
+>> input
+/> ret</code></pre> 
 
-let x;
-@"Input a number: ";
-input x;
-
-@"The reverse is: ";
-reverse(x);</code></pre>
-					</div>
-					<div class="codesamp" id="fibonacci">
-<pre><code>// Fibonacci Sequence: WendyScript 1.1
-// gen_fibonacci_seq(num) consumes an integer and 
-//   prints the first num fibonacci numbers.
-// gen_fibonacci_seq: Int -> Str
-// Example: 5 -> 1 1 2 3 5
-let gen_fibonacci_seq => (num) {
-	let prev1 = 1;
-	let prev2 = 1;
-	let curIndex = 0;
-	loop (curIndex < num) {
-		if (curIndex < 2) {
-			@"1 ";
-		}
-		else {
-			let tmp = prev1 + prev2;
-			@(tmp + " ");
-			set prev1 = prev2;
-			set prev2 = tmp;
-		};
-		inc curIndex;
-	};
-	ret;
-};
-
-let x;
-@"Input a number: ";
-input x;
-
-@"The fibonacci sequence is: ";
-gen_fibonacci_seq(x);</code></pre>
-					</div>
-					<div class="codesamp" id="primes">
-<pre><code>// Prime Number: WendyScript 1.1
-// check_prime(x) consumes an integer and produces true 
-//   if it's prime and false otherwise.
-// check_prime: Int -> Bool
-// Example: 7 -> true
-let check_prime => (x) {
-	if((x <= 2) and (x > 0)) {
-		ret true;
-	};
-	if ((x < 0) or ((x % 2) == 0)) {
-		ret false;
-	};
-	let factor = 3;
-	loop (factor < (x / 2)) {
-		if ((x % factor) == 0) {
-			ret false;
-		}
-		else {
-			// move to next odd factor
-			inc factor;
-			inc factor;
-		};
-	};
-	ret true;
-};
-let x;
-@"Please enter a number: ";
-input x;
-
-let res = check_prime(x);
-if (res) {
-	x + " is a prime!";
-}
-else {
-	x + " is not a prime!";
-};</code></pre>
-					</div>
-
-					<div class="codesamp" id="userinputsum">
-<pre><code>// User Input Sum: WendyScript 1.1
-let size = 0;
-@"How many numbers to sum? ";
-input size;
-
-let numbers[size]; // declares array of size 
-let i = 0;
-loop (i < size) {
-	@"Enter #" + (i + 1) + ": ";
-	input numbers[i]; // input directly into array
-	inc i;
-};
-set i = 0;
-let final = 0;
-loop(i < size) {
-	set final = final + numbers[i]; // sum all the numbers
-	inc i;	
-}; 
-"The sum is: " + final;</code></pre>
-					</div>
-					<div class="codesamp" id="inheritance">
-<pre><code>// OOP Inheritance: WendyScript 1.1
-req "math.w";
-
-struct shape => (x, y) [print, pi, intersect, distance];
-set shape.init => (x, y) {
-	set this.x = x;
-	set this.y = y;
-	ret this;
-};
-set shape.distance => (other) {
-	ret sqrt(pow(this.x - other.x, 2) + pow(this.y - other.y, 2));
-};
-set shape.pi = 3.14159265;
-set shape.print => () {
-	"This is a shape at: (" + this.x + ", " + this.y + ").";
-	ret;
-};
-set shape.intersect => (other) {
-	// If both circles?
-	if (this.type == &lt;circle&gt; and other.type == &lt;circle&gt;) {
-		// Two circles intersect if the distance between them is smaller than
-		//   the sum of the radius.
-		let result =  (this.distance(other) < (this.radius + other.radius));
-		ret result;
-	}
-	else {
-		"Must compare two circles!";
-		ret;
-	};
-};
-// Circle Object with Parent Shape
-struct circle:shape => (radius) [circumference, area, print];
-set circle.init => (x, y, radius) {
-	set this.base = this.base.init(x, y);
-	set this.radius = radius;
-	ret this;
-};
-set circle.print => () {
-	"This is a circle with radius " + this.radius + " located at (" + this.x + ", " + this.y + ").";
-	ret;
-};
-set circle.area => () {
-	ret (this.radius * this.radius) * this.pi;
-};
-set circle.circumference => () {
-	ret (this.radius * 2) * this.pi;
-};
-
-struct rectangle:shape => (width, height) [area, perimeter, print];
-set rectangle.init => (x, y, width, height) {
-	set this.base = this.base.init(x, y);
-	set this.width = width;
-	set this.height = height;
-	ret this;
-};
-set rectangle.area => () {
-	ret this.width * this.height;
-};
-set rectangle.perimeter => () {
-	ret 2 * (this.width + this.height);
-};
-set rectangle.print => () {
-	"This is a rectangle with width " + this.width + " and height " + this.height
-	  + " at (" + this.x + ", " + this.y + ").";
-	  ret;
-};
-
-let my_c = circle(30, 40, 30);
-my_c;
-my_c.print();
-my_c.circumference();
-my_c.area();
-
-let my_r = circle(0, 0, 20);
-
-my_c.intersect(my_r);</code></pre>
-					</div>
+					<p>So a factorial function could be written like this: </p>
+					<pre><code><< fact => (x) ? x == 0 /> 1 : /> x * fact(x - 1)</code></pre>
 				</div>
 
 				<div class="col-md-3 col-md-pull-9 navigation">
@@ -532,10 +329,9 @@ my_c.intersect(my_r);</code></pre>
 						<a href="#conditions" class="list-group-item list-group-item-action">Conditions</a>
 						<a href="#loops" class="list-group-item list-group-item-action">Loops</a>
 						<a href="#input" class="list-group-item list-group-item-action">User Input</a>
-						<a href="#strings" class="list-group-item list-group-item-action">Strings</a>
-						<a href="#time" class="list-group-item list-group-item-action">Time</a>
-						<a href="#samples" class="list-group-item list-group-item-action">Code Examples</a>						
-						<a href="reference.html" class="list-group-item list-group-item-action">Reference Manual</a>
+						<a href="#time" class="list-group-item list-group-item-action">Time</a>		
+						<a href="#shortform" class="list-group-item list-group-item-action">Short Form</a>		
+						<!--<a href="reference.html" class="list-group-item list-group-item-action">Reference Manual</a>-->
 					</div>
 				</div>
 			</div>
