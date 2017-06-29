@@ -182,14 +182,13 @@ apply(#:(a, b) { ret a * b; }, 10, 20); // invoke with a lambda function</code><
 
 					<h1 id="lists">Lists</h1>
 					<p>WendyScript supports a dynamically typed collection: a list. To create a list:</p>
-					<pre><code>let mylist[10] = 0;</code></pre>
-					<p>This declares an array of size 10 where each element is 0.</p>
+					<pre><code>let mylist = [];</code></pre>
+					<p>This declares an empty array.</p>
 					<pre><code>let mylist = [1, 2, "hello", false];</code></pre> 
 					<p>This declares an array of size 4 with the given elements. An array's elements can be accessed 
 						in a similar way. For example: </p>
 					<pre><code>mylist[0]; // accesses the first element
 mylist[3]; // accesses the last element</code></pre>
-					<p>See the code sample "<a href="#samples" class="sectionLink" data-samp="#userinputsum">User Input Sum</a>" to see how arrays can be used.</p>
 					<p>When a list is pass into a function, it is always passed by reference. This is the same as assigning a list to another. A copy is not made.</p>
 <pre><code>let my_fn => (lst) {
 	lst[1] = 10; // Change the second element
@@ -199,6 +198,8 @@ let a = [1, 2, 3];
 my_fn(a);
 a;</code></pre>
 <pre><code>[1, 10, 3]</code></pre>
+					<p>You can make a shallow copy of a list using the <code>~</code> operator. For example, if you passed <code>~a</code> into <code>my_fn</code>, it would
+					not modify the original list.</p>
 					<p>WendyScript also has a range of operators for dealing with lists.</p>
 <pre><code>// We have list equality and inequality
 [10, 20, 30] != [20, 30, 10]; // true
@@ -228,17 +229,32 @@ true + [10, 20, 30]; // [true, 10, 20, 30]
 						but this constructor must end with <code>ret this;</code> to pass the instance
 						back to the caller. </p>
 					<p>Let's define what print does:</p>
-						<pre><code>let posn.print => () {
+						<pre><code>posn.print => () {
 	"This is a posn objet at " + this.x + ", " + this.y + ".";
-	ret;
 };</code></pre>
 					<p>Now we can create a posn instance with: <code>let a = posn(10, 20);</code> and access
 					the instance members with <code>a.x</code> and <code>a.y</code>. We can also call print with
 					<code>a.print()</code>. </p>
 					
-					<p>Inheritance can be performed by declaring a parent for a struct. A detailed example of
-						this can be found in the code sample: "<a href="#samples" class="sectionLink" data-samp="#inheritance">OOP Inheritance</a>".</p>
-				
+					<p>Inheritance can be performed by declaring a parent for a struct. We can make a circle class extend the
+						posn class.</p> 
+					<pre><code>struct circle:posn => (radius) [print];
+// default init function will only take a radius, lets override it
+circle.init => (x, y, radius) {
+	this.x = x
+	this.y = y
+	this.radius = radius
+}
+// override the print function
+circle.print => () {
+	"This is a circle objet at " + this.x + ", " + this.y + " with radius " + this.radius + ".";
+}
+// create a circle object
+let myc = circle(10, 20, 30)
+myc.x
+myc.y
+myc.radius
+</code></pre>
 
 					<h1 id="conditions">Conditions</h1>
 					<p>Conditions work the same way as in most languages with familiar syntax.</p>
@@ -270,16 +286,40 @@ else {
 						
 
 					<h1 id="loops">Loops</h1>
-					<p>WendyScript supports the most basic type of loop, a loop
-					that runs a set of commands based on a condition. </p>
+					<p>WendyScript supports an advanced loop syntax using the keyword <code>for</code>. There are
+					two ways to use this for loop. The first is to provide it with one parameter, in which the
+					parameter must be a condition and the loop will act like a <code>while</code> loop. </p>
 <pre><code>let x = 5;
-loop(x > 0) {
+for (x > 0) {
 	@(x + " ");
 	dec x;
 };
 </code></pre><pre><code class="nostyle">5 4 3 2 1 </code></pre>
-
-					
+					<p>The other way is to supply two parameters, in which the loop acts like a <code>foreach</code> loop.
+					The first parameter must be an identifier (which will automatically be declared), and the second 
+					parameter should be an iterable collection (List, Range, String). The identifier supplied will be
+					inflated with the value of the current object in the iterable collection. For example, to print out 
+					the contents of a list: </p>
+					<pre><code>for i in [5, 4, 3, 2, 1] {
+	@(i + " ");
+}
+</code></pre><pre><code class="nostyle">5 4 3 2 1 </code></pre>
+					<p>You could also iterate through a range (right bound of range is always exclusive): </p>
+					<pre><code>for i in 5->0 {
+	@(i + " ");
+}
+</code></pre><pre><code class="nostyle">5 4 3 2 1 </code></pre>
+					<p>And finally, through a string: </p>
+					<pre><code>for i in "Hello" {
+	@(i + "!");
+}
+</code></pre><pre><code class="nostyle">H!e!l!l!o!</code></pre>
+					<p>Using loops is a quick way to fill a list with a number of initial values. To initialize a list
+						with size 10 and all zeros, you could write: </p>
+						<pre><code>let lst = []
+for i in 0->10 lst += 0
+lst
+</code></pre><pre><code class="nostyle">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></pre>
 					<h1 id="input">User Input</h1>
 
 					<p>User input is easy in WendyScript! Input is achieved by the <code>input</code> keyword. </p>	
@@ -296,12 +336,26 @@ input name;
 					<h1 id="time">Time</h1>
 					<p>WendyScript provides the <code>time</code> keyword, which returns a UTC value of the current time.
 					This is often used with <code>random.w</code> to instantiate the seed for the random number generator.</p>
-<pre><code>req "random.w";
-irand(time);</code></pre>
 
-					<h1 id="shortform">Short Form</h1>
-					<p>Most keywords in WendyScript have a symbolic short form.</p>
-<pre><code class="nostyle">& and
+					<h1 id="shortform">Short Form / Shortcuts</h1>
+					<p>Syntax is WendyScript is relatively relaxed. Conditions in loops and conditionals do not require
+						parentheses and single statements do not require curly braces either. This is completely valid: 
+					</p>
+					<pre><code>let a = 10
+if a == 10 "A is 10!" else "A is not 10!"
+</code></pre>
+					<p>Functions in WendyScript also have implicit returns, so if the body of the function is just an expression, 
+						it will be automatically returned.</p>
+					<pre><code>let square => (x) {
+	ret x * x;
+}
+// can also be written as
+let square => (x) x * x
+// which is a lot less verbose
+</code></pre>
+					<p>Most keywords in WendyScript also have a symbolic short form.</p>
+<pre><code class="nostyle">: in
+& and
 | or
 ? if
 : else
@@ -313,7 +367,7 @@ irand(time);</code></pre>
 /> ret</code></pre> 
 
 					<p>So a factorial function could be written like this: </p>
-					<pre><code><< fact => (x) ? x == 0 /> 1 : /> x * fact(x - 1)</code></pre>
+					<pre><code><&lt;fact=>(x)?x==0/>1:/>x*fact(x-1)</code></pre>
 				</div>
 
 				<div class="col-md-3 col-md-pull-9 navigation">

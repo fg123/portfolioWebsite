@@ -1,9 +1,8 @@
 // Javascript Bootstrap Syntax Highlighting for the Wendy Scripting Language
 // Designed by Felix Guo
 
-var keywords = ["let", "err", "set", "memset", "true", "false", "ret", "none", "dec", "inc", "struct", "req", "input", "explode", "time",
-	"Bool", "String", "Number", "List", "typeof", "Address", "assert"];
-var operators = ["loop", "and", "or", "if", "else", "+", "-", "\\",
+var keywords = ["let", "in", "true", "false", "ret", "none", "dec", "inc", "struct", "req", "input", "time", "assert"];
+var operators = ["for", "and", "or", "if", "else", "+", "-", "\\",
 	"*", "/", "==", ">=", "<=", "<", ">", "=>"];
 
 function isFunctionId(lst, curID)
