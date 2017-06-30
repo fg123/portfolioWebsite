@@ -127,31 +127,13 @@ factorial(5);</code></pre>
 					<p>Here we introduce you to the <code>ret</code> keyword. <code>ret</code> allows functions
 					to return a value to the original place it was called. In this case, the returned
 					value <code>120</code> was left as a top level expression and thus was printed.</p>
-					<div class="alert alert-info" role="alert"><b>Note: </b>Functions that have no return
-					statement or returns no value automatically returns <code>none</code>. In the case of a 
-					function call, this will print <code>&lt;none&gt;</code> to the screen! The simple way 
-					around that is to always return a value. 
-<pre><code>let printHello => () { 
-	"Hello World!";
-};
-printHello();</code></pre> 
-					<pre>Hello World! <br>&lt;none&gt;</pre>
-					<p>The <code>Hello World!</code> occurs when the function body has run and the <code>&lt;none&gt;</code> occurs when 
-					the result of the <code>printHello</code> function is printed to the screen. Since the function has no return
-					value, the function returns <code>none</code></p><br>
-<pre><code>let printHello => () { 
-	ret "Hello World!";
-};
-printHello();
+					
+					<p>WendyScript functions can be written without curly braces if the function body only includes one
+						statement. WendyScript also supports implicit returns if the function body is an expression. The
+						<code>factorial()</code> function written above can be simplified to: </p>
+<pre><code>let factorial => (x) if (x <= 1) ret 1 else ret x * factorial(x - 1);</code></pre>
 
-let printHello2 => () { 
-	"Hello World!";
-	ret;
-};
-printHello2();</code></pre> 
-					<p>Both of these will produce the expected behaviour: <code>Hello World!</code> Note the extra <code>ret</code> in the function body. If <code>ret</code>
-					is called with no value, the function will print no value.</p>
-					</div>
+					<p>More info about this can be found in the Short Forms section of this documentation.</p>
 					
 					<h2 id="lambda">Lambda</h2>
 					<p>WendyScript also support lambda functions. Lambda functions can be defined using <code>#:</code>. 
@@ -177,8 +159,7 @@ apply(multiply, 10, 20); // invoke with another function
 
 apply(#:(a, b) { ret a * b; }, 10, 20); // invoke with a lambda function</code></pre>
 <pre><code>200
-200</code></pre>
-					
+200</code></pre>	
 
 					<h1 id="lists">Lists</h1>
 					<p>WendyScript supports a dynamically typed collection: a list. To create a list:</p>
