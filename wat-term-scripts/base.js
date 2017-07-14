@@ -1,6 +1,10 @@
-parent.postMessage("RequestSystem", "*");
-var system;
+var id = "";
+function done() {
+    parent.postMessage("F" + id, "*");
+}
+parent.postMessage("RequestID", "*");
+
 function receiveMessage(event) {
-    system = event.data;
+    id = event.data;
 }
 window.addEventListener("message", receiveMessage, false);
