@@ -4,23 +4,16 @@ shape.print => () {
   "Shape at (" + this.x + ", " + this.y + ")"
 }
 
-// Implicit overridable constructor based on instance members
+// Implicit constructor based on instance members
 let myGenericShape = shape(10, 20)
 myGenericShape.print()
 
-// Inheriting with added instance and overridden static member
-struct circle:shape => (radius) [print]
-circle.print => () {
-    "Circle at (" + this.x + ", " + this.y + ") with radius " + this.radius
-}
-
-// Overriding init function (required for children classes)
-circle.init => (x, y, radius) {
+// Override constructor to ensure both fields are the same
+shape.init => (x) {
     this.x = x
-    this.y = y
-    this.radius = radius
+    this.y = x
     ret this
 }
 
-let myCircle = circle(30, 40, 10)
-myCircle.print()
+let otherShape = shape(50)
+otherShape.print()

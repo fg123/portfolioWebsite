@@ -217,26 +217,6 @@ true + [10, 20, 30]; // [true, 10, 20, 30]
 					the instance members with <code>a.x</code> and <code>a.y</code>. We can also call print with
 					<code>a.print()</code>. </p>
 					
-					<p>Inheritance can be performed by declaring a parent for a struct. We can make a circle class extend the
-						posn class.</p> 
-					<pre><code>struct circle:posn => (radius) [print];
-// default init function will only take a radius, lets override it
-circle.init => (x, y, radius) {
-	this.x = x
-	this.y = y
-	this.radius = radius
-}
-// override the print function
-circle.print => () {
-	"This is a circle objet at " + this.x + ", " + this.y + " with radius " + this.radius + ".";
-}
-// create a circle object
-let myc = circle(10, 20, 30)
-myc.x
-myc.y
-myc.radius
-</code></pre>
-
 					<h1 id="conditions">Conditions</h1>
 					<p>Conditions work the same way as in most languages with familiar syntax.</p>
 					<pre><code>let x = 10;
