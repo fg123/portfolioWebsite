@@ -80,6 +80,8 @@ div.portfolio-link:hover {
 	}
 	div.about div.row {
 		width: 100%;
+		left:0px;
+		margin-left:0px;
 	}
 }
 
