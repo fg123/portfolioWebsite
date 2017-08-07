@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>App Testing</title>
+        <meta id="Viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="manifest" href="manifest.json">
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function(event) { 
+                navigator.getInstalledRelatedApps().then(relatedApps => {
+                    for (let app of relatedApps) {
+                        var t = document.createTextNode(app.platform + "<br>" + app.url + "<br>" + app.id + "<br><hr>");
+                        document.body.appendChild(t);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        
+    </body>
+</html>

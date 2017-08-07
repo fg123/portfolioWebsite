@@ -1,0 +1,16 @@
+{
+  "name": "Amazing",
+  "short_name": "Whee",
+  "description": "Yay.",
+  "background_color": "#000000",
+  "theme_color": "#0f4a73",
+  
+  "related_applications": [{
+    "platform": "play",
+    "id": "com.yahoo.mobile.client.android.fantasyfootball"
+  }, {
+    "platform": "play",
+    "id": "com.yahoo.mobile.client.android.yahoo"
+  }]
+  
+}
