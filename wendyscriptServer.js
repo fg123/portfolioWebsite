@@ -5,7 +5,6 @@ var console_instance;
 var get_compiled = false;
 
 function getQueryParams(qs) {
-    qs = qs.split("+").join(" ");
     var params = {},
         tokens,
         re = /[?&]?([^=]+)=([^&]*)/g;
@@ -41,7 +40,11 @@ $(document).ready(function () {
 		});
 	}
 	else {
-		code_instance.setValue(window.atob($_GET["code"]));
+		var code = $_GET["code"];
+		if (code.endsWith("#wendyScript")) {
+			code = code.substring(0, code.indexOf("#wendyScript"));
+		}
+		code_instance.setValue(atob(code));
 	}
 	$(".loadCode").click(function(){
 		var id = $(this).attr('id');

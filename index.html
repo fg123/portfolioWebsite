@@ -118,7 +118,7 @@
 								});
 								editor.setSize("100%", "450px");
 								editor.on("change", function (cm, change) {
-									$(".linkToShare").val("https://felixguo.me/#wendyScript?code=" + window.btoa(cm.getValue()));
+									$(".linkToShare").val("https://felixguo.me?code=" + btoa(cm.getValue()) + "#wendyScript");
 								});
 							</script>
 							<div class="bottomContainer">
