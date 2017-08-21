@@ -4,6 +4,21 @@ var code_instance;
 var console_instance;
 var get_compiled = false;
 
+function getQueryParams(qs) {
+    qs = qs.split("+").join(" ");
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])]
+            = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+}
+var $_GET = getQueryParams(document.location.search);
+
 var server_url = "https://www.student.cs.uwaterloo.ca/~f28guo/";
 $(window).on("unload", function() {
 	$.ajax({
@@ -20,9 +35,14 @@ $(document).ready(function () {
 		client_id = parseInt(data);
 		console.log("Created client: " + client_id);
 	});
-	$.get("userInputSum.w", function(data) {
-		code_instance.setValue(data);	
-	});
+	if (!$_GET["code"]) {
+		$.get("userInputSum.w", function(data) {
+			code_instance.setValue(data);	
+		});
+	}
+	else {
+		code_instance.setValue(window.atob($_GET["code"]));
+	}
 	$(".loadCode").click(function(){
 		var id = $(this).attr('id');
 		$.get(id + ".w", function(data) {
@@ -38,6 +58,9 @@ $(document).ready(function () {
 			});
 		}
 		}
+	});
+	$(".linkToShare").click(function() {
+		 $(this).select();
 	});
 	$("#runBtn").click(function (){
         console_instance.setValue("");

@@ -117,6 +117,9 @@
 									cm.replaceSelection(spaces);}}
 								});
 								editor.setSize("100%", "450px");
+								editor.on("change", function (cm, change) {
+									$(".linkToShare").val("https://felixguo.me/#wendyScript?code=" + window.btoa(cm.getValue()));
+								});
 							</script>
 							<div class="bottomContainer">
 								<div class="runBtnContainer">
@@ -125,6 +128,8 @@
 									</div>
 								</div>
 								<div class="examplesContainer">
+									<input type="text" class="linkToShare" readonly>
+									<br>
 									Load examples: 
 									<a id="userInputSum" class="loadCode">User Input Sum</a> | 
 									<a id="oopExample" class="loadCode">Objects</a> | 
