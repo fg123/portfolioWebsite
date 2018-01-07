@@ -347,11 +347,27 @@ div.container.wendyscript .row:not(.title) {
 	margin-left:auto;
 	margin-right:auto;
 }
-div.corner.topLeft {
-
+div.corner {
 	position: absolute;
+}
+div.corner.topLeft {
 	top: 0px;
 	left: 0px;
+	z-index: 10;
+}
+div.corner.topLeft .subtitle {
+	transform: rotate(-45deg);
+	top: 85px;
+	left: -30px;
+}
+div.corner.topRight .subtitle {
+	transform: rotate(45deg);
+	top: 85px;
+	left: -40px;
+}
+div.corner.topRight {
+	top: 0px;
+	right: 0px;
 	z-index: 10;
 }
 div.corner img {
@@ -362,13 +378,11 @@ div.corner img {
 div.corner .subtitle {
 	width: 241px;
 	text-align:center;
-	top: 85px;
 	font-size: 13px;
-	left: -30px;
 	position: absolute;
-	transform: rotate(-45deg);
 	z-index: 10;
 }
+
 
 .linkToShare {
 	color: #000;
