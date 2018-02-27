@@ -66,8 +66,9 @@
 				</WorkEntry>
 				<WorkEntry name="Nick PDF" position="Generate PDFs from XML Markup" date="May. 2017 - Present">
 					<ListItem content="Takes PDFML (PDF Markup Language) and generates a PDF" />
-					<ListItem content="Supports templating system that allows reusing of elements to build complex layouts" />
-					<ListItem content="This PDF was generated with Nick; the source for this resume can be found at INSERT LINK HERE" />
+					<ListItem content="Employs similar layout processes as Android's layout system, with custom written measure, layout and draw passes" />
+					<ListItem content="Supports generic UI templating system that allows reusing of elements to build complex, reusable layouts" />
+					<ListItem content="This PDF was generated with Nick; the PDFML source can be found at https://github.com/fg123/portfolioWebsite/tree/master/resume" />
 				</WorkEntry>
 			</Section>
 			<Section name="EDUCATION">
