@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document>
+	<!-- Fonts -->
+	<Font regular="fonts/MyriadPro-Regular.ttf"
+		  bold="fonts/MyriadPro-Semibold.ttf"
+		  italic="fonts/MyriadPro-It.ttf"
+		  name="Myriad Pro" />
+
+	<Font regular="fonts/MyriadPro-Bold.ttf"
+		  name="Myriad Pro Bold" />
+	
+	<Font regular="fonts/Lato-Regular.ttf"
+		  name="Lato" />
+
+	<Font regular="fonts/FontAwesome.ttf"
+		  name="FontAwesome" />
+
+	<!-- Templates -->
+	<Template name="Section">
+		<LinearLayout margin-bottom="10">
+			<LinearLayout orientation="horizontal" margin-bottom="5">
+				<TextView text="$name >" size="17" font="Myriad Pro Bold" />
+				<TextView width="fill" border-bottom="1"/>
+			</LinearLayout>
+			<Content />
+		</LinearLayout>
+	</Template>
+
+	<Template name="ListItem">
+		<LinearLayout orientation="horizontal">
+			<TextView text=" -            " size="4" padding-top="4" font="FontAwesome" />
+			<TextView text="$content" size="9" font="Myriad Pro" />
+		</LinearLayout>
+	</Template>
+
+	<Template name="WorkEntry">
+		<LinearLayout width="fill" margin-bottom="5">
+			<LinearLayout orientation="horizontal" width="fill" gravity="center-vertical" margin-bottom="3">
+				<LinearLayout>
+					<TextView text="$name" size="11" style="bold" font="Myriad Pro"/>
+					<TextView text="$position" size="10" style="italic" font="Myriad Pro"/>
+				</LinearLayout>
+				<LinearLayout gravity="right" width="fill">
+					<TextView text="$location" size="11" style="bold" font="Myriad Pro"/>
+					<TextView text="$date" size="10" font="Myriad Pro"/>
+				</LinearLayout>
+			</LinearLayout>
+			<Content />
+		</LinearLayout>
+	</Template>
+
+	<Template name="SkillItem">
+		<LinearLayout orientation="horizontal" gravity="center-vertical" padding-bottom="1" >
+			<TextView text="$type" size="10" style="bold" font="Myriad Pro" width="80" align="right" padding-right="10" />
+			<TextView text="$skills" size="10" font="Myriad Pro" width="$width" />
+		</LinearLayout>
+	</Template>
+</Document>
