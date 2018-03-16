@@ -19,7 +19,8 @@
 	<Template name="Section">
 		<LinearLayout margin-bottom="10">
 			<LinearLayout orientation="horizontal" margin-bottom="5">
-				<TextView text="$name >" size="17" font="Myriad Pro Bold" />
+				<TextView text="$name" size="17" font="Myriad Pro Bold" />
+				<TextView text=" >" size="15" font="Myriad Pro" style="bold" />
 				<TextView width="fill" border-bottom="1"/>
 			</LinearLayout>
 			<Content />
@@ -38,7 +39,10 @@
 			<LinearLayout orientation="horizontal" width="fill" gravity="center-vertical" margin-bottom="3">
 				<LinearLayout>
 					<TextView text="$name" size="11" style="bold" font="Myriad Pro"/>
-					<TextView text="$position" size="10" style="italic" font="Myriad Pro"/>
+					<LinearLayout orientation="horizontal">
+						<TextView text="$position" size="10" style="italic" font="Myriad Pro"/>	
+						<TextView text="$link" link="http://$link" size="10" style="italic" font="Myriad Pro"/>
+					</LinearLayout>
 				</LinearLayout>
 				<LinearLayout gravity="right" width="fill">
 					<TextView text="$location" size="11" style="bold" font="Myriad Pro"/>
