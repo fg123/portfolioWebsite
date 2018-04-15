@@ -36,16 +36,16 @@
 						<SkillItem type="Web" skills="HTML5, CSS, Javascript, jQuery, PHP, MySQL" width="fill" />
 					</LinearLayout>
 					<LinearLayout orientation="horizontal">
-						<SkillItem type="Game Design" skills="Unity, XNA" width="90" />
-						<SkillItem type="Limited" skills="Python, C++, Racket (Scheme)" width="fill" />
+						<SkillItem type="Game Design" skills="Unity, SFML" width="90" />
+						<SkillItem type="Limited" skills="Python, C++, Racket" width="fill" />
 					</LinearLayout>
 					<SkillItem type="Team Based" skills="Detail-Oriented, Self-Motivated, Open-Minded" width="fill" />
 				</LinearLayout>
 			</Section>
 			<Section name="EXPERIENCE">
 				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="Jan. 2018 - Present">
-					<ListItem content="Developed multiple features in industry quality Kotlin for Fantasy Sports such as Start Active Players for the week" />
-					<ListItem content="Planned and created complex UI flows on Android such as a native Create Contest flow" />
+					<ListItem content="Developed multiple features in Kotlin for Fantasy Sports Android such as Start Active Players for the week" />
+					<ListItem content="Planned and implemented complex UI flows on Android such as the native ability to Create a Daily Contest" />
 				</WorkEntry>
 				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="May. 2017 - Aug. 2017">
 					<ListItem content="Created new Android &quot;Accordion&quot; ad layout for Growth and Monetization team with a custom view folding effect developed with Java to industry standards,raising click-through rates from 0.13% to 0.23%" />
