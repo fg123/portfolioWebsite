@@ -13,7 +13,7 @@
 						<TextView text="D " size="11" font="FontAwesome" padding="3" />
 						<LinearLayout orientation="horizontal">
 							<TextView text="B" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
-							<TextView text="felix.guo@uwaterloo.ca" size="11" font="Lato" />
+							<TextView text="felix.guo@uwaterloo.ca" link="mailto:felix.guo@uwaterloo.ca" size="11" font="Lato" />
 						</LinearLayout>
 					</LinearLayout>
 					<LinearLayout orientation="horizontal">
