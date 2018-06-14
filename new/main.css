@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    position: relative;
+    height: 100%;
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    background: url('background.png');
+}
+
+div.business-card {
+    background: #fff;
+    width: 700px;
+    height: auto;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 20px 1px #000;
+    border-radius: 5px;
+}
+
+div.business-card .portrait {
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+div.business-card .portrait img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+div.business-card h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 48px;
+    letter-spacing: 3px;
+    color: #212121;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+div.business-card p {
+    margin: 0px;
+}
+
+div.business-card a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+div.business-card a:hover {
+    text-decoration: underline;
+    color: #275d8c;
+}
+
+div.business-card div.subnote {
+    font-size: 13px;
+    color: #888;
+}
+
+div.business-card div.header-links {
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+    display: none;
+}
+
+div.header-links span {
+    padding: 5px;
+}
+
+div.header-links a {
+    font-family: 'Nunita Sans', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    border-radius: 20px;
+    color: #333;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 14px;
+}
+
+div.header-links a.active {
+    box-shadow: 0 0 15px #666666;
+}
+
+div.header-links a.active:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+div.header-links a:not(.active):hover {
+    background-color: #eee;
+    text-decoration: none;
+    color: #333;
+}
+
+div.header-links a.buy-now {
+    border-radius: 5px;
+    color: #fff;
+    width: 100px;
+    text-align: center;
+    background-color: #5f89fb;
+}
+
+div.header-links a.buy-now:hover {
+    color: #fff;
+    background-color: #5f89fb;
+    box-shadow: 0 0 15px #666666;
+}
+
+table.portfolio-description tr td:first-child {
+    text-align: center;
+}
+
+div.overview {
+    background: url('vancouver.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: -10;
+}
+
+div.tech-specs {
+    background: url('desktop.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: -10;
+}
+
+div.experience {
+    background: url('googleBuilding.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: -10;
+}
+
+div.image-desc {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: #ddd;
+    padding: 10px;
+    font-size: 12px;
+}
+
+div.more-info {
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    text-transform: uppercase;
+    z-index: 5;
+    color: #fff;
+}
+
+div.more-info:hover {
+    cursor: pointer;
+}
