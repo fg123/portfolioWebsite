@@ -19,14 +19,22 @@ function getQueryParams(qs) {
 var $_GET = getQueryParams(document.location.search);
 
 var server_url = "https://www.student.cs.uwaterloo.ca/~f28guo/";
-$(window).on("unload", function() {
-	$.ajax({
-		type: "GET",
-		url: server_url + "end_client.cgi?" + client_id,
-		async: false
-	});
-});
+var has_unloaded = false;
+function on_unload() {
+	if (!has_unloaded) {
+		$.ajax({
+			type: "GET",
+			url: server_url + "end_client.cgi?" + client_id,
+			async: false
+		});
+		has_unloaded = true;
+	}
+}
 $(document).ready(function () {
+
+	window.addEventListener("unload", on_unload);
+	window.addEventListener("beforeunload", on_unload);
+
 	code_instance = $('.CodeMirror')[0].CodeMirror;
 	console_instance = $('.CodeMirror')[1].CodeMirror;
 
