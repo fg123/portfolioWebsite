@@ -28,7 +28,7 @@ function iterate(start, end, p) {
     return start + (end - start) * p;
 }
 
-function onUserScrolled(animationDuration) {
+function onUserScrolled() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     const start = topOffset;
     const end = (window.innerHeight + start) / 2;
