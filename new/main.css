@@ -66,12 +66,12 @@ div.business-card p {
     margin: 0px;
 }
 
-div.business-card a {
+a {
     color: #337ab7;
     text-decoration: none;
 }
 
-div.business-card a:hover {
+a:hover {
     text-decoration: underline;
     color: #275d8c;
 }
@@ -147,11 +147,9 @@ div.overview {
     overflow-x: hidden;
 }
 
-div.tech-specs {
-    background: url('desktop.jpg') no-repeat center center;
-    background-size: cover;
+div.portfolio {
+    background: url('../images/lightbackground.png') repeat;
     width: 100%;
-    height: 100%;
     position: relative;
     z-index: -10;
 }
@@ -162,6 +160,10 @@ div.experience {
     width: 100%;
     position: relative;
     z-index: -10;
+}
+
+div.experience h1 {
+    color: #fff;
 }
 
 div.image-desc {
@@ -195,7 +197,6 @@ div.content h1 {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    color: #fff;
 }
 
 body > div > div.content {
@@ -342,4 +343,60 @@ div.experience div.timeline .content img {
     div.experience .right {
         left: 0%;
     }
+}
+
+div.portfolioBig:before {
+    content: '  \25CF \25CF \25CF';
+    font-size: 22px;
+    top: -3px;
+    color: #3d3d3d;
+    position: absolute;
+    z-index: 100;
+    padding-left: 3px;
+}
+
+div.portfolioBig {
+    padding-top: 20px;
+    width: 458px;
+    border: 4px solid #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #292929;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f2f2f2;
+}
+.imagesBlocksUnset {
+    width: auto;
+    height: auto;
+}
+div.portfolioDescription {
+    padding: 15px;
+}
+div.portfolioDescription h3 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    width: 100%;
+    margin: 0px;
+}
+div.portfolioDescription a {
+    color: #337ab7;
+    text-decoration: none;
+}
+div.portfolioDescription a:hover {
+    text-decoration: underline;
+}
+div.portfolioDescriptionSub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #555;
+    margin: 0px;
+    font-weight: bold;
+}
+div.portfolioDescriptionContent {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 12px;
+    margin: 0px;
+    line-height: 100%;
 }
