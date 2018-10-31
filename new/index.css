@@ -8,9 +8,13 @@
 }
 
 .business-card {
-	display: table;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-between;
+	align-items: center;
 	background: #FDFDFD;
-	width: 700px;
+	width: calc(100% - 80px);
+	max-width: 700px;
 	height: auto;
 	padding: 20px;
 	position: absolute;
@@ -22,29 +26,26 @@
 	z-index: 500;
 }
 
-.div1 {
-	display: table-cell;
-	vertical-align: baseline;
-}
-
 .portrait {
-	width: 220px;
-	height: 220px;
+	width: 235px;
+	height: 235px;
 	overflow: hidden;
 	display: inline-block;
-	margin-right: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.img2 {
+.img1 {
 	height: inherit;
 	width: inherit;
 	object-fit: cover;
 	border-radius: 10px;
 }
 
-.div3 {
-	display: table-cell;
-	vertical-align: top;
+.div2 {
+	flex-grow: 1;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .title {
@@ -76,6 +77,8 @@
 	text-align: right;
 	vertical-align: middle;
 	white-space: nowrap;
+	margin-left: auto;
+	margin-right: auto;
 	display: none;
 }
 
@@ -149,7 +152,7 @@
 	color: #FDFDFD;
 }
 
-.div20 {
+.div19 {
 	width: 100%;
 	z-index: -10;
 	overflow-x: hidden;
@@ -172,7 +175,7 @@
 	color: #FDFDFD;
 }
 
-.div23 {
+.div22 {
 	width: 100%;
 	z-index: -10;
 	overflow-x: hidden;
@@ -188,13 +191,14 @@
 
 .portfolioRow {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, 450px);
+	grid-template-columns: repeat(auto-fit, minmax(auto, 450px));
 	justify-content: center;
 }
 
 .portfolioWindow {
 	padding-top: 20px;
-	width: 435px;
+	width: 100%;
+	max-width: 435px;
 	border: 4px solid #f2f2f2;
 	border-radius: 5px;
 	box-shadow: 0 2px 4px #292929;
@@ -273,7 +277,7 @@
 	text-align:right;
 }
 
-.div32 {
+.div31 {
 	width: 100%;
 	z-index: -10;
 	overflow-x: hidden;
@@ -298,15 +302,15 @@
 	margin-right: auto;
 }
 
-.span34 {
+.span33 {
 	padding-right: 5px;
 }
 
-.span36 {
+.span35 {
 	padding-right: 5px;
 }
 
-.span38 {
+.span37 {
 	padding-right: 5px;
 }
 
@@ -314,6 +318,7 @@
 	text-align: center;
 	color: #FDFDFD;
 	padding-top: 80px;
+	font-size: 14px;
 }
 
 .footer a {
