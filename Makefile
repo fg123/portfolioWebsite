@@ -1,6 +1,9 @@
 SHELL := /bin/bash
 
-all: website resume
+all: setup website resume
+
+setup:
+	mkdir -p dist
 
 website:
 	$(MAKE) -C website/
