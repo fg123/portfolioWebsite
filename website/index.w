@@ -16,7 +16,7 @@ let googleFont => (/* var args */) {
 };
 
 let name = "Felix Guo";
-let portraitUrl = "portrait.png";
+let portraitUrl = "portrait.jpg";
 let skills = "C, C++, Java, Kotlin, Python, HTML5, CSS, Javascript";
 let cardItems = [
 	CardEntry("fas fa-graduation-cap", "Computer Science and Business Administration"),
