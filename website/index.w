@@ -155,7 +155,7 @@ let portfolioItems = [
             ads and is quick to setup. More information can be found on the Github
             page.")
         ],
-        ["HTML5", "PHP", "CSS", "Javascript", "MySQL"]
+        ["Javascript"]
     ),
     PortfolioItem(
         "comePlayForMe.png",
@@ -186,7 +186,7 @@ let portfolioItems = [
                 a("Inkpad Studios", attributes = [href("https://www.inkpadstudios.ca/")])
             ]))
         ],
-        ["HTML5", "PHP", "CSS", "Javascript", "MySQL"]
+        ["C#", "Unity"]
     )
 ];
 

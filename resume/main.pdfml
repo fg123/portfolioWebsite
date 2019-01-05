@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document>	
+<Document>
 	<Page>
-		<LinearLayout margin-left="72" margin-right="72" margin-bottom="45" margin-top="45">
+		<LinearLayout margin-left="65" margin-right="65" margin-bottom="40" margin-top="40">
 			<LinearLayout orientation="horizontal" padding-bottom="10" width="fill" gravity="center-vertical">
 				<TextView text="Felix Guo" size="38" style="bold" font="Myriad Pro" />
 				<LinearLayout gravity="right" width="fill">
@@ -32,18 +32,23 @@
 			<Section name="SKILLS">
 				<LinearLayout margin-bottom="3">
 					<LinearLayout orientation="horizontal">
-						<SkillItem type="Programming" skills="C, Java, Kotlin" width="90" />
-						<SkillItem type="Web" skills="HTML5, CSS, Javascript, jQuery, PHP, MySQL" width="fill" />
+						<SkillItem type="Programming" skills="C, C++, Python" width="120" />
+						<SkillItem type="Web" skills="HTML5, CSS, Javascript, PHP, MySQL" width="fill" />
 					</LinearLayout>
 					<LinearLayout orientation="horizontal">
-						<SkillItem type="Game Design" skills="Unity, SFML" width="90" />
-						<SkillItem type="Limited" skills="Python, C++, Racket" width="fill" />
+						<SkillItem type="Game Design" skills="Unity, SFML" width="120" />
+						<SkillItem type="Android" skills="Java, Kotlin" width="fill" />
 					</LinearLayout>
 					<SkillItem type="Team Based" skills="Detail-Oriented, Self-Motivated, Open-Minded" width="fill" />
 				</LinearLayout>
 			</Section>
 			<Section name="EXPERIENCE">
-				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="Jan. 2018 - Present">
+            	<WorkEntry name="Google LLC." position="Software Engineering Intern" location="Sunnyvale, CA" date="May. 2018 - Aug. 2018">
+                    <ListItem content="Helped develop and launch KUnit, a unit-testing framework for the Linux Kernel" />
+					<ListItem content="Built user-facing scripts in Python to interact with the KUnit to run and manage unit tests" />
+					<ListItem content="Implemented mock types, in-sequence expectation matching and other minor unit testing features in C" />
+				</WorkEntry>
+				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="Jan. 2018 - Apr. 2018">
 					<ListItem content="Developed multiple features in Kotlin for Fantasy Sports Android such as Start Active Players for the week" />
 					<ListItem content="Planned and implemented complex UI flows on Android such as the native ability to Create a Daily Contest" />
 				</WorkEntry>
@@ -55,23 +60,23 @@
 				<WorkEntry name="Inkpad Studios (Mobile Gaming Startup)" position="Game Developer" location="Vancouver, BC" date="Nov. 2014 - Jun. 2016">
 					<ListItem content="Sole developer of Pedal Panic, a top-down tilt-controlled cycling game, working with Unity, Java and C#" />
 					<ListItem content="Implemented all parts of the game structure, including an audio manager for Unity, a randomized terrain generator, parallax scrolling for the background, and 3 different ad mediators for both interstitial and rewarded ads on Android" />
-					<ListItem content="Coordinated weekly meetings with game design, graphic artist, and sound artist teams to ensure task deadlines were met based on the Agile methodology" />
+					<!-- <ListItem content="Coordinated weekly meetings with game design, graphic artist, and sound artist teams to ensure task deadlines were met based on the Agile methodology" /> -->
 				</WorkEntry>
 			</Section>
 			<Section name="PROJECTS">
-				<WorkEntry name="WendyScript" position="Programming Language > " link="felixguo.me/wendy" date="Nov. 2016 - Present">
+				<WorkEntry name="WendyScript" position="Programming Language – " link="wendy.felixguo.me" date="Nov. 2016 - Present">
 					<ListItem content="Compiler written fully in C, supports dynamic typing, first class functions with closures and first class objects, including a lexer/parser, code-generator, and a bytecode VM" />
 					<ListItem content="Developed recursive descent parser to parse custom grammar into an abstract syntax tree as well as a VM to run custom compiled binaries" />
 				</WorkEntry>
-				<WorkEntry name="MercuryWM" position="Tiling, Multi-windowed JS Desktop Environment > " link="felixguo.me/mercury" date="Jul. 2017 - Present">
+				<WorkEntry name="MercuryWM" position="Tiling, Multi-windowed JS Desktop Environment – " link="felixguo.me/mercury" date="Jul. 2017 - Present">
 					<ListItem content="Developed a new-tab page replacement that is based on a tiling window manager using React and Redux" />
 					<ListItem content="Created a JSON object based virtual filesystem with corresponding bash commands to navigate" />
 					<ListItem content="Developed Javascript API to allow user created scripts to interact with main window through iFrames to allow diverse, interactable, user-created extensions such as displaying a clock, weather, or to-do list widget" />
 				</WorkEntry>
-				<WorkEntry name="Nick PDF" position="Generate PDFs from XML Markup > " link="github.com/fg123/nick" date="May. 2017 - Present">
+				<WorkEntry name="Nick PDF" position="Generate PDFs from XML Markup – " link="github.com/fg123/nick" date="May. 2017 - Present">
 					<ListItem content="Employs similar layout processes as Android's layout system, with custom written measure, layout and draw passes" />
 					<ListItem content="Supports generic UI templating system that allows reusing of elements to build complex, reusable layouts" />
-					<ListItem content="This PDF was generated with Nick; the XML source can be found at github.com/fg123/portfolioWebsite/tree/master/resume" />
+					<ListItem content="This PDF was generated with Nick; the XML source can be found at github.com/fg123/portfolioWebsite" />
 				</WorkEntry>
 			</Section>
 			<Section name="EDUCATION">
@@ -83,7 +88,7 @@
 					<LinearLayout gravity="right" width="fill">
 						<TextView text="2016 - 2021 (Expected)" size="11" font="Myriad Pro"/>
 					</LinearLayout>
-				</LinearLayout>	
+				</LinearLayout>
 			</Section>
 		</LinearLayout>
 	</Page>
