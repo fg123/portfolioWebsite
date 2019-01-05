@@ -110,7 +110,7 @@ sectionHeader.build => (context) {
 
 let portfolioItems = [
     PortfolioItem(
-        "wendyScript.png",
+        "wendyScript.jpg",
         "WendyScript",
         [
             text("Programming Language | "),
@@ -121,7 +121,7 @@ let portfolioItems = [
         ["C"]
     ),
     PortfolioItem(
-        "mercuryWm.png",
+        "mercuryWm.jpg",
         "Mercury WM",
         [
             text("Chrome Extension | "),
@@ -132,7 +132,7 @@ let portfolioItems = [
         ["HTML5", "CSS", "Javascript", "React", "Redux"]
     ),
     PortfolioItem(
-        "lumenAstrum.png",
+        "lumenAstrum.jpg",
         "Lumen Astrum",
         [
             text("Work in Progress | "),
@@ -144,7 +144,7 @@ let portfolioItems = [
         ["Javascript"]
     ),
       PortfolioItem(
-        "tetris.png",
+        "tetris.jpg",
         "Tetris (with friends)",
         [
             text("Online Tetris Game | "),
@@ -158,7 +158,7 @@ let portfolioItems = [
         ["Javascript"]
     ),
     PortfolioItem(
-        "comePlayForMe.png",
+        "comePlayForMe.jpg",
         "Come Play For Me",
         [
             text("Freelance Project | "),
@@ -169,7 +169,7 @@ let portfolioItems = [
         ["HTML5", "PHP", "CSS", "Javascript", "MySQL"]
     ),
     PortfolioItem(
-        "pedalPanic.png",
+        "pedalPanic.jpg",
         "Pedal Panic: Sky Dash Run",
         [
             text("Lead Developer | "),
