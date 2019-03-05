@@ -8,7 +8,7 @@ const title = document.getElementById('title');
 
 let cardHeight = card.clientHeight;
 let topOffset = card.offsetTop - cardHeight / 2;
-let wrapperHeight = wrapper.clientHeight;
+let wrapperHeight = Math.max(wrapper.clientHeight, 168);
 
 window.addEventListener('resize', function() {
     onUserScrolled(0);
