@@ -36,10 +36,10 @@
 						<SkillItem type="Web" skills="HTML5, CSS, Javascript, PHP, MySQL" width="fill" />
 					</LinearLayout>
 					<LinearLayout orientation="horizontal">
-						<SkillItem type="Game Design" skills="Unity, SFML" width="120" />
+						<SkillItem type="Game Design" skills="Unity, SFML, UE4" width="120" />
 						<SkillItem type="Android" skills="Java, Kotlin" width="fill" />
 					</LinearLayout>
-					<SkillItem type="Team Based" skills="Detail-Oriented, Self-Motivated, Open-Minded" width="fill" />
+					<SkillItem type="Team Based" skills="Detail-Oriented, Self-Motivated, Fast-Learning, Innovative" width="fill" />
 				</LinearLayout>
 			</Section>
 			<Section name="EXPERIENCE">
@@ -76,7 +76,10 @@
 				<WorkEntry name="Nick PDF" position="Generate PDFs from XML Markup – " link="github.com/fg123/nick" date="May. 2017 - Present">
 					<ListItem content="Employs similar layout processes as Android's layout system, with custom written measure, layout and draw passes" />
 					<ListItem content="Supports generic UI templating system that allows reusing of elements to build complex, reusable layouts" />
-					<ListItem content="This PDF was generated with Nick; the XML source can be found at github.com/fg123/portfolioWebsite" />
+					<ListItem content="This PDF was generated with Nick; the XML source can be found at">
+						<TextView text="github.com/fg123/portfolioWebsite"
+							link="http://github.com/fg123/portfolioWebsite" margin-left="2" size="9" font="Myriad Pro" style="italic" />
+					</ListItem>
 				</WorkEntry>
 			</Section>
 			<Section name="EDUCATION">
