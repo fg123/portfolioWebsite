@@ -18,3 +18,5 @@ resume:
 
 clean:
 	rm -rf dist/*
+	$(MAKE) -C website/ clean
+	$(MAKE) -C resume/ clean

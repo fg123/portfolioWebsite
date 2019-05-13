@@ -121,6 +121,17 @@ let portfolioItems = [
         ["C"]
     ),
     PortfolioItem(
+        "yate.jpg",
+        "Yate",
+        [
+            text("Terminal Text Editor | "),
+            a("Github", attributes = [href("http://github.com/fg123/yate")])
+        ],
+        "Yate is a terminal text editor that supports arbitrary nested layouts of tabs and panels,
+        simple keyboard shortcuts, branching edit history, and syntax highlighting.",
+        ["C++", "ncurses"]
+    ),
+    PortfolioItem(
         "mercuryWm.jpg",
         "Mercury WM",
         [
@@ -167,27 +178,27 @@ let portfolioItems = [
         "A freelance website project for a private piano teacher in Vancouver.
         I also created a backend panel system for her to easily change all the content on the website.",
         ["HTML5", "PHP", "CSS", "Javascript", "MySQL"]
-    ),
-    PortfolioItem(
-        "pedalPanic.jpg",
-        "Pedal Panic: Sky Dash Run",
-        [
-            text("Lead Developer | "),
-            a("Google Play Link", attributes = [href("https://play.google.com/store/apps/details?id=ca.inkpadstudios.pedalpanic")])
-        ],
-        [
-            text("Pedal Panic is a quirky take at a basic concept.
-            The player must control the character on a unicycle high above the
-            skies by tilting the phone to keep the character on the planks.
-            As the time goes on, the game accelerates and a variety of obstacles
-            and beams are presented to the player that they must overcome."),
-            portfolioTagLine(inline([
-                text("Created with "),
-                a("Inkpad Studios", attributes = [href("https://www.inkpadstudios.ca/")])
-            ]))
-        ],
-        ["C#", "Unity"]
-    )
+    ) // ,
+    // PortfolioItem(
+    //     "pedalPanic.jpg",
+    //     "Pedal Panic: Sky Dash Run",
+    //     [
+    //         text("Lead Developer | "),
+    //         a("Google Play Link", attributes = [href("https://play.google.com/store/apps/details?id=ca.inkpadstudios.pedalpanic")])
+    //     ],
+    //     [
+    //         text("Pedal Panic is a quirky take at a basic concept.
+    //         The player must control the character on a unicycle high above the
+    //         skies by tilting the phone to keep the character on the planks.
+    //         As the time goes on, the game accelerates and a variety of obstacles
+    //         and beams are presented to the player that they must overcome."),
+    //         portfolioTagLine(inline([
+    //             text("Created with "),
+    //             a("Inkpad Studios", attributes = [href("https://www.inkpadstudios.ca/")])
+    //         ]))
+    //     ],
+    //     ["C#", "Unity"]
+    // )
 ];
 
 let footer = div(
@@ -201,7 +212,11 @@ let footer = div(
             " a", ["color: #FDFDFD", "text-decoration: none"]
         )
     ],
-    content = "Copyright &copy; Felix Guo 2019"
+    content = inline([
+        text("Copyright &copy; Felix Guo 2019 | Generated with "),
+        a("WendyScript", styles = ["text-decoration: underline!important"],
+            attributes = [href("https://github.com/fg123/portfolioWebsite")])
+    ])
 );
 
 let onClick = createAttributeStruct("onclick");
