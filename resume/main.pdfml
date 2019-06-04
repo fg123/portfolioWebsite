@@ -65,7 +65,7 @@
 			</Section>
 			<Section name="PROJECTS">
 				<WorkEntry name="WendyScript" position="Programming Language – " link="wendy.felixguo.me" date="Nov. 2016 - Present">
-					<ListItem content="Compiler written fully in C, supports dynamic typing, first class functions with closures and first class objects, including a lexer/parser, code-generator, and a bytecode VM" />
+					<ListItem content="Compiler written fully in C, supports dynamic typing, first class functions with closures and meta-objects, including a lexer/parser, code-generator, and a bytecode VM" />
 					<ListItem content="Developed recursive descent parser to parse custom grammar into an abstract syntax tree as well as a VM to run custom compiled binaries" />
 				</WorkEntry>
 				<WorkEntry name="MercuryWM" position="Tiling, Multi-windowed JS Desktop Environment – " link="felixguo.me/mercury" date="Jul. 2017 - Present">
