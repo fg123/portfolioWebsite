@@ -75,7 +75,7 @@
 				</WorkEntry>
 				<WorkEntry name="Tetris with Friends" position="Online Multiplayer Tetris Game – " link="tetris.felixguo.me" date="May. 2018 - Aug. 2018">
 					<ListItem content="Remake of the Facebook game, Tetris Friends with a Javascript Tetris engine, Socket.io server, and HTML5 canvas client" />
-					<ListItem content="eatures like sending lines to other players in the same lobby and spectating players in a lobby" />
+					<ListItem content="Includes features like sending lines to other players in the same lobby and spectating players in a lobby" />
 				</WorkEntry>
 			</Section>
 			<Section name="EDUCATION">

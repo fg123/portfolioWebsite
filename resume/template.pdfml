@@ -29,7 +29,7 @@
 
 	<Template name="ListItem">
 		<LinearLayout orientation="horizontal">
-			<TextView text=" -            " size="4" padding-top="4" font="FontAwesome" />
+			<TextView text="    -      " size="4" padding-top="4" font="FontAwesome" />
 			<TextView text="$content" size="9" font="Myriad Pro" />
 			<Content />
 		</LinearLayout>
