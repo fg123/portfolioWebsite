@@ -21,7 +21,7 @@ let skills = "C, C++, Java, Kotlin, Python, HTML5, CSS, Javascript";
 let cardItems = [
 	CardEntry("fas fa-graduation-cap", "Computer Science and Business Administration"),
 	CardEntry("fas fa-map-marker", "University of Waterloo"),
-	CardEntry("fas fa-building", "Google LLC."),
+	CardEntry("fas fa-building", "Citadel Securities LLC."),
 	CardEntry("fas fa-file-alt", a(
 			content = "Resume",
 			attributes = [href("FelixGuoResume.pdf")]
@@ -48,10 +48,10 @@ let headerLinks = [
 
 let timelineItems = [
 	TimelineItem(
-		"Your Company",
+		"Citadel Securities LLC.",
 		"Sept - Dec 2019",
-		"corners/question.png",
-        formatted("This could be *you*!")
+		"corners/citadel.png",
+        formatted("")
 	),
 	TimelineItem(
 		"Google LLC.",
