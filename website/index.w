@@ -21,7 +21,7 @@ let skills = "C, C++, Java, Kotlin, Python, HTML5, CSS, Javascript";
 let cardItems = [
 	CardEntry("fas fa-graduation-cap", "Computer Science and Business Administration"),
 	CardEntry("fas fa-map-marker", "University of Waterloo"),
-	CardEntry("fas fa-building", "Citadel Securities LLC."),
+	CardEntry("fas fa-building", "Riot Games Inc."),
 	CardEntry("fas fa-file-alt", a(
 			content = "Resume",
 			attributes = [href("FelixGuoResume.pdf")]
@@ -47,11 +47,17 @@ let headerLinks = [
 ];
 
 let timelineItems = [
+    TimelineItem(
+		"Riot Games Inc.",
+		"May - Aug 2020",
+		"corners/riot-tr.png",
+        formatted("")
+	),
 	TimelineItem(
 		"Citadel Securities LLC.",
 		"Sept - Dec 2019",
 		"corners/citadel.png",
-        formatted("")
+        formatted("Developed tools and infrastructure for routing orders in equity and options market making in C++, Python and Bash")
 	),
 	TimelineItem(
 		"Google LLC.",

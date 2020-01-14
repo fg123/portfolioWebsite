@@ -43,19 +43,19 @@
 				</LinearLayout>
 			</Section>
 			<Section name="EXPERIENCE">
+                <WorkEntry name="Citadel Securities LLC." position="Software Engineering Intern" location="Chicago, IL" date="Sept. 2019 - Dec. 2019">
+                    <ListItem content="Developed tools and infrastructure for routing orders in equity and options market making in C++, Python and Bash" />
+				</WorkEntry>
             	<WorkEntry name="Google LLC." position="Software Engineering Intern" location="Sunnyvale, CA" date="May. 2018 - Aug. 2018">
                     <ListItem content="Helped develop and launch KUnit, a unit-testing framework for the Linux Kernel" />
 					<ListItem content="Built user-facing scripts in Python to interact with the KUnit to run and manage unit tests" />
 					<ListItem content="Implemented mock types, in-sequence expectation matching and other minor unit testing features in C" />
 				</WorkEntry>
-				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="Jan. 2018 - Apr. 2018">
-					<ListItem content="Developed multiple features in Kotlin for Fantasy Sports Android such as Start Active Players for the week" />
-					<ListItem content="Planned and implemented complex UI flows on Android such as the native ability to Create a Daily Contest" />
-				</WorkEntry>
-				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="May. 2017 - Aug. 2017">
+				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="Jan. 2018 - Apr. 2018 ; May. 2017 - Aug. 2017">
 					<ListItem content="Created new Android &quot;Accordion&quot; ad layout for Growth and Monetization team with a custom view folding effect developed with Java to industry standards, raising click-through rates from 0.13% to 0.23%" />
 					<ListItem content="Developed Draft Chat and Draft Order pages up to spec, as part of Yahoo Fantasy Sports's live draft system" />
-					<ListItem content="Given highest rating (Outstanding) by manager in Waterloo Co-op Performance Evaluation" />
+                    <ListItem content="Developed multiple features in Kotlin for Fantasy Sports Android such as Start Active Players for the week" />
+					<ListItem content="Planned and implemented complex UI flows on Android such as the native ability to Create a Daily Contest" />
 				</WorkEntry>
 				<WorkEntry name="Inkpad Studios (Mobile Gaming Startup)" position="Game Developer" location="Vancouver, BC" date="Nov. 2014 - Jun. 2016">
 					<ListItem content="Sole developer of Pedal Panic, a top-down tilt-controlled cycling game, working with Unity, Java and C#" />
