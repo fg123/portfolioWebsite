@@ -46,17 +46,19 @@ duduImageF.src = "duduFlip.png";
 const suppliesImage = new Image();             
 suppliesImage.src = "supplies.png";     
 
-for (let i = 0; i < 300; i++) {
-    let last = platforms[platforms.length - 1].slice();
-    last[1] -= 180;
-    let dir = (Math.random() < 0.5 ? -1 : 1);
-    const pos = ((Math.random() * 80) + 300);
-    const newpos = last[0] + (dir * pos);
-    if (newpos < 0 || newpos + suppliesImage.width > width) {
-        dir *= -1;
+suppliesImage.onload = function () {
+    for (let i = 0; i < 300; i++) {
+        let last = platforms[platforms.length - 1].slice();
+        last[1] -= 180;
+        let dir = (Math.random() < 0.5 ? -1 : 1);
+        const pos = ((Math.random() * 80) + 300);
+        const newpos = last[0] + (dir * pos);
+        if (newpos < 0 || newpos + suppliesImage.width > width) {
+            dir *= -1;
+        }
+        last[0] += dir * pos;
+        platforms.push(last);
     }
-    last[0] += dir * pos;
-    platforms.push(last);
 }
 
 function rectIntersect(x1, y1, w1, h1, x2, y2, w2, h2) {
@@ -140,7 +142,7 @@ function tick() {
     duduY += duduVelY;
 
     if (duduX < 0) duduX = 0;
-    if (duduX > width) duduX = width;
+    if (duduX > width - duduImage.width) duduX = width - duduImage.width;
     if (duduY > height) duduY = height;
 }
 
