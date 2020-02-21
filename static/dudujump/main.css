@@ -1,0 +1,14 @@
+html {
+    background: black;
+    text-align: center;
+}
+#score, .copyright, #thanks {
+    text-align: center;
+    color: #FFF;
+    font-size: 30px;
+    font-family: "Comic Sans MS";
+}
+
+#thanks {
+    font-size: 14px;
+}
