@@ -146,6 +146,25 @@ function tick() {
     if (duduY > height) duduY = height;
 }
 
+if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', function(e) {
+        if (e.gamma > 0) {
+            keyState['right'] = true;
+            keyState['left'] = false;
+        } else {
+            keyState['right'] = false;
+            keyState['left'] = true;
+        }
+    }, false);
+}
+document.addEventListener('touchstart', function(e) {
+    keyState['up'] = true;
+});
+
+document.addEventListener('touchend', function(e) {
+    keyState['up'] = false;
+});
+
 document.addEventListener('keydown', function(e) {
     if (keyMap[e.which]) {
         keyState[keyMap[e.which]] = true;
