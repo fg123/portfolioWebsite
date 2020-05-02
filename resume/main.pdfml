@@ -43,6 +43,9 @@
 				</LinearLayout>
 			</Section>
 			<Section name="EXPERIENCE">
+				<!-- <WorkEntry name="Riot Games" position="Software Engineering Intern" location="Los Angeles, CA" date="Jun. 2020 - Aug. 2020">
+                    <ListItem content="Working on the League of Legends development team" />
+				</WorkEntry> -->
                 <WorkEntry name="Citadel Securities LLC." position="Software Engineering Intern" location="Chicago, IL" date="Sept. 2019 - Dec. 2019">
                     <ListItem content="Developed tools and infrastructure for routing orders in equity and options market making in C++, Python and Bash" />
 				</WorkEntry>

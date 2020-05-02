@@ -219,7 +219,7 @@ let footer = div(
         )
     ],
     content = inline([
-        text("Copyright &copy; Felix Guo 2019 | Generated with "),
+        text("Copyright &copy; Felix Guo 2020 | Generated with "),
         a("WendyScript", styles = ["text-decoration: underline!important"],
             attributes = [href("https://github.com/fg123/portfolioWebsite")])
     ])
