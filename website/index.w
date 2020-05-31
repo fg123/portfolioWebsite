@@ -254,7 +254,7 @@ generate(
 	html(
 		title = name,
 		stylesheets = [
-			googleFont("Roboto Slab", "Varela Round", "Raleway"),
+			googleFont("Roboto Slab", "Varela Round", "Raleway", "Open Sans"),
 			"main.css",
 			"https://use.fontawesome.com/releases/v5.4.2/css/all.css",
 			"timeline.css"
