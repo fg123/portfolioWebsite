@@ -1,7 +1,7 @@
 import html;
 
 let sharedProp = [
-    "font-family: 'Nunita Sans', sans-serif",
+    "font-family: 'Varela Round', sans-serif",
     "text-decoration: none",
     "display: inline-block",
     "height: 40px",
