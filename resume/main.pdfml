@@ -42,7 +42,7 @@
 			</LinearLayout>
 		</Section>
 		<Section name="EXPERIENCE">
-			<WorkEntry name="Riot Games" position="Software Engineering Intern" location="(Remote) Los Angeles, CA" date="Jun. 2020 - Aug. 2020">
+			<WorkEntry name="Riot Games Inc." position="Software Engineering Intern" location="(Remote) Los Angeles, CA" date="Jun. 2020 - Aug. 2020">
 				<ListItem content="Worked on the League of Legends Champions Engineering team, focused on game engine code in C++" />
 				<ListItem content="Fixed various player-impacting champion bugs and scripted abilities on upcoming champions" />
 				<ListItem content="Implemented features and improvements to champion scripting tool used by designers" />
