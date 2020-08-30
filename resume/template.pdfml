@@ -17,8 +17,8 @@
 
 	<!-- Templates -->
 	<Template name="Section">
-		<LinearLayout margin-bottom="5">
-			<LinearLayout orientation="horizontal" margin-bottom="5">
+		<LinearLayout margin-bottom="3">
+			<LinearLayout orientation="horizontal" margin-bottom="3">
 				<TextView text="$name" size="17" font="Myriad Pro Bold" />
 				<TextView text=" G " size="12" margin-top="5.5" font="FontAwesome" />
 				<TextView width="fill" border-bottom="1"/>

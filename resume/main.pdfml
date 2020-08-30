@@ -1,101 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document>
-	<Page>
-		<LinearLayout margin-left="65" margin-right="65" margin-bottom="40" margin-top="40">
-			<LinearLayout orientation="horizontal" padding-bottom="10" width="fill" gravity="center-vertical">
-				<TextView text="Felix Guo" size="38" style="bold" font="Myriad Pro" />
-				<LinearLayout gravity="right" width="fill">
+<Document margin-left="65" margin-right="65" margin-bottom="40" margin-top="40">
+	<LinearLayout>
+		<LinearLayout orientation="horizontal" padding-bottom="5" width="fill" gravity="center-vertical">
+			<TextView text="Felix Guo" size="38" style="bold" font="Myriad Pro" />
+			<LinearLayout gravity="right" width="fill">
+				<LinearLayout orientation="horizontal">
 					<LinearLayout orientation="horizontal">
-						<LinearLayout orientation="horizontal">
-							<TextView text="A" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
-							<TextView text="(+1) 226-600-9117" size="11" font="Lato" />
-						</LinearLayout>
-						<TextView text="D " size="11" font="FontAwesome" padding="3" />
-						<LinearLayout orientation="horizontal">
-							<TextView text="B" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
-							<TextView text="felix.guo@uwaterloo.ca" link="mailto:felix.guo@uwaterloo.ca" size="11" font="Lato" />
-						</LinearLayout>
+						<TextView text="A" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
+						<TextView text="(+1) 226-600-9117" size="11" font="Lato" />
 					</LinearLayout>
+					<TextView text="D " size="11" font="FontAwesome" padding="3" />
 					<LinearLayout orientation="horizontal">
-						<LinearLayout orientation="horizontal">
-							<TextView text="F" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
-							<TextView text="felixguo.me" size="11" font="Lato" link="https://felixguo.me/"/>
-						</LinearLayout>
-						<TextView text="C " size="11" font="FontAwesome" padding="3"/>
-						<LinearLayout orientation="horizontal">
-							<TextView text="E" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
-							<TextView text="github.com/fg123" size="11" font="Lato" link="https://github.com/fg123" />
-						</LinearLayout>
+						<TextView text="B" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
+						<TextView text="felix.guo@uwaterloo.ca" link="mailto:felix.guo@uwaterloo.ca" size="11" font="Lato" />
+					</LinearLayout>
+				</LinearLayout>
+				<LinearLayout orientation="horizontal">
+					<LinearLayout orientation="horizontal">
+						<TextView text="F" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
+						<TextView text="felixguo.me" size="11" font="Lato" link="https://felixguo.me/"/>
+					</LinearLayout>
+					<TextView text="C " size="11" font="FontAwesome" padding="3"/>
+					<LinearLayout orientation="horizontal">
+						<TextView text="E" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
+						<TextView text="github.com/fg123" size="11" font="Lato" link="https://github.com/fg123" />
 					</LinearLayout>
 				</LinearLayout>
 			</LinearLayout>
-			<Section name="SKILLS">
-				<LinearLayout margin-bottom="3">
-					<LinearLayout orientation="horizontal">
-						<SkillItem type="Programming" skills="C, C++, Python" width="120" />
-						<SkillItem type="Web" skills="HTML5, CSS, Javascript, PHP, MySQL" width="fill" />
-					</LinearLayout>
-					<LinearLayout orientation="horizontal">
-						<SkillItem type="Game Design" skills="Unity, SFML, UE4" width="120" />
-						<SkillItem type="Android" skills="Java, Kotlin" width="fill" />
-					</LinearLayout>
-					<SkillItem type="Team Based" skills="Detail-Oriented, Self-Motivated, Fast-Learning, Innovative" width="fill" />
-				</LinearLayout>
-			</Section>
-			<Section name="EXPERIENCE">
-				<!-- <WorkEntry name="Riot Games" position="Software Engineering Intern" location="Los Angeles, CA" date="Jun. 2020 - Aug. 2020">
-                    <ListItem content="Working on the League of Legends development team" />
-				</WorkEntry> -->
-                <WorkEntry name="Citadel Securities LLC." position="Software Engineering Intern" location="Chicago, IL" date="Sept. 2019 - Dec. 2019">
-                    <ListItem content="Developed tools and infrastructure for routing orders in equity and options market making in C++, Python and Bash" />
-				</WorkEntry>
-            	<WorkEntry name="Google LLC." position="Software Engineering Intern" location="Sunnyvale, CA" date="May. 2018 - Aug. 2018">
-                    <ListItem content="Helped develop and launch KUnit, a unit-testing framework for the Linux Kernel" />
-					<ListItem content="Built user-facing scripts in Python to interact with the KUnit to run and manage unit tests" />
-					<ListItem content="Implemented mock types, in-sequence expectation matching and other minor unit testing features in C" />
-				</WorkEntry>
-				<WorkEntry name="Yahoo! Inc." position="Software Developer Intern" location="Sunnyvale, CA" date="Jan. 2018 - Apr. 2018 ; May. 2017 - Aug. 2017">
-					<ListItem content="Created new Android &quot;Accordion&quot; ad layout for Growth and Monetization team with a custom view folding effect developed with Java to industry standards, raising click-through rates from 0.13% to 0.23%" />
-					<ListItem content="Developed Draft Chat and Draft Order pages up to spec, as part of Yahoo Fantasy Sports's live draft system" />
-                    <ListItem content="Developed multiple features in Kotlin for Fantasy Sports Android such as Start Active Players for the week" />
-					<ListItem content="Planned and implemented complex UI flows on Android such as the native ability to Create a Daily Contest" />
-				</WorkEntry>
-				<WorkEntry name="Inkpad Studios (Mobile Gaming Startup)" position="Game Developer" location="Vancouver, BC" date="Nov. 2014 - Jun. 2016">
-					<ListItem content="Sole developer of Pedal Panic, a top-down tilt-controlled cycling game, working with Unity, Java and C#" />
-					<ListItem content="Implemented all parts of the game structure, including an audio manager for Unity, a randomized terrain generator, parallax scrolling for the background, and 3 different ad mediators for both interstitial and rewarded ads on Android" />
-					<!-- <ListItem content="Coordinated weekly meetings with game design, graphic artist, and sound artist teams to ensure task deadlines were met based on the Agile methodology" /> -->
-				</WorkEntry>
-			</Section>
-			<Section name="PROJECTS">
-				<WorkEntry name="WendyScript" position="Programming Language – " link="wendy.felixguo.me" date="Nov. 2016 - Present">
-					<ListItem content="Compiler written fully in C, supports dynamic typing, first class functions with closures and meta-objects, including a lexer/parser, code-generator, and a bytecode VM" />
-					<ListItem content="Developed recursive descent parser to parse custom grammar into an abstract syntax tree as well as a VM to run custom compiled binaries" />
-				</WorkEntry>
-				<WorkEntry name="MercuryWM" position="Tiling, Multi-windowed JS Desktop Environment – " link="felixguo.me/mercury" date="Jul. 2017 - Present">
-					<ListItem content="Developed a new-tab page replacement that is based on a tiling window manager using React and Redux" />
-					<ListItem content="Created a JSON object based virtual filesystem with corresponding bash commands to navigate" />
-					<ListItem content="Developed Javascript API to allow user created scripts to interact with main window through iFrames to allow diverse, interactable, user-created extensions such as displaying a clock, weather, or to-do list widget" />
-				</WorkEntry>
-				<WorkEntry name="Nick PDF" position="Generate PDFs from XML Markup – " link="github.com/fg123/nick" date="May. 2017 - Present">
-					<ListItem content="Employs similar layout processes as Android's layout system, with custom written measure, layout and draw passes" />
-					<ListItem content="Supports generic UI templating system that allows reusing of elements to build complex, reusable layouts" />
-					<ListItem content="This PDF was generated with Nick; the XML source can be found at">
-						<TextView text="github.com/fg123/portfolioWebsite"
-							link="http://github.com/fg123/portfolioWebsite" margin-left="2" size="9" font="Myriad Pro" style="italic" />
-					</ListItem>
-				</WorkEntry>
-			</Section>
-			<Section name="EDUCATION">
-				<LinearLayout orientation="horizontal" width="fill" gravity="center-vertical">
-					<LinearLayout>
-						<TextView text="University of Waterloo and Wilfrid Laurier University" size="12" style="bold" font="Myriad Pro"/>
-						<TextView text="Candidate for Bachelors of Computer Science and Business Administration" size="11" style="italic" font="Myriad Pro"/>
-					</LinearLayout>
-					<LinearLayout gravity="right" width="fill">
-						<TextView text="2016 - 2021 (Expected)" size="11" font="Myriad Pro"/>
-					</LinearLayout>
-				</LinearLayout>
-			</Section>
 		</LinearLayout>
-	</Page>
+		<Section name="SKILLS">
+			<LinearLayout margin-bottom="3">
+				<LinearLayout orientation="horizontal">
+					<SkillItem type="Programming" skills="C, C++, Python" width="120" />
+					<SkillItem type="Web" skills="HTML5, CSS, Javascript, PHP, MySQL" width="fill" />
+				</LinearLayout>
+				<LinearLayout orientation="horizontal">
+					<SkillItem type="Game Design" skills="Unity, SFML, UE4" width="120" />
+					<SkillItem type="Android" skills="Java, Kotlin" width="fill" />
+				</LinearLayout>
+				<SkillItem type="Team Based" skills="Fast-Learning, Innovative, Detail-Oriented, Self-Motivated" width="fill" />
+			</LinearLayout>
+		</Section>
+		<Section name="EXPERIENCE">
+			<WorkEntry name="Riot Games" position="Software Engineering Intern" location="(Remote) Los Angeles, CA" date="Jun. 2020 - Aug. 2020">
+				<ListItem content="Worked on the League of Legends Champions Engineering team, focused on game engine code in C++" />
+				<ListItem content="Fixed various player-impacting champion bugs and scripted abilities on upcoming champions" />
+				<ListItem content="Implemented features and improvements to champion scripting tool used by designers" />
+				<ListItem content="Refactored game engine network registration code to optimize for game object creation" />
+			</WorkEntry> 
+			<WorkEntry name="Citadel Securities LLC." position="Software Engineering Intern" location="Chicago, IL" date="Sept. 2019 - Dec. 2019">
+				<ListItem content="(NDA) Developed tools, infrastructure, and testing systems in equity and options market making in C++, Python and Bash" />
+			</WorkEntry>
+			<WorkEntry name="Google LLC." position="Software Engineering Intern" location="Sunnyvale, CA" date="May. 2018 - Aug. 2018">
+				<ListItem content="Helped develop and launch KUnit, a unit-testing framework for the Linux Kernel" />
+				<ListItem content="Built user-facing scripts in Python to interact with the KUnit to run and manage unit tests" />
+				<ListItem content="Implemented mock types, in-sequence expectation matching and other unit testing features in C" />
+			</WorkEntry>
+			<WorkEntry name="Yahoo! Inc." position="Software Engineering Intern" location="Sunnyvale, CA" date="Jan. 2018 - Apr. 2018 | May. 2017 - Aug. 2017">
+				<ListItem content="Created new Android &quot;Accordion&quot; ad layout for Growth and Monetization team with a custom view folding effect developed with Java to industry standards, raising click-through rates from 0.13% to 0.23%" />
+				<ListItem content="Developed Draft Chat and Draft Order pages up to spec, as part of Yahoo Fantasy Sports's live draft system" />
+				<ListItem content="Developed multiple features in Kotlin for Fantasy Sports Android such as Start Active Players for the week" />
+				<ListItem content="Planned and implemented complex UI flows on Android such as the native ability to Create a Daily Contest" />
+			</WorkEntry>
+			<WorkEntry name="Inkpad Studios (Mobile Gaming Startup)" position="Game Developer" location="Vancouver, BC" date="Nov. 2014 - Jun. 2016" if-not-empty="$FULL_CV">
+				<ListItem content="Sole developer of Pedal Panic, a top-down tilt-controlled cycling game, working with Unity, Java and C#" />
+				<ListItem content="Implemented all parts of the game structure, including an audio manager for Unity, a randomized terrain generator, parallax scrolling for the background, and 3 different ad mediators for both interstitial and rewarded ads on Android" />
+				<ListItem content="Coordinated weekly meetings with game design, graphic artist, and sound artist teams to ensure task deadlines were met based on the Agile methodology" />
+			</WorkEntry>
+		</Section>
+		<Section name="PROJECTS">
+			<WorkEntry name="WendyScript" position="Programming Language – " link="wendy.felixguo.me" date="Nov. 2016 - Present">
+				<ListItem content="Compiler written fully in C, supports dynamic typing, first class functions with closures and meta-objects, including a lexer/parser, code-generator, and a bytecode VM" />
+				<ListItem content="Developed recursive descent parser to parse custom grammar into an abstract syntax tree as well as a VM to run custom compiled binaries" />
+			</WorkEntry>
+			<WorkEntry name="Yate" position="ncurses Based Text-Editor – " link="github.com/fg123/yate" date="June 2018 - Present" if-not-empty="$FULL_CV">
+				<ListItem content="Yate is a fully featured Terminal text editor built with ncurses and C++" />
+				<ListItem content="Built tree-based layout system that supports arbitrary nesting of tabs and panels" />
+				<ListItem content="Designed prompt stack system to support central command processing for custom editing commands" />
+				<ListItem content="Developed a tree-based undo / redo buffer system allowing for multiple undo paths" />
+				<ListItem content="Supports custom syntax highlighting for different languages" />
+			</WorkEntry>
+			<WorkEntry name="Stock Analysis Framework" position="Algorithmic Trading System" link="" date="Dec. 2018 - Present" if-not-empty="$FULL_CV">
+				<ListItem content="Built a data processing pipeline for stock analysis encapsulated in a NodeJS application for easy deployment" />
+				<ListItem content="Supports managing multiple concurrent processes (JS/Python/C++/etc) and facilitating communication with named busses through standard in / out" />
+				<ListItem content="Each process runs individual components, such as market data scraping, aggregation, technical indicator processing, buy/sell signal generation" />
+				<ListItem content="Processes run based on real-time input streams of information (market data / external data / technical indicators)" />
+				<ListItem content="Backtesting framework based on replaying market data through trading algorithm processes" />
+				<ListItem content="Developed front-end visualization and process management running through the web" />
+			</WorkEntry>
+			<WorkEntry name="MercuryWM" position="Tiling, Multi-windowed JS Desktop Environment – " link="felixguo.me/mercury" date="Jul. 2017 - Present">
+				<ListItem content="Developed a new-tab page replacement that is based on a tiling window manager using React and Redux" />
+				<ListItem content="Created a JSON object based virtual filesystem with corresponding bash commands to navigate" />
+				<ListItem content="Developed Javascript API to allow user created scripts to interact with main window through iFrames to allow diverse, interactable, user-created extensions such as displaying a clock, weather, or to-do list widget" />
+			</WorkEntry>
+			<WorkEntry name="Nick PDF" position="Generate PDFs from XML Markup – " link="github.com/fg123/nick" date="May. 2017 - Present">
+				<ListItem content="Employs similar layout processes as Android's layout system, with custom written measure, layout and draw passes" />
+				<ListItem content="Supports generic UI templating system that allows reusing of elements to build complex, reusable layouts" />
+				<ListItem content="This PDF was generated with Nick; the XML source can be found at">
+					<TextView text="github.com/fg123/portfolioWebsite"
+						link="http://github.com/fg123/portfolioWebsite" margin-left="2" size="9" font="Myriad Pro" style="italic" />
+				</ListItem>
+			</WorkEntry>
+			<WorkEntry name="Urban Terror" position="Game Developer – " link="urbanterror.info" date="Jan. 2019 - Present" if-not-empty="$FULL_CV">
+				<ListItem content="Urban Terror is a free to play, multiplayer shooting game developed by Frozen Sand, originally released in 1998" />
+				<ListItem content="Currently working on the development team to build the new version, Resurgence, in Unreal Engine (C++, Blueprints)" />
+				<ListItem content="Developed various UI components, and some player movement code" />
+			</WorkEntry>
+			<WorkEntry name="Lumen Astrum" position="Turn-based Top-down RTS Game – " link="github.com/fg123/lumen-astrum-js" date="June 2013 - Present" if-not-empty="$FULL_CV">
+				<ListItem content="Lumen Astrum is a 1v1 game where players build structures and units to eventually destroy the enemy's command base, with tiered units requiring different support structures, a robust resource system, and a component of vision control" />
+				<ListItem content="Built event based, deterministic game model based on state change events in Javascript to ensure syncing and verification between server and clients" />
+				<ListItem content="Created UI and frontend engine for the game running on vanilla HTML5 canvas, including animation handling" />
+				<ListItem content="Developed core features like game state management, and hexagon tile pathfinding algorithms from scratch" />
+			</WorkEntry>
+			<WorkEntry name="Tetris with Friends" position="Online Multiplayer Tetris Game – " link="tetris.felixguo.me" date="May. 2018 - Aug. 2018" if-not-empty="$FULL_CV">
+				<ListItem content="Remake of the Facebook game, Tetris Friends with a Javascript Tetris engine, Socket.io server, and HTML5 canvas client" />
+				<ListItem content="Includes features like sending lines to other players in the same lobby and spectating players in a lobby" />
+			</WorkEntry>
+		</Section>
+		<Section name="EDUCATION">
+			<LinearLayout orientation="horizontal" width="fill" gravity="center-vertical">
+				<LinearLayout>
+					<TextView text="University of Waterloo and Wilfrid Laurier University" size="12" style="bold" font="Myriad Pro"/>
+					<TextView text="Candidate for Bachelors of Computer Science and Business Administration" size="11" style="italic" font="Myriad Pro"/>
+				</LinearLayout>
+				<LinearLayout gravity="right" width="fill">
+					<TextView text="2016 - 2021 (Expected)" size="11" font="Myriad Pro"/>
+				</LinearLayout>
+			</LinearLayout>
+		</Section>
+	</LinearLayout>
 </Document>

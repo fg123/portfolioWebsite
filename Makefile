@@ -13,6 +13,7 @@ website:
 resume:
 	$(MAKE) -C resume/
 	cp resume/FelixGuoResume.pdf dist/
+	cp resume/FelixGuoResumeExtended.pdf dist/
 
 .PHONY: clean all website resume
 

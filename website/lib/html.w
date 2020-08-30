@@ -108,7 +108,7 @@ let createHTMLStruct => (tagName) {
 		for attribute in this.attributes
 			attributesString += " " + attribute.generateString();
 
-		let indentation = if (context.isMinified) "" else context.indentation * "\t";
+		let indentation = if (context.isMinified or context.isInline) "" else context.indentation * "\t";
 		let identification = "";
 		if this.styles.size > 0 or this.id != none {
 			identification = " class='" + possibleId + "'" +

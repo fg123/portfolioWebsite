@@ -21,11 +21,19 @@ let skills = "C, C++, Java, Kotlin, Python, HTML5, CSS, Javascript";
 let cardItems = [
 	CardEntry("fas fa-graduation-cap", "Computer Science and Business Administration"),
 	CardEntry("fas fa-map-marker", "University of Waterloo"),
-	CardEntry("fas fa-building", "Riot Games Inc."),
-	CardEntry("fas fa-file-alt", a(
-			content = "Resume",
-			attributes = [href("FelixGuoResume.pdf")]
-		)
+	CardEntry("fas fa-building", "Looking for Full Time Opportunities 2021"),
+	CardEntry("fas fa-file-alt", inline([
+            a(
+                content = "Resume",
+                attributes = [href("FelixGuoResume.pdf")]
+		    ),
+            text(" ("),
+            a(
+                content = "Extended",
+                attributes = [href("FelixGuoResumeExtended.pdf")]
+		    ),
+            text(")")
+        ])
 	),
 	CardEntry("fab fa-github", a(
 			content = "Github",
@@ -48,16 +56,22 @@ let headerLinks = [
 
 let timelineItems = [
     TimelineItem(
-		"Riot Games Inc.",
-		"May - Aug 2020",
-		"corners/riot-tr.png",
+		"Could Be You",
+		"Jun 2021 - ???",
+		"corners/question.png",
         formatted("")
+	),
+    TimelineItem(
+		"Riot Games Inc.",
+		"Jun - Aug 2020",
+		"corners/riot-tr.png",
+        formatted("Worked on champion bug-fixing and scripting, developed internal tooling features and refactored game engine for optimizations in *C++*.")
 	),
 	TimelineItem(
 		"Citadel Securities LLC.",
 		"Sept - Dec 2019",
 		"corners/citadel.png",
-        formatted("Developed tools and infrastructure for routing orders in equity and options market making in C++, Python and Bash")
+        formatted("Developed tools and infrastructure for routing orders in equity and options market making in *C++*, *Python* and *Bash*.")
 	),
 	TimelineItem(
 		"Google LLC.",
