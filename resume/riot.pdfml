@@ -7,11 +7,6 @@
 				<LinearLayout gravity="right" width="fill">
 					<LinearLayout orientation="horizontal">
 						<LinearLayout orientation="horizontal">
-							<TextView text="A" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
-							<TextView text="(+1) 226-600-9117" size="11" font="Lato" />
-						</LinearLayout>
-						<TextView text="D " size="11" font="FontAwesome" padding="3" />
-						<LinearLayout orientation="horizontal">
 							<TextView text="B" size="11" font="FontAwesome" padding-top="3" padding-right="1" />
 							<TextView text="felix.guo@uwaterloo.ca" link="mailto:felix.guo@uwaterloo.ca" size="11" font="Lato" />
 						</LinearLayout>
