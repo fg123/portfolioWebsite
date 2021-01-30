@@ -2,9 +2,9 @@ FROM alpine as build
 RUN apk add --no-cache bash git gcc g++ make readline-dev libc-dev libxml2-dev libpng-dev icu-dev libharu-dev
 
 WORKDIR /
-ARG CACHEBUST=7
+ARG CACHEBUST=9
 RUN ["git", "clone", "https://github.com/fg123/wendy.git"]
-ARG CACHEBUST=8
+ARG CACHEBUST=10
 RUN ["git", "clone", "https://github.com/fg123/nick.git"]
 
 WORKDIR /wendy
