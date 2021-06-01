@@ -33,7 +33,7 @@
 					<SkillItem type="Game Design" skills="Unity, SFML, UE4" width="120" />
 					<SkillItem type="Android" skills="Java, Kotlin" width="fill" />
 				</LinearLayout>
-				<SkillItem type="Team Based" skills="Fast-Learning, Innovative, Detail-Oriented, Self-Motivated" width="fill" />
+				<!-- <SkillItem type="Team Based" skills="Fast-Learning, Innovative, Detail-Oriented, Self-Motivated" width="fill" /> -->
 			</LinearLayout>
 		</Section>
 		<Section name="EXPERIENCE">
@@ -116,10 +116,11 @@
 			<LinearLayout orientation="horizontal" width="fill" gravity="center-vertical">
 				<LinearLayout>
 					<TextView text="University of Waterloo and Wilfrid Laurier University" size="12" style="bold" font="Myriad Pro"/>
-					<TextView text="Candidate for Bachelors of Computer Science and Business Administration" size="11" style="italic" font="Myriad Pro"/>
+					<TextView text="Bachelors of Computer Science, Combinatorics and Optimization Minor" size="11" style="italic" font="Myriad Pro"/>
+					<TextView text="Bachelors of Business Administration, Finance Concentration" size="11" style="italic" font="Myriad Pro"/>
 				</LinearLayout>
 				<LinearLayout gravity="right" width="fill">
-					<TextView text="2016 - 2021 (Expected)" size="11" font="Myriad Pro"/>
+					<TextView text="2016 - 2021" size="11" font="Myriad Pro"/>
 				</LinearLayout>
 			</LinearLayout>
 		</Section>
