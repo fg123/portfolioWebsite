@@ -7,16 +7,17 @@ let globalID = 0;
 struct cssAppend => (appendSelector, styles);
 
 // Context stores the generation.
-struct Context => (html, css, indentation, stub, alreadyGeneratedCss, isMinified, isInline);
-Context.init => (stub, isMinified) {
-	this.stub = stub;
-	this.html = "";
-	this.css = "";
-	this.indentation = 0;
-	this.alreadyGeneratedCss = [];
-    this.isMinified = isMinified;
-    this.isInline = false;
-	ret this;
+struct Context => (html, css, indentation, stub, alreadyGeneratedCss, isMinified, isInline) {
+	init => (stub, isMinified) {
+		this.stub = stub;
+		this.html = "";
+		this.css = "";
+		this.indentation = 0;
+		this.alreadyGeneratedCss = [];
+	    this.isMinified = isMinified;
+	    this.isInline = false;
+		ret this;
+	};
 };
 
 let createAttributeStruct => (name) {
@@ -35,115 +36,116 @@ inline.build => (context) {
 };
 
 let createHTMLStruct => (tagName) {
-	struct structz => (styles, content, id, attributes) [build];
-	structz.init => (content = "", styles = [], uniqueId = none, attributes = []) {
-		this.id = uniqueId;
+	struct structz => (styles, content, id, attributes) {
+		init => (content = "", styles = [], uniqueId = none, attributes = []) {
+			this.id = uniqueId;
 
-		this.styles = styles;
-		this.content = content;
-		this.attributes = attributes;
-		ret this;
-	};
+			this.styles = styles;
+			this.content = content;
+			this.attributes = attributes;
+			ret this;
+		};
 
-	structz.build => (context) {
-		let possibleId = this.id;
-		if possibleId == none {
-			possibleId = tagName + globalID;
-			inc globalID;
-		}
-		let tag = "<" + tagName + ":" + possibleId + ">";
-		"Building CSS for " + tag;
-
-		if !(possibleId ~ context.alreadyGeneratedCss) and this.styles.size > 0 {
-            let appends = [];
-			context.alreadyGeneratedCss += possibleId;
-			context.css += "." + possibleId + " {";
-            if (!context.isMinified) {
-                context.css += "\n";
-            }
-			for style in this.styles {
-				// Automatically append semi-colon too!
-                if (style.type == <string>) {
-                    if (!context.isMinified) {
-                        context.css += "\t";
-                    }
-				    context.css += style + ";";
-                    if (!context.isMinified) {
-                        context.css += "\n";
-                    }
-                } else if (style.type == <cssAppend>) {
-                    appends += style;
-                }
-            }
-			context.css += "}";
-            if (!context.isMinified) {
-                context.css += "\n\n";
-            }
-            for append in appends {
-                context.css += "." + possibleId + append.appendSelector + " {";
-                if (!context.isMinified) {
-                    context.css += "\n";
-                }
-                for style in append.styles {
-                    // Automatically append semi-colon too!
-                    if (style.type == <string>) {
-                        if (!context.isMinified) {
-                            context.css += "\t";
-                        }
-                        context.css += style + ";";
-                        if (!context.isMinified) {
-                            context.css += "\n";
-                        }
-                    }
-                }
-                context.css += "}";
-                if (!context.isMinified) {
-                    context.css += "\n\n";
-                }
-            }
-		}
-
-		"Building HTML for " + tag;
-		let attributesString = "";
-		for attribute in this.attributes
-			attributesString += " " + attribute.generateString();
-
-		let indentation = if (context.isMinified or context.isInline) "" else context.indentation * "\t";
-		let identification = "";
-		if this.styles.size > 0 or this.id != none {
-			identification = " class='" + possibleId + "'" +
-			" id='" + possibleId + "'";
-		}
-		let front = "<" + tagName + identification +
-			attributesString + ">";
-
-		let back = "</" + tagName + ">";
-		if (this.content.type == <string> or this.content.type == <number>) {
-			context.html += indentation + front + this.content + back;
-            if (!context.isMinified and !context.isInline) {
-                context.html += "\n";
-            }
-        }
-		else {
-			context.html += indentation + front;
-            if (!context.isMinified and !context.isInline) {
-                context.html += "\n";
-            }
-			inc context.indentation;
-			if (this.content.type == <list>) {
-				for c in this.content
-					c.build(context);
+		build => (context) {
+			let possibleId = this.id;
+			if possibleId == none {
+				possibleId = tagName + globalID;
+				inc globalID;
 			}
+			let tag = "<" + tagName + ":" + possibleId + ">";
+			"Building CSS for " + tag;
+
+			if !(possibleId ~ context.alreadyGeneratedCss) and this.styles.size > 0 {
+	            let appends = [];
+				context.alreadyGeneratedCss += possibleId;
+				context.css += "." + possibleId + " {";
+	            if (!context.isMinified) {
+	                context.css += "\n";
+	            }
+				for style in this.styles {
+					// Automatically append semi-colon too!
+	                if (style.type == <string>) {
+	                    if (!context.isMinified) {
+	                        context.css += "\t";
+	                    }
+					    context.css += style + ";";
+	                    if (!context.isMinified) {
+	                        context.css += "\n";
+	                    }
+	                } else if (style.type == <cssAppend>) {
+	                    appends += style;
+	                }
+	            }
+				context.css += "}";
+	            if (!context.isMinified) {
+	                context.css += "\n\n";
+	            }
+	            for append in appends {
+	                context.css += "." + possibleId + append.appendSelector + " {";
+	                if (!context.isMinified) {
+	                    context.css += "\n";
+	                }
+	                for style in append.styles {
+	                    // Automatically append semi-colon too!
+	                    if (style.type == <string>) {
+	                        if (!context.isMinified) {
+	                            context.css += "\t";
+	                        }
+	                        context.css += style + ";";
+	                        if (!context.isMinified) {
+	                            context.css += "\n";
+	                        }
+	                    }
+	                }
+	                context.css += "}";
+	                if (!context.isMinified) {
+	                    context.css += "\n\n";
+	                }
+	            }
+			}
+
+			"Building HTML for " + tag;
+			let attributesString = "";
+			for attribute in this.attributes
+				attributesString += " " + attribute.generateString();
+
+			let indentation = if (context.isMinified or context.isInline) "" else context.indentation * "\t";
+			let identification = "";
+			if this.styles.size > 0 or this.id != none {
+				identification = " class='" + possibleId + "'" +
+				" id='" + possibleId + "'";
+			}
+			let front = "<" + tagName + identification +
+				attributesString + ">";
+
+			let back = "</" + tagName + ">";
+			if (this.content.type == <string> or this.content.type == <number>) {
+				context.html += indentation + front + this.content + back;
+	            if (!context.isMinified and !context.isInline) {
+	                context.html += "\n";
+	            }
+	        }
 			else {
-				this.content.build(context);
+				context.html += indentation + front;
+	            if (!context.isMinified and !context.isInline) {
+	                context.html += "\n";
+	            }
+				inc context.indentation;
+				if (this.content.type == <list>) {
+					for c in this.content
+						c.build(context);
+				}
+				else {
+					this.content.build(context);
+				}
+				dec context.indentation;
+				context.html += indentation + back;
+	            if (!context.isMinified and !context.isInline) {
+	                context.html += "\n";
+	            }
 			}
-			dec context.indentation;
-			context.html += indentation + back;
-            if (!context.isMinified and !context.isInline) {
-                context.html += "\n";
-            }
+			ret;
 		}
-		ret;
 	};
 	ret structz;
 };

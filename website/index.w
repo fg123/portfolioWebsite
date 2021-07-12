@@ -110,22 +110,23 @@ let timelineItems = [
 ];
 
 let businessCard = generateBusinessCard(name, portraitUrl, skills, cardItems, headerLinks);
-struct sectionHeader => (text, color) [build];
-sectionHeader.init => (text, color = "#FDFDFD") {
-    this.text = text;
-    this.color = color;
-    ret this;
-};
+struct sectionHeader => (text, color) {
+	init => (text, color = "#FDFDFD") {
+	    this.text = text;
+	    this.color = color;
+	    ret this;
+	};
 
-sectionHeader.build => (context) {
-	h1(uniqueId = "section-header" + this.color[1->this.color.size],
-		content = this.text,
-		styles = [
-			"margin-left: auto",
-			"margin-right: auto",
-			"text-align: center",
-			"color: " + this.color
-		]).build(context);
+	build => (context) {
+		h1(uniqueId = "section-header" + this.color[1->this.color.size],
+			content = this.text,
+			styles = [
+				"margin-left: auto",
+				"margin-right: auto",
+				"text-align: center",
+				"color: " + this.color
+			]).build(context);
+	};
 };
 
 let portfolioItems = [
