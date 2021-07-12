@@ -21,7 +21,7 @@ let skills = "C, C++, Java, Kotlin, Python, HTML5, CSS, Javascript";
 let cardItems = [
 	CardEntry("fas fa-graduation-cap", "Computer Science and Business Administration"),
 	CardEntry("fas fa-map-marker", "University of Waterloo"),
-	CardEntry("fas fa-building", "Looking for Full Time Opportunities 2021"),
+    CardEntry("fas fa-building", "Citadel LLC, Chicago"),
 	CardEntry("fas fa-file-alt", inline([
             a(
                 content = "Resume",
@@ -55,12 +55,12 @@ let headerLinks = [
 ];
 
 let timelineItems = [
-    TimelineItem(
-		"Could Be You",
-		"Jun 2021 - ???",
-		"corners/question.png",
-        formatted("")
-	),
+    // TimelineItem(
+	// 	"Could Be You",
+	// 	"Jun 2021 - ???",
+	// 	"corners/question.png",
+    //     formatted("")
+	// ),
     TimelineItem(
 		"Riot Games Inc.",
 		"Jun - Aug 2020",
