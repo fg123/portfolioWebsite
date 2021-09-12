@@ -16,8 +16,8 @@ let googleFont => (/* var args */) {
 };
 
 let name = "Felix Guo";
-let portraitUrl = "portrait.jpg";
-let skills = "C, C++, Java, Kotlin, Python, HTML5, CSS, Javascript";
+let portraitUrl = "cartoon.jpg";
+let skills = "C, C++, Python, Web, Game Engine Dev";
 let cardItems = [
 	CardEntry("fas fa-graduation-cap", "Computer Science and Business Administration"),
 	CardEntry("fas fa-map-marker", "University of Waterloo"),
@@ -234,7 +234,7 @@ let footer = div(
         )
     ],
     content = inline([
-        text("Copyright &copy; Felix Guo 2020 | Generated with "),
+        text("Copyright &copy; Felix Guo 2021 | Generated with "),
         a("WendyScript", styles = ["text-decoration: underline!important"],
             attributes = [href("https://github.com/fg123/portfolioWebsite")])
     ])
