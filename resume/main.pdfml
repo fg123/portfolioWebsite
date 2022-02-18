@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document margin-left="65" margin-right="65" margin-bottom="40" margin-top="40">
+<Document margin-left="65" margin-right="65" margin-bottom="35" margin-top="35">
 	<LinearLayout>
 		<LinearLayout orientation="horizontal" padding-bottom="5" width="fill" gravity="center-vertical">
 			<TextView text="Felix Guo" size="38" style="bold" font="Myriad Pro" />
@@ -37,6 +37,9 @@
 			</LinearLayout>
 		</Section>
 		<Section name="EXPERIENCE">
+			<WorkEntry name="Citadel Securities LLC." position="Software Engineer" location="Chicago, IL" date="Aug. 2021 - Present">
+				<ListItem content="(NDA) Developing tools and infrastructure for execution services in C++ for handling retail and institutional orders" />
+			</WorkEntry>
 			<WorkEntry name="Riot Games Inc." position="Software Engineering Intern" location="(Remote) Los Angeles, CA" date="Jun. 2020 - Aug. 2020">
 				<ListItem content="Worked on the League of Legends Champions Engineering team, focused on game engine code in C++" />
 				<ListItem content="Fixed various player-impacting champion bugs and scripted abilities on upcoming champions" />
@@ -65,8 +68,8 @@
 		</Section>
 		<Section name="PROJECTS">
 			<WorkEntry name="WendyScript" position="Programming Language – " link="wendy.felixguo.me" date="Nov. 2016 - Present">
-				<ListItem content="Compiler written fully in C, supports dynamic typing, first class functions with closures and meta-objects, including a lexer/parser, code-generator, and a bytecode VM" />
-				<ListItem content="Developed recursive descent parser to parse custom grammar into an abstract syntax tree as well as a VM to run custom compiled binaries" />
+				<ListItem content="Compiler written fully in C, supports dynamic typing, first class functions with closures and meta-objects, including a recursive descent lexer/parser, code-generator, and a custom bytecode VM" />
+				<!-- <ListItem content="Developed recursive descent parser to parse custom grammar into an abstract syntax tree as well as a VM to run custom compiled binaries" /> -->
 			</WorkEntry>
 			<WorkEntry name="Yate" position="ncurses Based Text-Editor – " link="github.com/fg123/yate" date="June 2018 - Present" if-not-empty="$FULL_CV">
 				<ListItem content="Yate is a fully featured Terminal text editor built with ncurses and C++" />
@@ -83,10 +86,15 @@
 				<ListItem content="Backtesting framework based on replaying market data through trading algorithm processes" />
 				<ListItem content="Developed front-end visualization and process management running through the web" />
 			</WorkEntry>
-			<WorkEntry name="MercuryWM" position="Tiling, Multi-windowed JS Desktop Environment – " link="felixguo.me/mercury" date="Jul. 2017 - Present">
+			<WorkEntry name="MercuryWM" position="Tiling, Multi-windowed JS Desktop Environment – " link="felixguo.me/mercury" date="Jul. 2017 - Present" if-not-empty="$FULL_CV">
 				<ListItem content="Developed a new-tab page replacement that is based on a tiling window manager using React and Redux" />
 				<ListItem content="Created a JSON object based virtual filesystem with corresponding bash commands to navigate" />
 				<ListItem content="Developed Javascript API to allow user created scripts to interact with main window through iFrames to allow diverse, interactable, user-created extensions such as displaying a clock, weather, or to-do list widget" />
+			</WorkEntry>
+			<WorkEntry name="Replication" position="3D Game Engine – " link="github.com/fg123/replication" date="May. 2021 - Present">
+				<ListItem content="Developed in C++ a fully featured 3D game engine, with a WebGL and Web Assembly frontend from scratch" />
+				<ListItem content="Built out a collision and physics engine, deferred rendering engine, and network replication with client-side prediction" />
+				<ListItem content="Integrated custom programming language WendyScript to build game object behavior in game engine" />
 			</WorkEntry>
 			<WorkEntry name="Nick PDF" position="Generate PDFs from XML Markup – " link="github.com/fg123/nick" date="May. 2017 - Present">
 				<ListItem content="Employs similar layout processes as Android's layout system, with custom written measure, layout and draw passes" />
