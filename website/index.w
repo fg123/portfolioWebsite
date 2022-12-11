@@ -62,6 +62,12 @@ let timelineItems = [
     //     formatted("")
 	// ),
     TimelineItem(
+		"Citadel Securities LLC.",
+		"Aug 2021 - Present",
+		"corners/citadel.png",
+        formatted("Developing tools and infrastructure for order routing in execution services in *C++*, and *Python*.")
+	),
+    TimelineItem(
 		"Riot Games Inc.",
 		"Jun - Aug 2020",
 		"corners/riot-tr.png",
@@ -71,7 +77,7 @@ let timelineItems = [
 		"Citadel Securities LLC.",
 		"Sept - Dec 2019",
 		"corners/citadel.png",
-        formatted("Developed tools and infrastructure for routing orders in equity and options market making in *C++*, *Python* and *Bash*.")
+        formatted("Developed tools and infrastructure for order routing in execution services in *C++*, and *Python*.")
 	),
 	TimelineItem(
 		"Google LLC.",
